@@ -1,0 +1,27 @@
+{
+   "subtitle_line_1": "Optimize your Mac experience.",
+   "subtitle_line_2": "The tools have arrived.",
+   "featured_gallery": "Featured Gallery",
+   "swipe_to_explore": "Swipe to explore our apps",
+   "scroll_drag_click": "Scroll, Drag or Click to Navigate",
+   "learn_more": "Learn More",
+   "apps": {
+      "vesslo": {
+         "title": "Vesslo",
+         "description": "The ultimate update manager for macOS. Unified tracking for App Store, Homebrew, and more.",
+         "desc_short": "The ultimate app management solution for Mac"
+      },
+      "keyharbor": {
+         "title": "KeyHarbor",
+         "description": "Manage your software licenses with military-grade encryption and beautiful UI.",
+         "desc_short": "Secure and simple license management"
+      },
+      "splitswipe": {
+         "title": "SplitSwipe",
+         "description": "Snap, split, and manage your windows with intuitive gestures and shortcuts.",
+         "desc_short": "Window management perfected with gestures"
+      }
+   },
+   "our_ecosystem": "Our Ecosystem",
+   "scroll_to_explore": "Scroll to Explore"
+}
