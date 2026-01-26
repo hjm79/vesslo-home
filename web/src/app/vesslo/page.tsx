@@ -11,7 +11,7 @@ import "@/i18n"; // Ensure i18n is initialized
 
 export default function VessloPage() {
    const { t } = useTranslation();
-   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+   const [selectedMedia, setSelectedMedia] = useState<string | null>(null); // Replaced selectedImage with selectedMedia
    const [mounted, setMounted] = useState(false);
 
    useEffect(() => {
@@ -27,7 +27,6 @@ export default function VessloPage() {
          title: t('vesslo_page.features.Design.title'),
          subtitle: t('vesslo_page.features.Design.subtitle'),
          desc: t('vesslo_page.features.Design.desc'),
-         // User requested path: /web/public/vesslo/vesslo_01.png -> referenced as /vesslo/vesslo_01.png
          image: "/vesslo/vesslo_01.png",
          direction: "left"
       },
@@ -60,10 +59,12 @@ export default function VessloPage() {
          title: t('vesslo_page.features.Raycast.title'),
          subtitle: t('vesslo_page.features.Raycast.subtitle'),
          desc: t('vesslo_page.features.Raycast.desc'),
-         image: "/vesslo/vesslo_05.png",
+         video: "/vesslo/vesslo_05.mp4", // Changed to video
          direction: "center"
       }
    ];
+
+   const isVideo = (url: string) => url.endsWith(".mp4") || url.endsWith(".webm");
 
    return (
       <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
@@ -121,7 +122,7 @@ export default function VessloPage() {
             </h2>
 
             <div className="space-y-32">
-               {features.map((feature, index) => (
+               {features.map((feature: any, index) => (
                   <motion.div
                      key={feature.id}
                      initial={{ opacity: 0, y: 50 }}
@@ -146,34 +147,51 @@ export default function VessloPage() {
                         </p>
                      </div>
 
-                     {/* Image Content */}
+                     {/* Media Content */}
                      <div className={`flex-1 w-full ${feature.direction === 'center' ? 'max-w-4xl mt-12' : ''}`}>
                         <div
                            className="relative group rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl backdrop-blur-sm cursor-zoom-in"
-                           onClick={() => setSelectedImage(feature.image)}
+                           onClick={() => setSelectedMedia(feature.video || feature.image)}
                         >
                            {/* Decorative Glow */}
                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
-                           {/* Adjusted Image Container: md:h-[450px] for balanced size */}
-                           <div className="relative aspect-[16/10] md:aspect-auto md:h-[450px] overflow-hidden rounded-2xl bg-slate-800">
-                              {/* Using generic img tag to allow local file replacement easily */}
-                              <img
-                                 src={feature.image}
-                                 alt={feature.title}
-                                 className={`w-full h-full object-cover transition-transform duration-700 ${feature.direction === 'center' ? 'object-center' : 'group-hover:scale-105'}`}
-                                 onError={(e) => {
-                                    // Fallback if image not found (user hasn't added it yet)
-                                    (e.target as HTMLImageElement).src = '/vesslo-preview.png'; // Fallback to main preview
-                                    (e.target as HTMLImageElement).style.opacity = '0.5';
-                                 }}
-                              />
+                           {/* Adjusted to 4:3 (640x480) Ratio as requested */}
+                           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-800">
+
+                              {feature.video ? (
+                                 <video
+                                    src={feature.video}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-full object-contain bg-black"
+                                 />
+                              ) : (
+                                 <img
+                                    src={feature.image}
+                                    alt={feature.title}
+                                    className={`w-full h-full object-cover transition-transform duration-700 ${feature.direction === 'center' ? 'object-center' : 'group-hover:scale-105'}`}
+                                    onError={(e) => {
+                                       (e.target as HTMLImageElement).src = '/vesslo-preview.png';
+                                       (e.target as HTMLImageElement).style.opacity = '0.5';
+                                    }}
+                                 />
+                              )}
 
                               {/* Zoom Hint Icon */}
                               <div className="absolute bottom-4 right-4 p-2 bg-black/50 rounded-full backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
-                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                                 </svg>
+                                 {feature.video ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                                    </svg>
+                                 ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                    </svg>
+                                 )}
                               </div>
                            </div>
                         </div>
@@ -203,25 +221,37 @@ export default function VessloPage() {
             </div>
          </section>
 
-         {/* Fullscreen Image Modal */}
+         {/* Fullscreen Media Modal */}
          <AnimatePresence>
-            {selectedImage && (
+            {selectedMedia && (
                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 cursor-zoom-out backdrop-blur-sm"
-                  onClick={() => setSelectedImage(null)}
+                  onClick={() => setSelectedMedia(null)}
                >
-                  <motion.img
-                     initial={{ scale: 0.9, opacity: 0 }}
-                     animate={{ scale: 1, opacity: 1 }}
-                     exit={{ scale: 0.9, opacity: 0 }}
-                     transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                     src={selectedImage}
-                     alt="Fullscreen view"
-                     className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
-                  />
+                  {isVideo(selectedMedia) ? (
+                     <motion.video
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        src={selectedMedia}
+                        autoPlay loop controls playsInline
+                        className="max-w-full max-h-[95vh] rounded-lg shadow-2xl"
+                        onClick={(e) => e.stopPropagation()} // Allow controls to work
+                     />
+                  ) : (
+                     <motion.img
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                        src={selectedMedia}
+                        alt="Fullscreen view"
+                        className="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl"
+                     />
+                  )}
 
                   <button className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors">
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
