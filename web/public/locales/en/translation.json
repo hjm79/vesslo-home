@@ -23,5 +23,46 @@
       }
    },
    "our_ecosystem": "Our Ecosystem",
-   "scroll_to_explore": "Scroll to Explore"
+   "scroll_to_explore": "Scroll to Explore",
+   "vesslo_page": {
+      "hero": {
+         "title": "Peace of a Perfectly Organized Mac",
+         "desc": "Vesslo isn't just an update manager.\nIt's a premium command center completing your Mac lifestyle.",
+         "download": "Download for Mac",
+         "requirements": "macOS 12.0+ (Apple Silicon Recommended)"
+      },
+      "features": {
+         "Design": {
+            "title": "Crystal Aurora Design",
+            "subtitle": "Crystal Aurora Design",
+            "desc": "Abandon the prejudice that utility apps must be ugly. Vesslo applies the Crystal Aurora design language, offering glowing borders, soft glassmorphism, and lively gradient animations. Just keeping it open makes your Mac more luxurious."
+         },
+         "Unified": {
+            "title": "Peace of Unified Management",
+            "subtitle": "Unified Management",
+            "desc": "Don't open the terminal, App Store, and websites for updates. Manage updates from Homebrew, Sparkle, and App Store all in one screen."
+         },
+         "Memory": {
+            "title": "Perfect Memory & Records",
+            "subtitle": "Memory & Tags",
+            "desc": "Even if you delete an app, your notes and tags remain. Vesslo answers 'Why did I delete this last year?'. Manage apps with your own tags like Work, Subscribed, Video Editing."
+         },
+         "Convertible": {
+            "title": "Brew Convertible",
+            "subtitle": "Smart Transition",
+            "desc": "Have apps downloaded directly from the internet? Vesslo automatically detects them and converts them to Homebrew management mode with a single click. Switch to Homebrew intelligently."
+         },
+         "Raycast": {
+            "title": "Raycast Extension Integration",
+            "subtitle": "Faster Workflow",
+            "desc": "Manage all app info without opening a mouse, just with a keyboard. From app search to bulk updates, experience Vesslo's powerful features inside Raycast."
+         }
+      },
+      "cta": {
+         "title": "Don't Just Manage, Own It.",
+         "desc": "With Vesslo, app management is no longer a chore.\nControl your Mac in the most beautiful way.",
+         "button_download": "Download Now",
+         "button_docs": "View Documentation"
+      }
+   }
 }
