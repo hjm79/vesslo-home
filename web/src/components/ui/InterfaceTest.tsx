@@ -7,7 +7,10 @@ import dynamic from "next/dynamic";
 import Footer from "@/components/layout/Footer";
 
 // Dynamically import CoverFlow to avoid SSR issues with Canvas
+// Dynamically import CoverFlow and R3F components to avoid SSR issues
 const CoverFlow = dynamic(() => import("../canvas/CoverFlow"), { ssr: false });
+const VessloText3D = dynamic(() => import("../canvas/VessloText3D"), { ssr: false });
+const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false });
 
 // import { useRouter } from "next/navigation";
 
@@ -36,15 +39,17 @@ export default function InterfaceTest() {
    return (
       <div className="w-screen overflow-x-hidden" suppressHydrationWarning>
          {/* Section 1: Spline 3D Hero */}
-         <section className="h-screen w-full relative bg-black overflow-hidden">
-            <iframe
-               src='https://my.spline.design/3ddesigntextcopycopy-1q3mdE7wo8EeyVQ65ipWqusE-RqG/'
-               frameBorder='0'
-               width='100%'
-               height='100%'
-               className="absolute top-0 left-0 w-full h-[115%]"
-               title="Spline 3D Design"
-            />
+         <section className="h-[55vh] md:h-[65vh] w-full relative bg-black overflow-hidden">
+            {/* Background Gradient Blob (From Test4) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="w-full h-full relative z-0">
+               <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+                  <VessloText3D />
+               </Canvas>
+            </div>
+            {/* Cinematic Vignette Overlay */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] w-full h-full mix-blend-multiply" />
          </section>
 
          {/* Section 2: App List */}
