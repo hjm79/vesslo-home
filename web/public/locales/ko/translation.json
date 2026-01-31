@@ -269,6 +269,7 @@
          "message": "메시지",
          "message_placeholder": "문의 내용을 입력해 주세요...",
          "submit": "메시지 보내기",
+         "sending": "전송 중...",
          "success_title": "메시지가 전송되었습니다!",
          "success_desc": "문의해 주셔서 감사합니다. 빠른 시간 내에 답변 드리겠습니다.",
          "new_message": "새 메시지 작성",

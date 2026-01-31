@@ -7,7 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vesslo - The Ultimate Mac Ecosystem",
-  description: "Premium macOS apps: Vesslo, KeyHarbor, SplitSwipe",
+  description: "Premium macOS apps: Vesslo (update manager), KeyHarbor (license manager), SplitSwipe (window manager). Native Swift apps for Mac.",
+  keywords: ["Mac apps", "macOS", "Vesslo", "KeyHarbor", "SplitSwipe", "update manager", "license manager", "window manager"],
+  openGraph: {
+    title: "Vesslo - The Ultimate Mac Ecosystem",
+    description: "Premium macOS apps for update management, license tracking, and window control.",
+    url: "https://vesslo.top",
+    siteName: "Vesslo",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vesslo - The Ultimate Mac Ecosystem",
+    description: "Premium macOS apps for update management, license tracking, and window control.",
+  },
 };
 
 import Navbar from "@/components/layout/Navbar";

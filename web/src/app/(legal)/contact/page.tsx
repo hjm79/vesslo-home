@@ -154,7 +154,7 @@ export default function ContactPage() {
                            className="w-full py-4 bg-white text-black rounded-xl font-bold text-lg hover:bg-slate-200 transform hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                            suppressHydrationWarning
                         >
-                           {isLoading ? "Sending..." : t('legal.contact.submit')}
+                           {isLoading ? t('legal.contact.sending') : t('legal.contact.submit')}
                         </button>
                      </form>
                   )}

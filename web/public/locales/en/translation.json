@@ -269,6 +269,7 @@
          "message": "Message",
          "message_placeholder": "Please enter your inquiry...",
          "submit": "Send Message",
+         "sending": "Sending...",
          "success_title": "Message Sent!",
          "success_desc": "Thank you for your message. We will respond as soon as possible.",
          "new_message": "New Message",
