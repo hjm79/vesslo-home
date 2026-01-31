@@ -37,14 +37,14 @@ export default function InterfaceTest() {
    ];
 
    return (
-      <div className="w-screen overflow-x-hidden" suppressHydrationWarning>
+      <div className="w-screen overflow-x-hidden scroll-smooth" style={{ willChange: 'scroll-position' }} suppressHydrationWarning>
          {/* Section 1: Spline 3D Hero */}
-         <section className="h-[55vh] md:h-[65vh] w-full relative bg-black overflow-hidden">
+         <section className="h-[55vh] md:h-[65vh] w-full relative bg-black overflow-hidden" style={{ willChange: 'transform' }}>
             {/* Background Gradient Blob (From Test4) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="w-full h-full relative z-0">
-               <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+            <div className="w-full h-full relative z-0 pointer-events-none">
+               <Canvas camera={{ position: [0, 0, 8], fov: 45 }} style={{ pointerEvents: 'none' }}>
                   <VessloText3D />
                </Canvas>
             </div>
@@ -53,7 +53,7 @@ export default function InterfaceTest() {
          </section>
 
          {/* Section 2: App List */}
-         <section className="w-full bg-slate-950 py-24 relative z-10">
+         <section className="w-full bg-slate-950 py-24 relative z-10" style={{ willChange: 'transform' }}>
             <div className="container mx-auto px-6 mb-24">
                <h2 className="text-4xl font-bold text-white mb-16 text-center">{t('our_ecosystem')}</h2>
                <div className="space-y-32">

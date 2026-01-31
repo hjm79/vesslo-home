@@ -1,0 +1,97 @@
+# Rate limiting은 nginx.conf에서 이미 정의됨 (zone=general)
+
+# vesslo.top - HTTP to HTTPS redirect
+server {
+    listen 80;
+    server_name vesslo.top www.vesslo.top;
+    return 301 https://vesslo.top$request_uri;
+}
+
+# vesslo.top - www to non-www redirect (HTTPS)
+server {
+    listen 443 ssl;
+    server_name www.vesslo.top;
+
+    ssl_certificate /etc/ssl/certs/vesslo.top.pem;
+    ssl_certificate_key /etc/ssl/private/vesslo.top.key;
+
+    return 301 https://vesslo.top$request_uri;
+}
+
+# vesslo.top - Main HTTPS server (Static Site)
+server {
+    listen 443 ssl http2;
+    server_name vesslo.top;
+
+    # SSL 인증서
+    ssl_certificate /etc/ssl/certs/vesslo.top.pem;
+    ssl_certificate_key /etc/ssl/private/vesslo.top.key;
+
+    # SSL 보안 설정
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    ssl_session_tickets off;
+
+    # 보안 헤더
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+    
+    # SEO: 검색엔진 크롤링 허용
+    add_header X-Robots-Tag "index, follow" always;
+    
+    # CSP: Google Analytics/Search Console 허용 + blob workers for Three.js
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://fonts.gstatic.com https://fonts.googleapis.com; frame-src 'self' https://www.youtube.com; worker-src 'self' blob:;" always;
+
+    # 웹 루트 설정 (파일이 있는 실제 경로)
+    root /var/www/vesslo.top;
+    index index.html;
+
+    # Rate limiting
+    limit_req zone=general burst=20 nodelay;
+
+    # 기본 요청 처리 (정적 사이트용 - Next.js export)
+    location / {
+        try_files $uri $uri.html $uri/ /index.html;
+    }
+
+    # sitemap.xml 및 robots.txt 명시적 허용
+    location = /sitemap.xml {
+        try_files $uri =404;
+        add_header Content-Type "application/xml; charset=utf-8";
+    }
+
+    location = /robots.txt {
+        try_files $uri =404;
+        add_header Content-Type "text/plain; charset=utf-8";
+    }
+
+    # 정적 파일 캐싱 (1년)
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    # 숨겨진 파일 접근 차단
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    # 악성 봇 차단 (검색엔진 봇은 허용)
+    if ($http_user_agent ~* (nikto|scan|winhttp|clshttp|loader)) {
+        return 403;
+    }
+
+    # 에러 페이지
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+}

@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased flex flex-col`}>
+      <body className={`${inter.className} min-h-screen bg-black text-foreground antialiased flex flex-col`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark" // Default to dark for the "diamond" vibe

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -23,4 +23,46 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Updatest-style search animation */
+@keyframes search {
+
+  0%,
+  100% {
+    transform: translate(-20px, -18px) rotate(-10deg);
+  }
+
+  25% {
+    transform: translate(22px, -15px) rotate(15deg);
+  }
+
+  50% {
+    transform: translate(20px, 20px) rotate(5deg);
+  }
+
+  75% {
+    transform: translate(-22px, 18px) rotate(-15deg);
+  }
+}
+
+.animate-search {
+  animation: search 3s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
 }

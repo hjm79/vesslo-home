@@ -22,6 +22,13 @@ i18n
       fallbackLng: "en",
       debug: true,
 
+      detection: {
+         order: ['querystring', 'localStorage', 'navigator'],
+         lookupQuerystring: 'lng',
+         lookupLocalStorage: 'i18nextLng',
+         caches: ['localStorage'],
+      },
+
       interpolation: {
          escapeValue: false // not needed for react as it escapes by default
       }

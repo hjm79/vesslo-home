@@ -12,7 +12,11 @@ const APPS = [
    { slug: "vesslo", title: "Vesslo", count: 6 } // Repeat to fill space if needed
 ];
 
-export default function GalleryGroup({ position = [0, 0, 0], ...props }) {
+interface GalleryGroupProps {
+   position?: [number, number, number];
+}
+
+export default function GalleryGroup({ position = [0, 0, 0], ...props }: GalleryGroupProps) {
    const ref = useRef<THREE.Group>(null!);
    const scroll = useScroll();
    const [activeData, setActiveData] = useState<{ url: string, title: string } | null>(null);
@@ -65,7 +69,17 @@ export default function GalleryGroup({ position = [0, 0, 0], ...props }) {
    );
 }
 
-function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, count = 0, onHover, ...props }) {
+interface CardsProps {
+   category: string;
+   slug: string;
+   from?: number;
+   len?: number;
+   radius?: number;
+   count?: number;
+   onHover: (data: { url: string; title: string } | null) => void;
+}
+
+function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, count = 0, onHover, ...props }: CardsProps) {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
    const amount = Math.round(len * 22); // Density of cards
    const textPosition = from + (len / 2); // Center text in the segment
@@ -92,7 +106,7 @@ function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, cou
             return (
                <Card
                   key={i}
-                  onPointerOver={(e) => {
+                  onPointerOver={(e: any) => {
                      e.stopPropagation();
                      setHoveredIndex(i);
                      onHover({ url, title: category });
@@ -115,8 +129,18 @@ function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, cou
    );
 }
 
-function Card({ url, active, hovered, ...props }) {
-   const ref = useRef<any>(null!);
+interface CardProps {
+   url: string;
+   active: boolean;
+   hovered: boolean;
+   onPointerOver: (e: any) => void;
+   onPointerOut: () => void;
+   position: [number, number, number];
+   rotation: [number, number, number];
+}
+
+function Card({ url, active, hovered, ...props }: CardProps) {
+   const ref = useRef<THREE.Mesh>(null!);
    useFrame((state, delta) => {
       const f = hovered ? 1.4 : active ? 1.25 : 1;
       const targetScaleX = 1.618 * f;
@@ -131,11 +155,11 @@ function Card({ url, active, hovered, ...props }) {
    return (
       <group {...props}>
          <Image
-            ref={ref}
+            ref={ref as any}
             transparent
             radius={0.075}
             url={url}
-            scale={[1.618, 1, 1]}
+            scale={[1.618, 1, 1] as any}
             side={THREE.DoubleSide}
             color={active ? "white" : "white"}
          />
@@ -143,8 +167,12 @@ function Card({ url, active, hovered, ...props }) {
    );
 }
 
-function ActiveCard({ activeData, ...props }) {
-   const ref = useRef<any>(null!);
+interface ActiveCardProps {
+   activeData: { url: string; title: string } | null;
+}
+
+function ActiveCard({ activeData, ...props }: ActiveCardProps) {
+   const ref = useRef<THREE.Mesh>(null!);
    const [texture, setTexture] = useState<THREE.Texture | null>(null);
    const [aspect, setAspect] = useState(1);
 
@@ -166,10 +194,11 @@ function ActiveCard({ activeData, ...props }) {
    useFrame((state, delta) => {
       if (ref.current) {
          // Animate opacity (meshBasicMaterial)
-         if (ref.current.material) {
+         const material = ref.current.material as THREE.MeshBasicMaterial;
+         if (material) {
             const targetOpacity = activeData ? 1 : 0;
-            ref.current.material.opacity = THREE.MathUtils.lerp(ref.current.material.opacity, targetOpacity, delta * 5);
-            ref.current.material.transparent = true;
+            material.opacity = THREE.MathUtils.lerp(material.opacity, targetOpacity, delta * 5);
+            material.transparent = true;
          }
 
          const BASE_HEIGHT = 8.0;

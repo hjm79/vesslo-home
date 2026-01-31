@@ -5,6 +5,15 @@
    "swipe_to_explore": "스와이프로 앱 탐색하기",
    "scroll_drag_click": "스크롤, 드래그 또는 클릭하여 이동",
    "learn_more": "더 자세히보기",
+   "browse_apps": "앱 둘러보기",
+   "scroll_more": "← 좌우로 스크롤하여 더 보기 →",
+   "app_screenshots": "앱 스크린샷",
+   "in_action": "실제 동작",
+   "specs_release": "상세 스펙 및 릴리스 노트",
+   "download_trial": "무료 체험판 다운로드",
+   "purchase_license": "라이선스 구매",
+   "productivity_tagline": "생산성을 극대화하는 가장 강력한 방법.",
+   "try_now": "지금 바로 경험해보세요.",
    "apps": {
       "vesslo": {
          "title": "Vesslo",
@@ -14,12 +23,40 @@
       "keyharbor": {
          "title": "KeyHarbor",
          "description": "군사 등급 암호화와 아름다운 UI로 소프트웨어 라이선스를 관리하세요.",
-         "desc_short": "안전하고 심플한 라이센스 관리"
+         "desc_short": "안전하고 심플한 라이센스 관리",
+         "features": {
+            "harbor": {
+               "title": "모든 키, 하나의 항구",
+               "desc": "분산된 라이선스 키들을 KeyHarbor 한 곳에서 안전하게 관리하세요. 더 이상 이메일을 뒤지거나 메모장을 찾을 필요가 없습니다."
+            },
+            "security": {
+               "title": "군사급 암호화 보안",
+               "desc": "모든 라이선스 키는 AES-256 암호화로 로컬에 안전하게 저장됩니다. 클라우드 동기화 없이, 오직 당신만이 접근할 수 있습니다."
+            },
+            "alert": {
+               "title": "스마트 만료 알림",
+               "desc": "구독 만료일이 다가오면 자동으로 알려드립니다. 중요한 라이선스를 놓치지 마세요. 갱신 비용도 한눈에 파악하세요."
+            }
+         }
       },
       "splitswipe": {
          "title": "SplitSwipe",
          "description": "직관적인 제스처와 단축키로 창을 스냅, 분할 및 관리하세요.",
-         "desc_short": "제스처로 완성하는 윈도우 관리"
+         "desc_short": "제스처로 완성하는 윈도우 관리",
+         "features": {
+            "split": {
+               "title": "화면 분할의 재정의",
+               "desc": "직관적인 스와이프 제스처로 창을 완벽하게 분할하세요. 복잡한 단축키 없이도 전문가처럼 화면을 관리할 수 있습니다."
+            },
+            "snap": {
+               "title": "스냅 그리드 시스템",
+               "desc": "화면 모서리에 창을 드래그하면 자동으로 스냅됩니다. 2분할, 4분할, 커스텀 레이아웃까지 자유롭게 설정하세요."
+            },
+            "keyboard": {
+               "title": "키보드 단축키 지원",
+               "desc": "파워 유저를 위한 완벽한 키보드 단축키. 마우스 없이도 모든 창 관리를 순식간에 처리하세요."
+            }
+         }
       }
    },
    "our_ecosystem": "함께하는 앱들",
@@ -64,5 +101,239 @@
          "button_download": "지금 다운로드",
          "button_docs": "문서 보기"
       }
+   },
+   "legal": {
+      "terms": {
+         "title": "이용약관",
+         "last_updated": "최종 업데이트",
+         "sections": {
+            "overview": {
+               "title": "1. 서비스 개요",
+               "content": "본 이용약관은 HJM79 (이하 \"회사\")가 제공하는 소프트웨어 제품(Vesslo, KeyHarbor, SplitSwipe 등, 이하 \"서비스\")의 이용에 관한 조건을 규정합니다."
+            },
+            "payment": {
+               "title": "2. 결제 및 판매",
+               "content": "본 서비스의 결제는 Paddle.com을 통해 처리됩니다. Paddle은 당사의 공식 판매 대행사(Merchant of Record)로서 모든 결제, 세금, 환불 처리를 담당합니다.",
+               "items": [
+                  "모든 가격은 현지 통화로 표시되며, 해당 지역의 부가가치세(VAT) 또는 판매세가 포함될 수 있습니다.",
+                  "결제 관련 문의는 Paddle 고객 지원 또는 당사에 연락해 주세요."
+               ]
+            },
+            "license": {
+               "title": "3. 라이선스 부여",
+               "content": "결제 완료 시, 회사는 사용자에게 다음 조건의 비독점적, 양도 불가능한 라이선스를 부여합니다:",
+               "items": [
+                  "개인 또는 상업적 목적으로 소프트웨어를 사용할 권리",
+                  "라이선스에 명시된 기기 수 내에서 설치 및 사용",
+                  "무료 업데이트 수신 (해당 버전 라이선스 기간 내)"
+               ]
+            },
+            "restrictions": {
+               "title": "4. 사용 제한",
+               "content": "사용자는 다음 행위를 할 수 없습니다:",
+               "items": [
+                  "소프트웨어의 복제, 수정, 배포, 판매",
+                  "역공학, 디컴파일, 소스 코드 추출 시도",
+                  "라이선스 키의 공유 또는 재판매",
+                  "서비스의 보안 메커니즘 우회"
+               ]
+            },
+            "ip": {
+               "title": "5. 지적 재산권",
+               "content": "소프트웨어 및 관련 콘텐츠의 모든 지적 재산권은 회사에 귀속됩니다. 라이선스는 소유권 이전이 아닌 사용권 부여입니다."
+            },
+            "disclaimer": {
+               "title": "6. 면책 조항",
+               "content": "소프트웨어는 \"있는 그대로\" 제공되며, 회사는 다음에 대해 책임지지 않습니다:",
+               "items": [
+                  "데이터 손실 또는 손상",
+                  "소프트웨어 사용으로 인한 간접적, 우발적 손해",
+                  "제3자 서비스와의 호환성 문제"
+               ]
+            },
+            "changes": {
+               "title": "7. 약관 변경",
+               "content": "회사는 필요 시 본 약관을 변경할 수 있으며, 중요한 변경 사항은 웹사이트 또는 이메일을 통해 통지합니다."
+            },
+            "law": {
+               "title": "8. 준거법",
+               "content": "본 약관은 대한민국 법률에 따라 해석되며, 관련 분쟁은 서울중앙지방법원을 관할 법원으로 합니다."
+            },
+            "contact": {
+               "title": "9. 문의",
+               "content": "약관에 관한 문의는 me@hjm79.top으로 연락해 주세요."
+            }
+         }
+      },
+      "privacy": {
+         "title": "개인정보처리방침",
+         "sections": {
+            "overview": {
+               "title": "1. 개요",
+               "content": "HJM79 (이하 \"회사\")는 사용자의 개인정보 보호를 중요하게 생각합니다. 본 개인정보처리방침은 당사의 소프트웨어(Vesslo, KeyHarbor, SplitSwipe) 및 웹사이트 이용 시 수집되는 정보와 그 처리 방법을 설명합니다."
+            },
+            "collection": {
+               "title": "2. 수집하는 정보",
+               "payment_title": "2.1 결제 정보",
+               "payment_content": "결제는 Paddle.com을 통해 처리됩니다. 회사는 결제 카드 정보를 직접 수집하거나 저장하지 않습니다.",
+               "license_title": "2.2 라이선스 정보",
+               "license_items": [
+                  "이메일 주소 (라이선스 발급 및 지원용)",
+                  "라이선스 키",
+                  "구매 날짜 및 제품 정보"
+               ],
+               "app_title": "2.3 앱 사용 데이터",
+               "app_content": "당사의 앱은 클라우드에 데이터를 업로드하지 않습니다. 모든 데이터는 사용자의 기기에 로컬로 저장됩니다."
+            },
+            "usage": {
+               "title": "3. 정보 사용 목적",
+               "content": "수집된 정보는 다음 목적으로만 사용됩니다:",
+               "items": [
+                  "소프트웨어 라이선스 활성화 및 관리",
+                  "고객 지원 제공",
+                  "제품 업데이트 알림 (동의 시)",
+                  "서비스 개선 (익명 분석 데이터만 사용)"
+               ]
+            },
+            "sharing": {
+               "title": "4. 정보 공유",
+               "content": "회사는 사용자의 개인정보를 제3자에게 판매하지 않습니다."
+            },
+            "security": {
+               "title": "5. 데이터 보안",
+               "items": [
+                  "SSL/TLS 암호화 통신",
+                  "로컬 데이터 AES-256 암호화",
+                  "정기적인 보안 검토"
+               ]
+            },
+            "rights": {
+               "title": "6. 사용자 권리",
+               "items": [
+                  "개인정보 열람, 수정, 삭제 요청",
+                  "마케팅 수신 거부",
+                  "익명 분석 데이터 수집 거부"
+               ]
+            },
+            "contact": {
+               "title": "10. 문의",
+               "content": "개인정보 관련 문의는 me@hjm79.top으로 연락해 주세요."
+            }
+         }
+      },
+      "refund": {
+         "title": "환불 정책",
+         "guarantee": "14일 환불 보장",
+         "guarantee_desc": "당사는 모든 소프트웨어 제품에 대해 14일 환불 보장을 제공합니다. 구매 후 14일 이내에 어떤 이유로든 만족하지 못하신 경우, 전액 환불을 요청하실 수 있습니다.",
+         "trial_tip": "무료 체험 권장",
+         "trial_tip_desc": "구매 전 무료 체험판을 사용해 보시는 것을 권장합니다. 이를 통해 소프트웨어가 귀하의 필요에 맞는지 확인할 수 있습니다.",
+         "payment_info": "결제 처리",
+         "payment_info_desc": "모든 결제는 Paddle.com을 통해 처리됩니다. Paddle은 당사의 공식 판매 대행사(Merchant of Record)로서 결제, 세금, 환불 처리를 담당합니다.",
+         "how_to": "환불 요청 방법",
+         "method1_title": "방법 1: Paddle 직접 연락",
+         "method1_desc": "구매 확인 이메일에 포함된 Paddle 영수증 링크를 통해 직접 환불을 요청할 수 있습니다.",
+         "method2_title": "방법 2: 당사 지원팀 연락",
+         "method2_desc": "me@hjm79.top으로 다음 정보와 함께 이메일을 보내주세요:",
+         "method2_items": [
+            "주문 번호 또는 거래 ID",
+            "구매에 사용한 이메일 주소",
+            "환불 사유 (선택사항)"
+         ],
+         "timeline_title": "환불 처리 기간",
+         "timeline_items": [
+            "요청 확인: 영업일 기준 1-2일 이내",
+            "환불 처리: 확인 후 영업일 기준 5-10일",
+            "결제 반영: 결제 수단에 따라 추가 시간 소요 가능"
+         ],
+         "exceptions_title": "환불 예외 사항",
+         "exceptions_items": [
+            "구매 후 14일이 경과한 경우",
+            "동일한 제품에 대해 이전에 환불을 받은 경우",
+            "이용약관을 위반한 경우"
+         ]
+      },
+      "contact": {
+         "title": "문의하기",
+         "subtitle": "질문이나 피드백이 있으시면 연락해 주세요.",
+         "form_title": "메시지 보내기",
+         "name": "이름",
+         "email": "이메일",
+         "subject": "문의 유형",
+         "subject_options": {
+            "general": "일반 문의",
+            "support": "기술 지원",
+            "refund": "환불 요청",
+            "license": "라이선스 문의",
+            "partnership": "제휴/협력"
+         },
+         "message": "메시지",
+         "message_placeholder": "문의 내용을 입력해 주세요...",
+         "submit": "메시지 보내기",
+         "success_title": "메시지가 전송되었습니다!",
+         "success_desc": "문의해 주셔서 감사합니다. 빠른 시간 내에 답변 드리겠습니다.",
+         "new_message": "새 메시지 작성",
+         "info_title": "연락처 정보",
+         "info_email": "이메일",
+         "info_response": "응답 시간",
+         "info_response_value": "영업일 기준 1-2일 이내",
+         "info_language": "지원 언어",
+         "info_language_value": "한국어, English",
+         "quick_help": "빠른 도움이 필요하신가요?",
+         "quick_help_desc": "결제 또는 환불 관련 문의는 Paddle 고객 지원을 통해서도 처리 가능합니다.",
+         "paddle_support": "Paddle 고객 지원"
+      }
+   },
+   "nav": {
+      "home": "홈",
+      "vesslo": "Vesslo",
+      "keyharbor": "KeyHarbor",
+      "splitswipe": "SplitSwipe"
+   },
+   "footer": {
+      "apps": "앱",
+      "legal": "법적 고지",
+      "terms": "이용약관",
+      "privacy": "개인정보처리방침",
+      "refund": "환불 정책",
+      "contact": "문의하기",
+      "copyright": "© 2026 HJM79. All rights reserved.",
+      "paddle_notice": "Paddle.com은 당사의 공식 판매 대행사(Merchant of Record)입니다.",
+      "developer": "마니의블로그 제작"
+   },
+   "homepage": {
+      "browse_apps": "앱 둘러보기",
+      "our_apps": "Our Apps",
+      "our_apps_desc": "Mac 경험을 완전히 새롭게. 세 가지 강력한 도구를 만나보세요.",
+      "view_more": "자세히 보기",
+      "philosophy": "모든 앱에 담긴 철학",
+      "strong_security": "강력한 보안",
+      "strong_security_desc": "모든 데이터는 로컬에 안전하게 저장됩니다. 클라우드 업로드 없이, 오직 당신만이 접근합니다.",
+      "native_speed": "네이티브 속도",
+      "native_speed_desc": "Swift로 제작된 순수 macOS 앱. Electron 없이, 진정한 네이티브 성능을 경험하세요.",
+      "beautiful_design": "아름다운 디자인",
+      "beautiful_design_desc": "macOS 디자인 언어를 존중하면서도, 독창적인 미학을 더했습니다.",
+      "get_started": "지금 시작하세요",
+      "free_trial_desc": "모든 앱은 무료 체험판을 제공합니다. 부담 없이 경험해보세요.",
+      "contact_us": "문의하기"
+   },
+   "detail_page": {
+      "tagline": "생산성을 극대화하는 가장 강력한 방법.",
+      "try_now": "지금 바로 경험해보세요.",
+      "in_action": "실제 동작",
+      "screenshots": "앱 스크린샷",
+      "scroll_hint": "← 좌우로 스크롤하여 더 보기 →",
+      "specs_release": "상세 스펙 및 릴리스 노트"
+   },
+   "why_love": "Vesslo를 사랑할 이유",
+   "scan": {
+      "badge": "스마트 감지",
+      "headline_1": "모든 소스를",
+      "headline_2": "한 번에 스캔",
+      "feature1_title": "즉시 업데이트 감지",
+      "feature1_desc": "설치된 앱의 업데이트를 자동으로 찾아냅니다",
+      "feature2_title": "다중 소스 통합",
+      "feature2_desc": "Homebrew, Sparkle, App Store를 하나로",
+      "feature3_title": "Raycast 연동",
+      "feature3_desc": "업데이트 확인과 앱 내용(memo, tag) 검색"
    }
 }

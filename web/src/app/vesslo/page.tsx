@@ -2,15 +2,162 @@
 
 import { useState, useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import VessloText3D from "@/components/canvas/VessloText3D"; // R3F Component
-import { Canvas } from "@react-three/fiber";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n"; // Ensure i18n is initialized
 
+// Sources to scan through (order: top to bottom)
+const SOURCES = [
+   { name: "homebrew", label: "Homebrew" },
+   { name: "sparkle", label: "Sparkle" },
+   { name: "appstore", label: "App Store" },
+];
+
+// Scan Animation Component
+function ScanAnimation() {
+   const [activeIndex, setActiveIndex] = useState(-1);
+   const [scanComplete, setScanComplete] = useState(false);
+
+   useEffect(() => {
+      let isCancelled = false;
+
+      const sequence = async () => {
+         while (!isCancelled) {
+            setActiveIndex(-1);
+            setScanComplete(false);
+            await new Promise(r => setTimeout(r, 500));
+            if (isCancelled) return;
+
+            for (let i = 0; i < SOURCES.length; i++) {
+               if (isCancelled) return;
+               setActiveIndex(i);
+               await new Promise(r => setTimeout(r, 1200));
+            }
+
+            if (isCancelled) return;
+            setScanComplete(true);
+            await new Promise(r => setTimeout(r, 3000));
+         }
+      };
+
+      sequence();
+
+      return () => {
+         isCancelled = true;
+      };
+   }, []);
+
+   const getMagnifierPosition = () => {
+      if (activeIndex === -1) return 0;
+      if (scanComplete) return 100;
+      return (activeIndex + 1) * 25;
+   };
+
+   return (
+      <div className="flex justify-center">
+         <div className="relative h-[380px] w-80">
+            {/* Vertical Line */}
+            <div
+               className="absolute left-1/2 top-4 w-0.5 bg-gradient-to-b from-white/60 to-white/20 -translate-x-1/2 transition-all duration-700 ease-out"
+               style={{ height: `${Math.min(getMagnifierPosition() * 0.72 + 2, 75)}%` }}
+            />
+
+            {/* Magnifying Glass */}
+            <div
+               className="absolute left-1/2 -translate-x-1/2 transition-all duration-700 ease-out z-30"
+               style={{ top: scanComplete ? 'calc(100% - 10rem)' : `${getMagnifierPosition() * 0.72}%` }}
+            >
+               <svg
+                  className={`w-12 h-12 text-white drop-shadow-lg transition-all duration-500 ${scanComplete ? 'text-blue-400 scale-110' : ''}`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+               >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+               </svg>
+            </div>
+
+            {/* Source Badges */}
+            {SOURCES.map((source, index) => {
+               const isActive = activeIndex === index;
+               const isScanned = activeIndex > index || scanComplete;
+               const isLeft = index % 2 === 1;
+               const topPosition = (index + 1) * 12 + 5;
+
+               return (
+                  <div
+                     key={source.name}
+                     className={`
+                        absolute
+                        ${isLeft ? 'right-[55%] mr-6' : 'left-[55%] ml-6'}
+                        px-4 py-1.5 rounded-full
+                        text-sm font-medium
+                        border backdrop-blur-sm
+                        transition-all duration-500 ease-out
+                        ${isActive
+                           ? "bg-cyan-600 border-cyan-400 text-white scale-110 shadow-lg shadow-cyan-500/40"
+                           : isScanned
+                              ? "bg-teal-600/60 border-teal-500/60 text-white/90"
+                              : "bg-slate-800/60 border-slate-600/40 text-white/50"
+                        }
+                     `}
+                     style={{ top: `${topPosition}%` }}
+                  >
+                     {source.label}
+                     {isScanned && <span className="ml-2 text-green-400">✓</span>}
+                  </div>
+               );
+            })}
+
+            {/* Vesslo App Icon */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0">
+               <div className={`
+                  relative w-32 h-32 rounded-[1.5rem] overflow-hidden 
+                  shadow-2xl transition-all duration-500
+                  ${scanComplete ? "shadow-blue-500/50 scale-105" : "shadow-blue-500/20"}
+               `}>
+                  <Image
+                     src="/vesslo_icon.png"
+                     alt="Vesslo"
+                     fill
+                     className="object-cover"
+                  />
+               </div>
+            </div>
+
+            {/* Connection line to Raycast */}
+            {scanComplete && (
+               <>
+                  <div className="absolute bottom-[-2rem] left-[calc(50%+4.5rem)] flex items-center gap-1 opacity-0 animate-fadeIn">
+                     <div className="w-16 h-0.5 bg-white/40" />
+                     <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                     </svg>
+                  </div>
+                  <div className="absolute -bottom-12 left-[calc(50%+10rem)] opacity-0 animate-fadeIn">
+                     <div className="relative w-16 h-16 rounded-xl overflow-hidden shadow-lg shadow-orange-500/30 border border-orange-500/40">
+                        <Image
+                           src="/raycast.png"
+                           alt="Raycast"
+                           fill
+                           className="object-cover"
+                        />
+                     </div>
+                     <p className="text-center text-xs text-orange-400 mt-2 font-medium">Raycast</p>
+                  </div>
+               </>
+            )}
+         </div>
+      </div>
+   );
+}
+
+
 export default function VessloPage() {
-   const { t } = useTranslation();
+   const { t, i18n } = useTranslation();
    const [selectedMedia, setSelectedMedia] = useState<string | null>(null); // Replaced selectedImage with selectedMedia
    const [mounted, setMounted] = useState(false);
 
@@ -43,7 +190,7 @@ export default function VessloPage() {
          title: t('vesslo_page.features.Memory.title'),
          subtitle: t('vesslo_page.features.Memory.subtitle'),
          desc: t('vesslo_page.features.Memory.desc'),
-         image: "/vesslo/vesslo_03.png",
+         image: "/vesslo/vesslo_03.jpeg",
          direction: "left"
       },
       {
@@ -70,140 +217,234 @@ export default function VessloPage() {
       <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
          <Navbar />
 
-         {/* Hero Section with R3F */}
-         <section className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-start pt-24">
-            {/* Background Blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
+         {/* Hero Section - Scan Animation */}
+         <section className="w-full relative overflow-hidden flex items-center justify-center py-20">
+            {/* Background Gradient */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none z-0" />
 
-            {/* 3D Canvas */}
-            <div className="w-full h-[60vh] relative z-10 pointer-events-none">
-               <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-                  <VessloText3D />
-               </Canvas>
-            </div>
+            <div className="container mx-auto px-6 relative z-10">
+               <div className="grid md:grid-cols-2 gap-16 items-center">
 
-            {/* Hero Text */}
-            <div className="relative z-20 text-center -mt-10 px-4">
-               <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 mb-6"
-               >
-                  {t('vesslo_page.hero.title')}
-               </motion.h1>
-               <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 }}
-                  className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto whitespace-pre-line"
-               >
-                  {t('vesslo_page.hero.desc')}
-               </motion.p>
+                  {/* Left: Scan Animation */}
+                  <ScanAnimation />
 
-               <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1 }}
-                  className="mt-10"
-               >
-                  <button className="px-8 py-3 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform">
-                     {t('vesslo_page.hero.download')}
-                  </button>
-                  <p className="mt-4 text-xs text-slate-500">{t('vesslo_page.hero.requirements')}</p>
-               </motion.div>
+                  {/* Right: Text Content */}
+                  <div className="text-center md:text-left space-y-6">
+                     {/* Badge */}
+                     <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-teal-500/20 border border-cyan-500/30"
+                     >
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                        <span className="text-xs font-medium text-cyan-300" suppressHydrationWarning>{t('scan.badge')}</span>
+                     </motion.div>
+
+                     {/* Headline */}
+                     <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-4xl md:text-5xl font-bold leading-tight"
+                        suppressHydrationWarning
+                     >
+                        {t('scan.headline_1')}
+                        <br />
+                        <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+                           {t('scan.headline_2')}
+                        </span>
+                     </motion.h1>
+
+                     {/* Feature Cards */}
+                     <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                        className="space-y-3"
+                     >
+                        <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center flex-shrink-0">
+                              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                           </div>
+                           <div>
+                              <p className="font-medium text-white" suppressHydrationWarning>{t('scan.feature1_title')}</p>
+                              <p className="text-sm text-slate-400" suppressHydrationWarning>{t('scan.feature1_desc')}</p>
+                           </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                 <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                              </svg>
+                           </div>
+                           <div>
+                              <p className="font-medium text-white" suppressHydrationWarning>{t('scan.feature2_title')}</p>
+                              <p className="text-sm text-slate-400" suppressHydrationWarning>{t('scan.feature2_desc')}</p>
+                           </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-orange-500/20">
+                           <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+                              <Image
+                                 src="/raycast.png"
+                                 alt="Raycast"
+                                 width={32}
+                                 height={32}
+                                 className="object-cover"
+                              />
+                           </div>
+                           <div>
+                              <p className="font-medium text-white" suppressHydrationWarning>{t('scan.feature3_title')}</p>
+                              <p className="text-sm text-slate-400" suppressHydrationWarning>{t('scan.feature3_desc')}</p>
+                           </div>
+                        </div>
+                     </motion.div>
+                  </div>
+               </div>
             </div>
          </section>
 
          {/* Features Section */}
-         <section className="py-32 px-6 container mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-24 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-               Why You'll Love Vesslo
-            </h2>
+         <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+            {/* Background Gradient - matching Hero section */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-cyan-500/15 rounded-full blur-[150px] pointer-events-none z-0" />
+            <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-            <div className="space-y-32">
-               {features.map((feature: any, index) => (
-                  <motion.div
-                     key={feature.id}
-                     initial={{ opacity: 0, y: 50 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true, margin: "-100px" }}
-                     transition={{ duration: 0.8 }}
-                     className={`flex flex-col ${feature.direction === 'right' ? 'md:flex-row-reverse' : feature.direction === 'center' ? 'flex-col items-center text-center' : 'md:flex-row'} items-center gap-12 md:gap-24`}
-                  >
-                     {/* Text Content */}
-                     <div className={`flex-1 ${feature.direction === 'center' ? 'max-w-3xl' : ''}`}>
-                        <div className="flex items-center gap-4 mb-4">
-                           <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-mono text-blue-400 border border-slate-700">
-                              0{index + 1}
-                           </span>
-                           <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">{feature.subtitle}</span>
+            <div className="container mx-auto relative z-10">
+               <h2 className="text-3xl md:text-5xl font-bold text-center mb-24 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400" suppressHydrationWarning>
+                  {t('why_love')}
+               </h2>
+
+               <div className="space-y-32">
+                  {features.map((feature: any, index) => (
+                     <motion.div
+                        key={feature.id}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8 }}
+                        className={`flex flex-col ${feature.direction === 'right' ? 'md:flex-row-reverse' : feature.direction === 'center' ? 'flex-col items-center text-center' : 'md:flex-row'} items-center gap-12 md:gap-24`}
+                     >
+                        {/* Text Content */}
+                        <div className={`flex-1 ${feature.direction === 'center' ? 'max-w-3xl' : ''}`}>
+                           <div className="flex items-center gap-4 mb-4">
+                              <span className="px-3 py-1 bg-slate-800 rounded-full text-xs font-mono text-blue-400 border border-slate-700">
+                                 0{index + 1}
+                              </span>
+                              <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">{feature.subtitle}</span>
+                           </div>
+                           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                              {feature.title}
+                           </h3>
+                           <p className="text-lg text-slate-400 leading-relaxed whitespace-pre-line">
+                              {feature.desc}
+                           </p>
                         </div>
-                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                           {feature.title}
-                        </h3>
-                        <p className="text-lg text-slate-400 leading-relaxed whitespace-pre-line">
-                           {feature.desc}
-                        </p>
-                     </div>
 
-                     {/* Media Content */}
-                     <div className={`flex-1 w-full ${feature.direction === 'center' ? 'max-w-4xl mt-12' : ''}`}>
-                        <div
-                           className="relative group rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl backdrop-blur-sm cursor-zoom-in"
-                           onClick={() => setSelectedMedia(feature.video || feature.image)}
-                        >
-                           {/* Decorative Glow */}
-                           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                        {/* Media Content */}
+                        <div className={`flex-1 w-full ${feature.direction === 'center' ? 'max-w-4xl mt-12' : ''}`}>
+                           <div
+                              className="relative group rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl backdrop-blur-sm cursor-zoom-in"
+                              onClick={() => setSelectedMedia(feature.video || feature.image)}
+                           >
+                              {/* Decorative Glow */}
+                              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
-                           {/* Adjusted to 4:3 (640x480) Ratio as requested */}
-                           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-800">
+                              {/* Adjusted to 4:3 (640x480) Ratio as requested */}
+                              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-800">
 
-                              {feature.video ? (
-                                 <video
-                                    src={feature.video}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-full object-contain bg-black"
-                                 />
-                              ) : (
-                                 <img
-                                    src={feature.image}
-                                    alt={feature.title}
-                                    className={`w-full h-full object-cover transition-transform duration-700 ${feature.direction === 'center' ? 'object-center' : 'group-hover:scale-105'}`}
-                                    onError={(e) => {
-                                       (e.target as HTMLImageElement).src = '/vesslo-preview.png';
-                                       (e.target as HTMLImageElement).style.opacity = '0.5';
-                                    }}
-                                 />
-                              )}
-
-                              {/* Zoom Hint Icon */}
-                              <div className="absolute bottom-4 right-4 p-2 bg-black/50 rounded-full backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
                                  {feature.video ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
-                                    </svg>
+                                    <video
+                                       src={feature.video}
+                                       autoPlay
+                                       loop
+                                       muted
+                                       playsInline
+                                       className="w-full h-full object-contain bg-black"
+                                    />
                                  ) : (
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                                    </svg>
+                                    <img
+                                       src={feature.image}
+                                       alt={feature.title}
+                                       className={`w-full h-full object-cover transition-transform duration-700 ${feature.direction === 'center' ? 'object-center' : 'group-hover:scale-105'}`}
+                                       onError={(e) => {
+                                          (e.target as HTMLImageElement).src = '/vesslo-preview.png';
+                                          (e.target as HTMLImageElement).style.opacity = '0.5';
+                                       }}
+                                    />
                                  )}
+
+                                 {/* Zoom Hint Icon */}
+                                 <div className="absolute bottom-4 right-4 p-2 bg-black/50 rounded-full backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {feature.video ? (
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                                       </svg>
+                                    ) : (
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                                          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                                       </svg>
+                                    )}
+                                 </div>
                               </div>
                            </div>
                         </div>
-                     </div>
-                  </motion.div>
-               ))}
+                     </motion.div>
+                  ))}
+               </div>
+            </div>
+         </section>
+
+         {/* Screenshots Gallery Section (NEW) */}
+         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+            {/* Background enhancement */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative z-10">
+               <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400" suppressHydrationWarning>
+                  {t('app_screenshots')}
+               </h2>
+
+               {/* Horizontal Scroll Container */}
+               <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                  <div className="flex gap-8 min-w-max px-4">
+                     {[
+                        "/circle/vesslo_circle-001.png",
+                        "/circle/vesslo_circle-002.png",
+                        "/circle/vesslo_circle-003.png",
+                        "/circle/vesslo_circle-004.png",
+                        "/circle/vesslo_circle-005.png",
+                        "/circle/vesslo_circle-006.png",
+                        "/circle/vesslo_circle-007.png",
+                        "/circle/vesslo_circle-008.png"
+                     ].map((shot, i) => (
+                        <div
+                           key={i}
+                           className="flex-shrink-0 w-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 hover:border-white/20 transition-all group cursor-pointer bg-slate-900/50 backdrop-blur-sm"
+                           onClick={() => setSelectedMedia(shot)}
+                        >
+                           <img
+                              src={shot}
+                              alt={`Vesslo Screenshot ${i + 1}`}
+                              className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
+                           />
+                        </div>
+                     ))}
+                  </div>
+               </div>
+               <p className="text-center text-slate-500 text-sm mt-8 flex items-center justify-center gap-2" suppressHydrationWarning>
+                  <span className="animate-pulse">←</span> {t('scroll_more')} <span className="animate-pulse">→</span>
+               </p>
             </div>
          </section>
 
          {/* CTA Section */}
-         <section className="py-24 bg-gradient-to-b from-slate-900 to-black text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/vesslo_icon.png')] bg-center bg-no-repeat opacity-5 blur-3xl scale-150 pointer-events-none"></div>
+         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black text-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">{t('vesslo_page.cta.title')}</h2>
@@ -211,12 +452,20 @@ export default function VessloPage() {
                   {t('vesslo_page.cta.desc')}
                </p>
                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="px-10 py-4 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-colors shadow-lg shadow-white/10">
-                     {t('vesslo_page.cta.button_download')}
-                  </button>
-                  <button className="px-10 py-4 border border-slate-700 text-white rounded-full font-medium text-xl hover:bg-slate-800 transition-colors">
+                  <a
+                     href="https://hjm79.paddle.com/paddlejs/overlay-checkout?product=79888"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="px-10 py-4 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-colors shadow-lg shadow-white/10"
+                  >
+                     {i18n.language?.startsWith('ko') ? '구매하기' : 'Purchase'}
+                  </a>
+                  <a
+                     href="/vesslo/docs"
+                     className="px-10 py-4 border border-slate-700 text-white rounded-full font-medium text-xl hover:bg-slate-800 transition-colors"
+                  >
                      {t('vesslo_page.cta.button_docs')}
-                  </button>
+                  </a>
                </div>
             </div>
          </section>
@@ -261,8 +510,6 @@ export default function VessloPage() {
                </motion.div>
             )}
          </AnimatePresence>
-
-         <Footer />
       </div>
    );
 }

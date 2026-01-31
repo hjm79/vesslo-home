@@ -5,6 +5,15 @@
    "swipe_to_explore": "Swipe to explore our apps",
    "scroll_drag_click": "Scroll, Drag or Click to Navigate",
    "learn_more": "Learn More",
+   "browse_apps": "Browse Apps",
+   "scroll_more": "← Scroll left/right to see more →",
+   "app_screenshots": "App Screenshots",
+   "in_action": "In Action",
+   "specs_release": "Detailed Specs & Release Notes",
+   "download_trial": "Download Free Trial",
+   "purchase_license": "Purchase License",
+   "productivity_tagline": "The most powerful way to maximize productivity.",
+   "try_now": "Experience it now.",
    "apps": {
       "vesslo": {
          "title": "Vesslo",
@@ -14,12 +23,40 @@
       "keyharbor": {
          "title": "KeyHarbor",
          "description": "Manage your software licenses with military-grade encryption and beautiful UI.",
-         "desc_short": "Secure and simple license management"
+         "desc_short": "Secure and simple license management",
+         "features": {
+            "harbor": {
+               "title": "All Keys, One Harbor",
+               "desc": "Securely manage all your scattered license keys in one place with KeyHarbor. No more digging through emails or searching for notes."
+            },
+            "security": {
+               "title": "Military-Grade Encryption",
+               "desc": "All license keys are securely stored locally with AES-256 encryption. No cloud sync—only you have access."
+            },
+            "alert": {
+               "title": "Smart Expiration Alerts",
+               "desc": "Get notified automatically when subscriptions are about to expire. Never miss an important license. Track renewal costs at a glance."
+            }
+         }
       },
       "splitswipe": {
          "title": "SplitSwipe",
          "description": "Snap, split, and manage your windows with intuitive gestures and shortcuts.",
-         "desc_short": "Window management perfected with gestures"
+         "desc_short": "Window management perfected with gestures",
+         "features": {
+            "split": {
+               "title": "Redefining Window Splitting",
+               "desc": "Split windows perfectly with intuitive swipe gestures. Manage your screen like a pro without complex shortcuts."
+            },
+            "snap": {
+               "title": "Snap Grid System",
+               "desc": "Drag windows to corners and they snap automatically. Set up 2-way splits, 4-way splits, or custom layouts freely."
+            },
+            "keyboard": {
+               "title": "Keyboard Shortcuts",
+               "desc": "Complete keyboard shortcuts for power users. Manage all windows instantly without a mouse."
+            }
+         }
       }
    },
    "our_ecosystem": "Our Ecosystem",
@@ -64,5 +101,239 @@
          "button_download": "Download Now",
          "button_docs": "View Documentation"
       }
+   },
+   "legal": {
+      "terms": {
+         "title": "Terms of Service",
+         "last_updated": "Last Updated",
+         "sections": {
+            "overview": {
+               "title": "1. Service Overview",
+               "content": "These Terms of Service govern the use of software products (Vesslo, KeyHarbor, SplitSwipe, etc., hereinafter 'Service') provided by HJM79 (hereinafter 'Company')."
+            },
+            "payment": {
+               "title": "2. Payment and Sales",
+               "content": "Payments for this Service are processed through Paddle.com. Paddle is our official Merchant of Record and handles all payment, tax, and refund processing.",
+               "items": [
+                  "All prices are displayed in local currency and may include applicable VAT or sales tax.",
+                  "For payment inquiries, please contact Paddle customer support or us."
+               ]
+            },
+            "license": {
+               "title": "3. License Grant",
+               "content": "Upon payment completion, the Company grants users a non-exclusive, non-transferable license under the following conditions:",
+               "items": [
+                  "Right to use the software for personal or commercial purposes",
+                  "Installation and use within the number of devices specified in the license",
+                  "Free updates (during the license period for the applicable version)"
+               ]
+            },
+            "restrictions": {
+               "title": "4. Usage Restrictions",
+               "content": "Users may not:",
+               "items": [
+                  "Copy, modify, distribute, or sell the software",
+                  "Attempt reverse engineering, decompilation, or source code extraction",
+                  "Share or resell license keys",
+                  "Circumvent security mechanisms of the service"
+               ]
+            },
+            "ip": {
+               "title": "5. Intellectual Property Rights",
+               "content": "All intellectual property rights in the software and related content belong to the Company. The license is a grant of usage rights, not a transfer of ownership."
+            },
+            "disclaimer": {
+               "title": "6. Disclaimer",
+               "content": "The software is provided 'as is', and the Company is not liable for:",
+               "items": [
+                  "Data loss or corruption",
+                  "Indirect or incidental damages from software use",
+                  "Compatibility issues with third-party services"
+               ]
+            },
+            "changes": {
+               "title": "7. Changes to Terms",
+               "content": "The Company may change these terms as needed, and significant changes will be notified through the website or email."
+            },
+            "law": {
+               "title": "8. Governing Law",
+               "content": "These terms are interpreted under the laws of the Republic of Korea, and related disputes are subject to the jurisdiction of Seoul Central District Court."
+            },
+            "contact": {
+               "title": "9. Contact",
+               "content": "For inquiries about these terms, please contact me@hjm79.top."
+            }
+         }
+      },
+      "privacy": {
+         "title": "Privacy Policy",
+         "sections": {
+            "overview": {
+               "title": "1. Overview",
+               "content": "HJM79 (hereinafter 'Company') takes user privacy protection seriously. This Privacy Policy explains the information collected and how it is processed when using our software (Vesslo, KeyHarbor, SplitSwipe) and website."
+            },
+            "collection": {
+               "title": "2. Information We Collect",
+               "payment_title": "2.1 Payment Information",
+               "payment_content": "Payments are processed through Paddle.com. The Company does not directly collect or store payment card information.",
+               "license_title": "2.2 License Information",
+               "license_items": [
+                  "Email address (for license issuance and support)",
+                  "License key",
+                  "Purchase date and product information"
+               ],
+               "app_title": "2.3 App Usage Data",
+               "app_content": "Our apps do not upload data to the cloud. All data is stored locally on the user's device."
+            },
+            "usage": {
+               "title": "3. Purpose of Information Use",
+               "content": "Collected information is used only for the following purposes:",
+               "items": [
+                  "Software license activation and management",
+                  "Customer support provision",
+                  "Product update notifications (with consent)",
+                  "Service improvement (anonymous analytics data only)"
+               ]
+            },
+            "sharing": {
+               "title": "4. Information Sharing",
+               "content": "The Company does not sell user personal information to third parties."
+            },
+            "security": {
+               "title": "5. Data Security",
+               "items": [
+                  "SSL/TLS encrypted communication",
+                  "Local data AES-256 encryption",
+                  "Regular security reviews"
+               ]
+            },
+            "rights": {
+               "title": "6. User Rights",
+               "items": [
+                  "Request to view, modify, or delete personal information",
+                  "Opt-out of marketing communications",
+                  "Opt-out of anonymous analytics data collection"
+               ]
+            },
+            "contact": {
+               "title": "10. Contact",
+               "content": "For privacy-related inquiries, please contact me@hjm79.top."
+            }
+         }
+      },
+      "refund": {
+         "title": "Refund Policy",
+         "guarantee": "14-Day Money-Back Guarantee",
+         "guarantee_desc": "We offer a 14-day money-back guarantee for all software products. If you are not satisfied for any reason within 14 days of purchase, you may request a full refund.",
+         "trial_tip": "Free Trial Recommended",
+         "trial_tip_desc": "We recommend using the free trial before purchasing. This allows you to verify that the software meets your needs.",
+         "payment_info": "Payment Processing",
+         "payment_info_desc": "All payments are processed through Paddle.com. Paddle is our official Merchant of Record and handles payment, tax, and refund processing.",
+         "how_to": "How to Request a Refund",
+         "method1_title": "Method 1: Contact Paddle Directly",
+         "method1_desc": "You can request a refund directly through the Paddle receipt link included in your purchase confirmation email.",
+         "method2_title": "Method 2: Contact Our Support Team",
+         "method2_desc": "Send an email to me@hjm79.top with the following information:",
+         "method2_items": [
+            "Order number or transaction ID",
+            "Email address used for purchase",
+            "Reason for refund (optional)"
+         ],
+         "timeline_title": "Refund Processing Timeline",
+         "timeline_items": [
+            "Request confirmation: 1-2 business days",
+            "Refund processing: 5-10 business days after confirmation",
+            "Payment reflection: May take additional time depending on payment method"
+         ],
+         "exceptions_title": "Refund Exceptions",
+         "exceptions_items": [
+            "More than 14 days have passed since purchase",
+            "Previous refund received for the same product",
+            "Violation of Terms of Service"
+         ]
+      },
+      "contact": {
+         "title": "Contact Us",
+         "subtitle": "If you have questions or feedback, please reach out.",
+         "form_title": "Send a Message",
+         "name": "Name",
+         "email": "Email",
+         "subject": "Inquiry Type",
+         "subject_options": {
+            "general": "General Inquiry",
+            "support": "Technical Support",
+            "refund": "Refund Request",
+            "license": "License Inquiry",
+            "partnership": "Partnership"
+         },
+         "message": "Message",
+         "message_placeholder": "Please enter your inquiry...",
+         "submit": "Send Message",
+         "success_title": "Message Sent!",
+         "success_desc": "Thank you for your message. We will respond as soon as possible.",
+         "new_message": "New Message",
+         "info_title": "Contact Information",
+         "info_email": "Email",
+         "info_response": "Response Time",
+         "info_response_value": "Within 1-2 business days",
+         "info_language": "Supported Languages",
+         "info_language_value": "Korean, English",
+         "quick_help": "Need Quick Help?",
+         "quick_help_desc": "Payment or refund inquiries can also be handled through Paddle customer support.",
+         "paddle_support": "Paddle Customer Support"
+      }
+   },
+   "nav": {
+      "home": "Home",
+      "vesslo": "Vesslo",
+      "keyharbor": "KeyHarbor",
+      "splitswipe": "SplitSwipe"
+   },
+   "footer": {
+      "apps": "Apps",
+      "legal": "Legal",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "contact": "Contact",
+      "copyright": "© 2026 HJM79. All rights reserved.",
+      "paddle_notice": "Paddle.com is our official Merchant of Record.",
+      "developer": "Developed by mani's tech"
+   },
+   "homepage": {
+      "browse_apps": "Browse Apps",
+      "our_apps": "Our Apps",
+      "our_apps_desc": "Transform your Mac experience with three powerful tools.",
+      "view_more": "View More",
+      "philosophy": "Philosophy Behind Our Apps",
+      "strong_security": "Strong Security",
+      "strong_security_desc": "All data is stored locally. No cloud uploads—only you have access.",
+      "native_speed": "Native Speed",
+      "native_speed_desc": "Pure macOS apps built with Swift. Experience true native performance without Electron.",
+      "beautiful_design": "Beautiful Design",
+      "beautiful_design_desc": "Respecting macOS design language while adding unique aesthetics.",
+      "get_started": "Get Started",
+      "free_trial_desc": "All apps offer free trials. Experience them without commitment.",
+      "contact_us": "Contact Us"
+   },
+   "detail_page": {
+      "tagline": "The most powerful way to maximize productivity.",
+      "try_now": "Experience it now.",
+      "in_action": "In Action",
+      "screenshots": "App Screenshots",
+      "scroll_hint": "← Scroll left/right to see more →",
+      "specs_release": "Detailed Specs & Release Notes"
+   },
+   "why_love": "Why You'll Love It",
+   "scan": {
+      "badge": "Smart Detection",
+      "headline_1": "Scan All Sources",
+      "headline_2": "At Once",
+      "feature1_title": "Instant Update Detection",
+      "feature1_desc": "Automatically finds updates for your installed apps",
+      "feature2_title": "Multi-Source Integration",
+      "feature2_desc": "Homebrew, Sparkle, and App Store unified",
+      "feature3_title": "Raycast Integration",
+      "feature3_desc": "Check updates and search app content (memo, tag)"
    }
 }

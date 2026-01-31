@@ -6,10 +6,9 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, Billboard, Text } from '@react-three/drei';
 
 const APPS = [
-   { slug: "vesslo", title: "Vesslo", count: 6 },
-   { slug: "keyharbor", title: "KeyHarbor", count: 4 },
-   { slug: "splitswipe", title: "SplitSwipe", count: 0 },
-   { slug: "vesslo", title: "Vesslo", count: 6 } // Repeat to fill space if needed
+   { slug: "vesslo", title: "Vesslo", count: 8, ext: "png" },
+   { slug: "keyharbor", title: "KeyHarbor", count: 4, ext: "png" },
+   { slug: "splitswipe", title: "SplitSwipe", count: 6, ext: "jpeg", extMap: { 3: "jpg", 4: "jpg", 5: "jpg", 6: "jpg" } },
 ];
 
 export default function CircularGallery(props: React.HTMLAttributes<HTMLDivElement>) {
@@ -39,6 +38,7 @@ function Scene({ ...props }) {
       if (ref.current) {
          ref.current.rotation.y = -scroll.offset * (Math.PI * 2); // Rotate contents
       }
+      state.events.update?.(); // Raycasts every frame rather than on pointer-move
 
       // Simple camera movement based on pointer
       const targetCamX = -pointer.x * 2;
@@ -65,6 +65,8 @@ function Scene({ ...props }) {
                   from={from}
                   len={len}
                   count={app.count}
+                  ext={app.ext}
+                  extMap={(app as any).extMap}
                   onHover={setActiveData}
                />
             );
@@ -74,7 +76,19 @@ function Scene({ ...props }) {
    );
 }
 
-function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, count = 0, onHover, ...props }) {
+interface CardsProps {
+   category: string;
+   slug: string;
+   from?: number;
+   len?: number;
+   radius?: number;
+   count?: number;
+   ext?: string;
+   extMap?: { [key: number]: string };
+   onHover: (data: { url: string; title: string } | null) => void;
+}
+
+function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, count = 0, ext = "png", extMap = {}, onHover, ...props }: CardsProps) {
    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
    const amount = Math.round(len * 22); // Density of cards
    const textPosition = from + (len / 2); // Center text in the segment
@@ -96,12 +110,13 @@ function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, cou
             const angle = from + (i / Math.max(count, 1)) * len;  // Distribute evenly based on actual count
             const imgIndex = i + 1; // 1-based index
             const paddedIndex = String(imgIndex).padStart(3, '0');
-            const url = `/circle/${slug}_circle-${paddedIndex}.png`;
+            const fileExt = extMap[imgIndex] || ext;
+            const url = `/circle/${slug}_circle-${paddedIndex}.${fileExt}`;
 
             return (
                <Card
                   key={i}
-                  onPointerOver={(e) => {
+                  onPointerOver={(e: any) => {
                      e.stopPropagation();
                      setHoveredIndex(i);
                      onHover({ url, title: category });
@@ -122,8 +137,18 @@ function Cards({ category, slug, from = 0, len = Math.PI * 2, radius = 5.25, cou
    );
 }
 
-function Card({ url, active, hovered, ...props }) {
-   const ref = useRef<any>(null!);
+interface CardProps {
+   url: string;
+   active: boolean;
+   hovered: boolean;
+   onPointerOver: (e: any) => void;
+   onPointerOut: () => void;
+   position: [number, number, number];
+   rotation: [number, number, number];
+}
+
+function Card({ url, active, hovered, ...props }: CardProps) {
+   const ref = useRef<THREE.Mesh>(null!);
    useFrame((state, delta) => {
       const f = hovered ? 1.4 : active ? 1.25 : 1;
       const targetScaleX = 1.618 * f;
@@ -138,11 +163,11 @@ function Card({ url, active, hovered, ...props }) {
    return (
       <group {...props}>
          <Image
-            ref={ref}
+            ref={ref as any}
             transparent
             radius={0.075}
             url={url}
-            scale={[1.618, 1, 1]}
+            scale={[1.618, 1, 1] as any}
             side={THREE.DoubleSide}
             color={active ? "white" : "white"}
          />
@@ -150,8 +175,12 @@ function Card({ url, active, hovered, ...props }) {
    );
 }
 
-function ActiveCard({ activeData, ...props }) {
-   const ref = useRef<any>(null!);
+interface ActiveCardProps {
+   activeData: { url: string; title: string } | null;
+}
+
+function ActiveCard({ activeData, ...props }: ActiveCardProps) {
+   const ref = useRef<THREE.Mesh>(null!);
    const [texture, setTexture] = useState<THREE.Texture | null>(null);
    const [aspect, setAspect] = useState(1);
 
@@ -173,10 +202,11 @@ function ActiveCard({ activeData, ...props }) {
    useFrame((state, delta) => {
       if (ref.current) {
          // Animate opacity (meshBasicMaterial)
-         if (ref.current.material) {
+         const material = ref.current.material as THREE.MeshBasicMaterial;
+         if (material) {
             const targetOpacity = activeData ? 1 : 0;
-            ref.current.material.opacity = THREE.MathUtils.lerp(ref.current.material.opacity, targetOpacity, delta * 5);
-            ref.current.material.transparent = true; // Ensure transparent is set
+            material.opacity = THREE.MathUtils.lerp(material.opacity, targetOpacity, delta * 5);
+            material.transparent = true; // Ensure transparent is set
          }
 
          const BASE_HEIGHT = 8.0;
