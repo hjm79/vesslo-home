@@ -351,6 +351,31 @@ export default function SplitSwipePage() {
                         {appData.tagline}
                      </motion.p>
 
+                     {/* Feature Highlights */}
+                     <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="pt-4 space-y-4"
+                     >
+                        <div className="flex items-center gap-3 text-slate-300">
+                           <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">✨</span>
+                           <span>{lang === 'ko' ? '2분할 & 3분할 레이아웃 지원' : '2-Split & 3-Split layouts'}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300">
+                           <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">🔄</span>
+                           <span>{lang === 'ko' ? '키보드/제스처로 앱 순환' : 'Rotate apps with keyboard/gestures'}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300">
+                           <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">⚡</span>
+                           <span>{lang === 'ko' ? 'BetterTouchTool 연동 지원' : 'BetterTouchTool integration'}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300">
+                           <span className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400">🎯</span>
+                           <span>{lang === 'ko' ? '파워 유저를 위한 창 관리' : 'Window management for power users'}</span>
+                        </div>
+                     </motion.div>
+
                      {/* Download Button */}
                      <motion.div
                         initial={{ opacity: 0 }}
