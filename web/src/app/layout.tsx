@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     title: "Vesslo - The Ultimate Mac Ecosystem",
     description: "Premium macOS apps for update management, license tracking, and window control.",
   },
+  alternates: {
+    canonical: 'https://vesslo.top',
+  },
   verification: {
     google: "YOUR_GOOGLE_VERIFICATION_CODE", // Google Search Console verification code
   },
