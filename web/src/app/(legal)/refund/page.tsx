@@ -68,16 +68,7 @@ export default function RefundPage() {
                      <li suppressHydrationWarning>{t('legal.refund.timeline_items.2')}</li>
                   </ul>
 
-                  <div className="my-8 h-px bg-white/10" />
 
-                  <h2 suppressHydrationWarning>{t('legal.refund.exceptions_title')}</h2>
-                  <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-6">
-                     <ul className="my-0">
-                        <li suppressHydrationWarning>{t('legal.refund.exceptions_items.0')}</li>
-                        <li suppressHydrationWarning>{t('legal.refund.exceptions_items.1')}</li>
-                        <li suppressHydrationWarning>{t('legal.refund.exceptions_items.2')}</li>
-                     </ul>
-                  </div>
                </article>
             </div>
          </div>

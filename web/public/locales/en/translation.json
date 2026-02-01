@@ -272,12 +272,6 @@
             "Request confirmation: 1-2 business days",
             "Refund processing: 5-10 business days after confirmation",
             "Payment reflection: May take additional time depending on payment method"
-         ],
-         "exceptions_title": "Refund Exceptions",
-         "exceptions_items": [
-            "More than 14 days have passed since purchase",
-            "Previous refund received for the same product",
-            "Violation of Terms of Service"
          ]
       },
       "contact": {

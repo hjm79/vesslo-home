@@ -109,7 +109,7 @@
          "sections": {
             "overview": {
                "title": "1. 서비스 개요",
-               "content": "본 이용약관은 마니의블로그 (이하 \"회사\")가 제공하는 소프트웨어 제품(Vesslo, KeyHarbor, SplitSwipe 등, 이하 \"서비스\")의 이용에 관한 조건을 규정합니다."
+               "content": "본 이용약관은 mani's tech (이하 \"회사\")가 제공하는 소프트웨어 제품(Vesslo, KeyHarbor, SplitSwipe 등, 이하 \"서비스\")의 이용에 관한 조건을 규정합니다."
             },
             "payment": {
                "title": "2. 결제 및 판매",
@@ -170,7 +170,7 @@
          "sections": {
             "overview": {
                "title": "1. 개요",
-               "content": "마니의블로그 (이하 \"회사\")는 사용자의 개인정보 보호를 중요하게 생각합니다. 본 개인정보처리방침은 당사의 소프트웨어(Vesslo, KeyHarbor, SplitSwipe) 및 웹사이트 이용 시 수집되는 정보와 그 처리 방법을 설명합니다."
+               "content": "mani's tech (이하 \"회사\")는 사용자의 개인정보 보호를 중요하게 생각합니다. 본 개인정보처리방침은 당사의 소프트웨어(Vesslo, KeyHarbor, SplitSwipe) 및 웹사이트 이용 시 수집되는 정보와 그 처리 방법을 설명합니다."
             },
             "collection": {
                "title": "2. 수집하는 정보",
@@ -272,12 +272,6 @@
             "요청 확인: 영업일 기준 1-2일 이내",
             "환불 처리: 확인 후 영업일 기준 5-10일",
             "결제 반영: 결제 수단에 따라 추가 시간 소요 가능"
-         ],
-         "exceptions_title": "환불 예외 사항",
-         "exceptions_items": [
-            "구매 후 14일이 경과한 경우",
-            "동일한 제품에 대해 이전에 환불을 받은 경우",
-            "이용약관을 위반한 경우"
          ]
       },
       "contact": {
@@ -325,9 +319,9 @@
       "privacy": "개인정보처리방침",
       "refund": "환불 정책",
       "contact": "문의하기",
-      "copyright": "© 2026 마니의블로그. All rights reserved.",
+      "copyright": "© 2026 mani's tech. All rights reserved.",
       "paddle_notice": "Paddle.com은 당사의 공식 판매 대행사(Merchant of Record)입니다.",
-      "developer": "마니의블로그 제작"
+      "developer": "mani's tech 제작"
    },
    "homepage": {
       "browse_apps": "앱 둘러보기",
