@@ -152,8 +152,10 @@ const DOC_SECTIONS = {
                   subtitle: "Troubleshooting",
                   items: [
                      "Restart Vesslo if apps aren't refreshing",
-                     "Grant Full Disk Access if some apps aren't detected",
-                     "Check System Preferences > Privacy & Security"
+                     "Go to System Settings > Privacy & Security > App Management and enable Vesslo",
+                     "Go to System Settings > Privacy & Security > Full Disk Access and enable Vesslo",
+                     "Both permissions are required for all features to work properly",
+                     "After granting permissions, restart Vesslo"
                   ]
                }
             ]
@@ -304,8 +306,10 @@ const DOC_SECTIONS = {
                   subtitle: "문제 해결",
                   items: [
                      "앱이 새로고침되지 않으면 Vesslo를 재시작하세요",
-                     "일부 앱이 감지되지 않으면 전체 디스크 접근 권한을 부여하세요",
-                     "시스템 환경설정 > 개인 정보 보호 및 보안 확인"
+                     "시스템 설정 > 개인 정보 보호 및 보안 > 앱 관리에서 Vesslo를 활성화하세요",
+                     "시스템 설정 > 개인 정보 보호 및 보안 > 전체 디스크 접근 권한에서 Vesslo를 활성화하세요",
+                     "모든 기능이 정상 작동하려면 두 권한 모두 필요합니다",
+                     "권한 부여 후 Vesslo를 재시작하세요"
                   ]
                }
             ]

@@ -72,6 +72,8 @@ export default function PrivacyPage() {
                      <li suppressHydrationWarning>{t('legal.privacy.sections.security.items.0')}</li>
                      <li suppressHydrationWarning>{t('legal.privacy.sections.security.items.1')}</li>
                      <li suppressHydrationWarning>{t('legal.privacy.sections.security.items.2')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.security.items.3')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.security.items.4')}</li>
                   </ul>
 
                   <div className="my-8 h-px bg-white/10" />
@@ -82,6 +84,35 @@ export default function PrivacyPage() {
                      <li suppressHydrationWarning>{t('legal.privacy.sections.rights.items.1')}</li>
                      <li suppressHydrationWarning>{t('legal.privacy.sections.rights.items.2')}</li>
                   </ul>
+
+                  <div className="my-8 h-px bg-white/10" />
+
+                  <h2 suppressHydrationWarning>{t('legal.privacy.sections.gdpr.title')}</h2>
+                  <p suppressHydrationWarning>{t('legal.privacy.sections.gdpr.content')}</p>
+                  <ul>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.0')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.1')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.2')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.3')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.4')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.gdpr.items.5')}</li>
+                  </ul>
+
+                  <div className="my-8 h-px bg-white/10" />
+
+                  <h2 suppressHydrationWarning>{t('legal.privacy.sections.ccpa.title')}</h2>
+                  <p suppressHydrationWarning>{t('legal.privacy.sections.ccpa.content')}</p>
+                  <ul>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.ccpa.items.0')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.ccpa.items.1')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.ccpa.items.2')}</li>
+                     <li suppressHydrationWarning>{t('legal.privacy.sections.ccpa.items.3')}</li>
+                  </ul>
+
+                  <div className="my-8 h-px bg-white/10" />
+
+                  <h2 suppressHydrationWarning>{t('legal.privacy.sections.cookies.title')}</h2>
+                  <p suppressHydrationWarning>{t('legal.privacy.sections.cookies.content')}</p>
 
                   <div className="my-8 h-px bg-white/10" />
 

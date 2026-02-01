@@ -109,7 +109,7 @@
          "sections": {
             "overview": {
                "title": "1. Service Overview",
-               "content": "These Terms of Service govern the use of software products (Vesslo, KeyHarbor, SplitSwipe, etc., hereinafter 'Service') provided by HJM79 (hereinafter 'Company')."
+               "content": "These Terms of Service govern the use of software products (Vesslo, KeyHarbor, SplitSwipe, etc., hereinafter 'Service') provided by mani's tech (hereinafter 'Company')."
             },
             "payment": {
                "title": "2. Payment and Sales",
@@ -170,7 +170,7 @@
          "sections": {
             "overview": {
                "title": "1. Overview",
-               "content": "HJM79 (hereinafter 'Company') takes user privacy protection seriously. This Privacy Policy explains the information collected and how it is processed when using our software (Vesslo, KeyHarbor, SplitSwipe) and website."
+               "content": "mani's tech (hereinafter 'Company') takes user privacy protection seriously. This Privacy Policy explains the information collected and how it is processed when using our software (Vesslo, KeyHarbor, SplitSwipe) and website."
             },
             "collection": {
                "title": "2. Information We Collect",
@@ -203,7 +203,9 @@
                "title": "5. Data Security",
                "items": [
                   "SSL/TLS encrypted communication",
-                  "Local data AES-256 encryption",
+                  "KeyHarbor: AES-256 encryption for stored license keys",
+                  "Vesslo: Non-sensitive app metadata stored locally only",
+                  "SplitSwipe: Window preferences stored locally, no sensitive data",
                   "Regular security reviews"
                ]
             },
@@ -214,6 +216,32 @@
                   "Opt-out of marketing communications",
                   "Opt-out of anonymous analytics data collection"
                ]
+            },
+            "gdpr": {
+               "title": "7. GDPR (European Users)",
+               "content": "If you are located in the European Economic Area (EEA), you have additional rights under the General Data Protection Regulation (GDPR):",
+               "items": [
+                  "Right to access your personal data",
+                  "Right to rectification of inaccurate data",
+                  "Right to erasure ('right to be forgotten')",
+                  "Right to restrict processing",
+                  "Right to data portability",
+                  "Right to object to processing"
+               ]
+            },
+            "ccpa": {
+               "title": "8. CCPA (California Residents)",
+               "content": "If you are a California resident, you have the following rights under the California Consumer Privacy Act (CCPA):",
+               "items": [
+                  "Right to know what personal information is collected",
+                  "Right to delete your personal information",
+                  "Right to opt-out of sale of personal information (We do not sell your data)",
+                  "Right to non-discrimination for exercising your rights"
+               ]
+            },
+            "cookies": {
+               "title": "9. Cookies",
+               "content": "Our website uses minimal cookies for essential functionality only. We do not use tracking or advertising cookies."
             },
             "contact": {
                "title": "10. Contact",
@@ -297,7 +325,7 @@
       "privacy": "Privacy Policy",
       "refund": "Refund Policy",
       "contact": "Contact",
-      "copyright": "© 2026 HJM79. All rights reserved.",
+      "copyright": "© 2026 mani's tech. All rights reserved.",
       "paddle_notice": "Paddle.com is our official Merchant of Record.",
       "developer": "Developed by mani's tech"
    },

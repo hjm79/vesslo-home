@@ -12,6 +12,7 @@ const NAV_ITEMS = [
    { name: "vesslo", path: "/vesslo" },
    { name: "keyharbor", path: "/keyharbor" },
    { name: "splitswipe", path: "/splitswipe" },
+   { name: "pricing", path: "/pricing" },
    { name: "gallery", path: "/gallery" },
 ];
 
