@@ -22,7 +22,7 @@
       },
       "keyharbor": {
          "title": "KeyHarbor",
-         "description": "군사 등급 암호화와 아름다운 UI로 소프트웨어 라이선스를 관리하세요.",
+         "description": "드래그 앤 드롭으로 앱정보 자동 추출. Touch ID와 로컬 저장으로 안전하게.",
          "desc_short": "안전하고 심플한 라이센스 관리",
          "features": {
             "harbor": {

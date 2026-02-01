@@ -6,5 +6,4 @@ Allow: /
 Sitemap: https://vesslo.top/sitemap.xml
 
 # Disallow admin/private paths (if any)
-Disallow: /_next/
 Disallow: /api/

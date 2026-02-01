@@ -22,7 +22,7 @@
       },
       "keyharbor": {
          "title": "KeyHarbor",
-         "description": "Manage your software licenses with military-grade encryption and beautiful UI.",
+         "description": "Drag & drop to auto-extract app info. Secured locally with Touch ID.",
          "desc_short": "Secure and simple license management",
          "features": {
             "harbor": {

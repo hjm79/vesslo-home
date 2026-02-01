@@ -66,7 +66,7 @@ function ScanAnimation() {
             {/* Magnifying Glass */}
             <div
                className="absolute left-1/2 -translate-x-1/2 transition-all duration-700 ease-out z-30"
-               style={{ top: scanComplete ? 'calc(100% - 10rem)' : `${getMagnifierPosition() * 0.72}%` }}
+               style={{ top: scanComplete ? 'calc(100% - 7rem)' : `${getMagnifierPosition() * 0.72}%` }}
             >
                <svg
                   className={`w-12 h-12 text-white drop-shadow-lg transition-all duration-500 ${scanComplete ? 'text-blue-400 scale-110' : ''}`}
@@ -131,13 +131,13 @@ function ScanAnimation() {
             {/* Connection line to Raycast */}
             {scanComplete && (
                <>
-                  <div className="absolute bottom-[-2rem] left-[calc(50%+4.5rem)] flex items-center gap-1 opacity-0 animate-fadeIn">
+                  <div className="absolute bottom-12 left-[calc(50%+4.5rem)] flex items-center gap-1 opacity-0 animate-fadeIn">
                      <div className="w-16 h-0.5 bg-white/40" />
                      <svg className="w-4 h-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                      </svg>
                   </div>
-                  <div className="absolute -bottom-12 left-[calc(50%+10rem)] opacity-0 animate-fadeIn">
+                  <div className="absolute bottom-4 left-[calc(50%+10rem)] opacity-0 animate-fadeIn">
                      <div className="relative w-16 h-16 rounded-xl overflow-hidden shadow-lg shadow-orange-500/30 border border-orange-500/40">
                         <Image
                            src="/raycast.png"

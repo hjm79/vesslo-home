@@ -21,6 +21,20 @@ export const metadata: Metadata = {
     title: "Vesslo - The Ultimate Mac Ecosystem",
     description: "Premium macOS apps for update management, license tracking, and window control.",
   },
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_CODE", // Google Search Console verification code
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 import Navbar from "@/components/layout/Navbar";
