@@ -42,7 +42,7 @@ function NavbarContent() {
                {NAV_ITEMS.map((item) => (
                   <Link
                      key={item.path}
-                     href={item.path}
+                     href={`${item.path}?lng=${currentLang}`}
                      className={cn(
                         "text-sm font-medium transition-colors text-white/70 hover:text-white capitalize",
                         pathname === item.path ? "text-white font-bold" : ""
