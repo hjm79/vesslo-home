@@ -434,7 +434,7 @@ export default function KeyHarborPage() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: appData.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
-               <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+               <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                   {lang === 'ko' ? '주요 기능' : 'Key Features'}
                </h2>
 
@@ -460,7 +460,7 @@ export default function KeyHarborPage() {
          {/* Feature Showcase Section */}
          <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
             <div className="container mx-auto px-6">
-               <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+               <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                   {lang === 'ko' ? '기능 살펴보기' : 'Feature Showcase'}
                </h2>
 
@@ -601,7 +601,7 @@ export default function KeyHarborPage() {
          {/* Screenshots Section */}
          <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
             <div className="container mx-auto px-6">
-               <h2 className="text-3xl font-bold text-center mb-12">
+               <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                   {lang === 'ko' ? '앱 스크린샷' : 'App Screenshots'}
                </h2>
 
