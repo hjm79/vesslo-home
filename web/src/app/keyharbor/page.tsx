@@ -349,14 +349,12 @@ export default function KeyHarborPage() {
                style={{ backgroundColor: appData.color }}
             />
 
-            {/* Converging Particles */}
-            <ConvergingParticles count={30} />
-
             <div className="container mx-auto px-6 relative z-10">
                <div className="grid md:grid-cols-2 gap-8 items-center">
 
-                  {/* Left: Key Collection Animation */}
-                  <div className="order-2 md:order-1">
+                  {/* Left: Key Collection Animation with Converging Particles */}
+                  <div className="order-2 md:order-1 relative">
+                     <ConvergingParticles count={18} />
                      <KeyCollectionAnimation lang={lang} />
                   </div>
 
