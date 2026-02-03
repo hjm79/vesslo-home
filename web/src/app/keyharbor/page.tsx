@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
+import FloatingParticles from "@/components/ui/FloatingParticles";
 
 // Apps that "have" license keys
 const KEY_SOURCES = [
@@ -347,6 +348,9 @@ export default function KeyHarborPage() {
                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-20 pointer-events-none z-0"
                style={{ backgroundColor: appData.color }}
             />
+
+            {/* Floating Particles */}
+            <FloatingParticles count={30} />
 
             <div className="container mx-auto px-6 relative z-10">
                <div className="grid md:grid-cols-2 gap-8 items-center">
