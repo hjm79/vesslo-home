@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
-import FloatingParticles from "@/components/ui/FloatingParticles";
+import ConvergingParticles from "@/components/ui/ConvergingParticles";
 
 // Apps that "have" license keys
 const KEY_SOURCES = [
@@ -349,8 +349,8 @@ export default function KeyHarborPage() {
                style={{ backgroundColor: appData.color }}
             />
 
-            {/* Floating Particles */}
-            <FloatingParticles count={30} />
+            {/* Converging Particles */}
+            <ConvergingParticles count={30} />
 
             <div className="container mx-auto px-6 relative z-10">
                <div className="grid md:grid-cols-2 gap-8 items-center">

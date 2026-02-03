@@ -73,12 +73,15 @@ body {
     transform: translateY(0) translateX(0);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-100vh) translateX(20px);
     opacity: 0;
@@ -87,4 +90,29 @@ body {
 
 .animate-float-up {
   animation: float-up linear infinite;
+}
+
+/* Converging particles animation (for KeyHarbor) */
+@keyframes converge-center {
+  0% {
+    transform: translate(var(--start-x), var(--start-y));
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+.animate-converge-center {
+  animation: converge-center linear infinite;
 }
