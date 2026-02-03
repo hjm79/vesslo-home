@@ -20,14 +20,14 @@ const COLORS = [
     "rgba(147, 197, 253, 0.5)", // sky
 ];
 
-export default function ConvergingParticles({ count = 25 }: { count?: number }) {
+export default function ConvergingParticles({ count = 15 }: { count?: number }) {
     const [particles, setParticles] = useState<Particle[]>([]);
 
     useEffect(() => {
         const generated: Particle[] = [];
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * 360;
-            const distance = 200 + Math.random() * 150;
+            const distance = 300 + Math.random() * 200;
             generated.push({
                 id: i,
                 startX: Math.cos((angle * Math.PI) / 180) * distance,
