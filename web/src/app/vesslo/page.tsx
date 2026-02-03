@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n"; // Ensure i18n is initialized
+import FloatingParticles from "@/components/ui/FloatingParticles";
 
 // Sources to scan through (order: top to bottom)
 const SOURCES = [
@@ -221,6 +222,9 @@ export default function VessloPage() {
          <section className="w-full relative overflow-hidden flex items-center justify-center py-20">
             {/* Background Gradient */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none z-0" />
+
+            {/* Floating Particles */}
+            <FloatingParticles count={35} />
 
             <div className="container mx-auto px-6 relative z-10">
                <div className="grid md:grid-cols-2 gap-16 items-center">
