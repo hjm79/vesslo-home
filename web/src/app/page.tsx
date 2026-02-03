@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import "@/i18n";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ConvergingParticles from "@/components/ui/ConvergingParticles";
 
 const APPS_STATIC = [
   {
@@ -43,6 +44,9 @@ export default function Home() {
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-black pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none" />
+
+        {/* Converging Particles */}
+        <ConvergingParticles count={25} />
 
         {/* Content */}
         <motion.div
