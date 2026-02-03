@@ -5,6 +5,7 @@ import "@/i18n";
 import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import FloatingParticles from "@/components/ui/FloatingParticles";
 
 const PRICING_DATA = {
    en: {
@@ -171,6 +172,9 @@ export default function PricingPage() {
          {/* Hero */}
          <section className="pt-32 pb-16 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-[150px] pointer-events-none" />
+
+            {/* Floating Particles */}
+            <FloatingParticles count={30} />
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                <motion.h1
