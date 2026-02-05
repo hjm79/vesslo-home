@@ -7,25 +7,36 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vesslo - The Ultimate Mac Ecosystem",
-  description: "Premium macOS apps: Vesslo (update manager), KeyHarbor (license manager), SplitSwipe (window manager). Native Swift apps for Mac.",
-  keywords: ["Mac apps", "macOS", "Vesslo", "KeyHarbor", "SplitSwipe", "update manager", "license manager", "window manager"],
+  description: "Elevate your Mac experience with Vesslo, KeyHarbor, and SplitSwipe ecosystem. The ultimate update manager, license key organizer, and window manager for macOS.",
+  keywords: ["Mac apps", "macOS", "Vesslo", "KeyHarbor", "SplitSwipe", "update manager", "license manager", "window manager", "Mac utility", "app update", "Homebrew", "App Store updates", "Mac productivity"],
   openGraph: {
     title: "Vesslo - The Ultimate Mac Ecosystem",
-    description: "Premium macOS apps for update management, license tracking, and window control.",
+    description: "Elevate your Mac experience with Vesslo, KeyHarbor, and SplitSwipe ecosystem.",
     url: "https://vesslo.top",
     siteName: "Vesslo",
     type: "website",
+    images: [
+      {
+        url: "https://vesslo.top/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Vesslo - The Ultimate Mac Ecosystem",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vesslo - The Ultimate Mac Ecosystem",
-    description: "Premium macOS apps for update management, license tracking, and window control.",
+    description: "Elevate your Mac experience with Vesslo, KeyHarbor, and SplitSwipe ecosystem.",
+    images: ["https://vesslo.top/og-image.png"],
   },
   alternates: {
     canonical: 'https://vesslo.top',
-  },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE", // Google Search Console verification code
+    languages: {
+      'en': 'https://vesslo.top',
+      'ko': 'https://vesslo.top?lng=ko',
+      'x-default': 'https://vesslo.top',
+    },
   },
   robots: {
     index: true,

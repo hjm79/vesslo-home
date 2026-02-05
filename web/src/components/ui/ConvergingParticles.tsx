@@ -35,7 +35,7 @@ export default function ConvergingParticles({ count = 15 }: { count?: number }) 
                 size: Math.random() * 3 + 2,
                 color: COLORS[Math.floor(Math.random() * COLORS.length)],
                 duration: Math.random() * 8 + 6,
-                delay: Math.random() * 5,
+                delay: 0,
             });
         }
         setParticles(generated);

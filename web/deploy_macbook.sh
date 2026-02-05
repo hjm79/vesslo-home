@@ -19,6 +19,11 @@ if [ $? -eq 0 ]; then
     echo "📤 Deploying to MacBook server (wtrpro)..."
     # HostName 183.96.81.247, User root, Port 2254, Key ~/.ssh/id_ed25519
     rsync -avz --delete -e "ssh -p 2254 -i ~/.ssh/id_ed25519" out/ root@183.96.81.247:/var/www/vesslo.top/
+    
+    # 서버 파일 소유권 변경 (www-data)
+    echo "🔒 Updating file permissions..."
+    ssh -p 2254 -i ~/.ssh/id_ed25519 root@183.96.81.247 "chown -R www-data:www-data /var/www/vesslo.top"
+    
     echo "✅ Deployed to vesslo.top on MacBook!"
 else
     echo "❌ Build failed!"

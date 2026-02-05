@@ -18,7 +18,7 @@ export default function TermsPage() {
                   {t('legal.terms.title')}
                </h1>
                <p className="text-slate-400 text-lg" suppressHydrationWarning>
-                  {t('legal.terms.last_updated')}: 2026-01-31
+                  {t('legal.terms.last_updated')}: 2026-02-04
                </p>
             </div>
 
@@ -93,6 +93,15 @@ export default function TermsPage() {
                   <p suppressHydrationWarning>
                      {t('legal.terms.sections.contact.content')}
                      <a href="mailto:me@hjm79.top" className="block mt-2 text-xl font-bold no-underline hover:underline">me@hjm79.top</a>
+                  </p>
+
+                  <div className="my-8 h-px bg-white/10" />
+
+                  <p className="text-slate-400" suppressHydrationWarning>
+                     {t('legal.terms.sections.contact.see_also')}{' '}
+                     <a href="/privacy" className="text-blue-400 hover:underline">Privacy Policy</a>
+                     {' | '}
+                     <a href="/refund" className="text-blue-400 hover:underline">Refund Policy</a>
                   </p>
                </article>
             </div>

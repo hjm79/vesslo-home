@@ -327,7 +327,16 @@ export default function Docs2Page() {
       setMounted(true);
    }, []);
 
-   if (!mounted) return null;
+   if (!mounted) {
+      return (
+         <div className="min-h-screen bg-black text-white">
+            <div className="pt-32 pb-16 text-center">
+               <h1 className="text-5xl font-bold mb-4">Vesslo Documentation</h1>
+               <p className="text-slate-400">Complete guide for Vesslo app</p>
+            </div>
+         </div>
+      );
+   }
 
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
    const docData = DOC_SECTIONS[lang as keyof typeof DOC_SECTIONS];

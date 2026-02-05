@@ -305,7 +305,16 @@ export default function SplitSwipePage() {
       setMounted(true);
    }, []);
 
-   if (!mounted) return null;
+   if (!mounted) {
+      return (
+         <div className="min-h-screen bg-black text-white">
+            <div className="pt-32 pb-16 text-center">
+               <h1 className="text-5xl font-bold mb-4">SplitSwipe</h1>
+               <p className="text-slate-400">Intuitive Window Management for macOS</p>
+            </div>
+         </div>
+      );
+   }
 
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
    const appData = APPS_DATA[lang as keyof typeof APPS_DATA];

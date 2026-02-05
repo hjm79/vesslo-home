@@ -167,7 +167,16 @@ export default function VessloPage() {
    }, []);
 
    // Prevent hydration mismatch by rendering only after mount
-   if (!mounted) return null;
+   if (!mounted) {
+      return (
+         <div className="min-h-screen bg-black text-white">
+            <div className="pt-32 pb-16 text-center">
+               <h1 className="text-5xl font-bold mb-4">Vesslo</h1>
+               <p className="text-slate-400">The Ultimate Update Manager for macOS</p>
+            </div>
+         </div>
+      );
+   }
 
    const features = [
       {
@@ -328,7 +337,7 @@ export default function VessloPage() {
                         key={feature.id}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: false, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                         className={`flex flex-col ${feature.direction === 'right' ? 'md:flex-row-reverse' : feature.direction === 'center' ? 'flex-col items-center text-center' : 'md:flex-row'} items-center gap-12 md:gap-24`}
                      >

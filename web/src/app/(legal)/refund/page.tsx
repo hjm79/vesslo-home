@@ -18,7 +18,7 @@ export default function RefundPage() {
                   {t('legal.refund.title')}
                </h1>
                <p className="text-slate-400 text-lg" suppressHydrationWarning>
-                  {t('legal.terms.last_updated')}: 2026-01-31
+                  {t('legal.terms.last_updated')}: 2026-02-04
                </p>
             </div>
 
@@ -51,14 +51,6 @@ export default function RefundPage() {
                   <h3 suppressHydrationWarning>{t('legal.refund.method1_title')}</h3>
                   <p suppressHydrationWarning>{t('legal.refund.method1_desc')}</p>
 
-                  <h3 suppressHydrationWarning>{t('legal.refund.method2_title')}</h3>
-                  <p suppressHydrationWarning>{t('legal.refund.method2_desc')}</p>
-                  <ul>
-                     <li suppressHydrationWarning>{t('legal.refund.method2_items.0')}</li>
-                     <li suppressHydrationWarning>{t('legal.refund.method2_items.1')}</li>
-                     <li suppressHydrationWarning>{t('legal.refund.method2_items.2')}</li>
-                  </ul>
-
                   <div className="my-8 h-px bg-white/10" />
 
                   <h2 suppressHydrationWarning>{t('legal.refund.timeline_title')}</h2>
@@ -67,6 +59,12 @@ export default function RefundPage() {
                      <li suppressHydrationWarning>{t('legal.refund.timeline_items.1')}</li>
                      <li suppressHydrationWarning>{t('legal.refund.timeline_items.2')}</li>
                   </ul>
+
+                  <div className="my-8 h-px bg-white/10" />
+
+                  <div className="bg-slate-800/50 rounded-xl p-6 not-prose">
+                     <p className="text-slate-300" suppressHydrationWarning>{t('legal.refund.contact_note')}</p>
+                  </div>
 
 
                </article>

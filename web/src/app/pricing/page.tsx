@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
 import Navbar from "@/components/layout/Navbar";
@@ -162,6 +163,23 @@ const PRICING_DATA = {
 
 export default function PricingPage() {
    const { i18n } = useTranslation();
+   const [mounted, setMounted] = useState(false);
+
+   useEffect(() => {
+      setMounted(true);
+   }, []);
+
+   if (!mounted) {
+      return (
+         <div className="min-h-screen bg-black text-white">
+            <div className="pt-32 pb-16 text-center">
+               <h1 className="text-5xl font-bold mb-4">Pricing</h1>
+               <p className="text-slate-400">Loading...</p>
+            </div>
+         </div>
+      );
+   }
+
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
    const data = PRICING_DATA[lang as keyof typeof PRICING_DATA];
 
@@ -181,6 +199,7 @@ export default function PricingPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-5xl md:text-6xl font-bold mb-4"
+                  suppressHydrationWarning
                >
                   {data.title}
                </motion.h1>
@@ -189,6 +208,7 @@ export default function PricingPage() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
                   className="text-xl text-slate-400"
+                  suppressHydrationWarning
                >
                   {data.subtitle}
                </motion.p>
@@ -204,8 +224,9 @@ export default function PricingPage() {
                         key={app.name}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="relative bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all group"
+                        whileHover={{ y: -12, transition: { duration: 0.1 } }}
+                        transition={{ delay: index * 0.1, y: { duration: 0 } }}
+                        className="relative bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-white/20 hover:shadow-2xl transition-all group cursor-pointer"
                      >
                         {/* App Icon */}
                         <div className="w-20 h-20 mb-6 relative">
@@ -218,8 +239,8 @@ export default function PricingPage() {
                         </div>
 
                         {/* App Name & Description */}
-                        <h3 className="text-2xl font-bold mb-2">{app.name}</h3>
-                        <p className="text-slate-400 text-sm mb-6">{app.description}</p>
+                        <h3 className="text-2xl font-bold mb-2" suppressHydrationWarning>{app.name}</h3>
+                        <p className="text-slate-400 text-sm mb-6" suppressHydrationWarning>{app.description}</p>
 
                         {/* Price */}
                         <div className="mb-6">
@@ -232,7 +253,7 @@ export default function PricingPage() {
                         {/* Features */}
                         <ul className="space-y-3 mb-8">
                            {app.features.map((feature, i) => (
-                              <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                              <li key={i} className="flex items-center gap-3 text-sm text-slate-300" suppressHydrationWarning>
                                  <svg className="w-5 h-5 flex-shrink-0" style={{ color: app.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                  </svg>
@@ -245,6 +266,7 @@ export default function PricingPage() {
                         <button
                            className="w-full py-3 rounded-xl font-bold text-white transition-all hover:opacity-90"
                            style={{ backgroundColor: app.color }}
+                           suppressHydrationWarning
                         >
                            {data.buy_button}
                         </button>
@@ -259,7 +281,7 @@ export default function PricingPage() {
             <div className="container mx-auto px-6 text-center">
                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10">
                   <span className="text-2xl">🛡️</span>
-                  <p className="text-slate-400 text-sm">{data.paddle_notice}</p>
+                  <p className="text-slate-400 text-sm" suppressHydrationWarning>{data.paddle_notice}</p>
                </div>
             </div>
          </section>
@@ -275,7 +297,7 @@ export default function PricingPage() {
                         key={index}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ delay: index * 0.05 }}
                         className="bg-white/5 border border-white/10 rounded-2xl p-6"
                      >

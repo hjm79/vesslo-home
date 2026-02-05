@@ -333,7 +333,16 @@ export default function KeyHarborPage() {
       setMounted(true);
    }, []);
 
-   if (!mounted) return null;
+   if (!mounted) {
+      return (
+         <div className="min-h-screen bg-black text-white">
+            <div className="pt-32 pb-16 text-center">
+               <h1 className="text-5xl font-bold mb-4">KeyHarbor</h1>
+               <p className="text-slate-400">Your License Keys, Safely Harbored</p>
+            </div>
+         </div>
+      );
+   }
 
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
    const appData = APPS_DATA[lang as keyof typeof APPS_DATA];
@@ -441,20 +450,38 @@ export default function KeyHarborPage() {
                </h2>
 
                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                  {appData.features.map((feature, index) => (
-                     <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all"
-                     >
-                        <span className="text-4xl mb-4 block">{feature.icon}</span>
-                        <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                        <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
-                     </motion.div>
-                  ))}
+                  {appData.features.map((feature, index) => {
+                     const bgImages = [
+                        '/keyharbor/key_back.png',
+                        '/keyharbor/wall-back.png',
+                        '/keyharbor/bell_back.png'
+                     ];
+                     return (
+                        <motion.div
+                           key={index}
+                           initial={{ opacity: 0, y: 20 }}
+                           whileInView={{ opacity: 1, y: 0 }}
+                           viewport={{ once: false }}
+                           transition={{ delay: index * 0.1 }}
+                           className="relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all overflow-hidden"
+                        >
+                           {/* Background Image */}
+                           <div
+                              className="absolute inset-0 opacity-30 bg-cover bg-center"
+                              style={{ backgroundImage: `url(${bgImages[index]})` }}
+                           />
+                           {/* Gradient Overlay for Readability */}
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+
+                           {/* Content */}
+                           <div className="relative z-10">
+                              <span className="text-4xl mb-4 block">{feature.icon}</span>
+                              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                              <p className="text-slate-400 leading-relaxed">{feature.desc}</p>
+                           </div>
+                        </motion.div>
+                     );
+                  })}
                </div>
             </div>
          </section>
@@ -470,7 +497,7 @@ export default function KeyHarborPage() {
                <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="mb-20"
                >
                   <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -505,7 +532,7 @@ export default function KeyHarborPage() {
                <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="mb-20"
                >
                   <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -537,7 +564,7 @@ export default function KeyHarborPage() {
                <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                >
                   <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
                      <div className="order-2 md:order-1">
@@ -570,7 +597,7 @@ export default function KeyHarborPage() {
                <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="mt-20"
                >
                   <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">

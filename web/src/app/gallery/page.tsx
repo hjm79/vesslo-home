@@ -2,9 +2,20 @@
 
 import dynamic from "next/dynamic";
 
-const CircularGallery = dynamic(() => import("@/components/canvas/CircularGallery"), { ssr: false });
+const CircularGallery = dynamic(() => import("@/components/canvas/CircularGallery"), {
+   ssr: false,
+   loading: () => (
+      <div className="h-screen w-full bg-black flex items-center justify-center">
+         <div className="text-center">
+            <h1 className="text-5xl font-bold text-white mb-4">Vesslo Gallery</h1>
+            <p className="text-slate-400">Interactive 3D showcase of Vesslo ecosystem apps</p>
+            <p className="text-slate-500 mt-4">Loading experience...</p>
+         </div>
+      </div>
+   )
+});
 
-export default function TestPage3() {
+export default function GalleryPage() {
    return (
       <main className="h-screen w-full bg-black">
          <style jsx global>{`

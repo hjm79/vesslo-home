@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
 import Link from "next/link";
@@ -35,6 +36,23 @@ const APPS_STATIC = [
 
 export default function Home() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // SEO: English content for Google crawler
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-black text-white">
+        <div className="h-[85vh] flex flex-col items-center justify-center text-center px-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">The Ultimate Mac Ecosystem</h1>
+          <p className="text-xl text-slate-400 mb-8">Discover three powerful tools: Vesslo, KeyHarbor, and SplitSwipe. The ultimate update manager for macOS. App Store, Homebrew and more in one unified tracker.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -121,7 +139,7 @@ export default function Home() {
                 key={app.slug}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link href={`/${app.slug}`}>
@@ -189,12 +207,24 @@ export default function Home() {
       {/* ============ FEATURES/TRUST SECTION ============ */}
       <section className="py-24 px-6 bg-slate-950 border-t border-white/5">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16" suppressHydrationWarning>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold mb-16"
+            suppressHydrationWarning
+          >
             {t('homepage.philosophy')}
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-12">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: 0 }}
+            >
               <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-blue-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -202,9 +232,14 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3" suppressHydrationWarning>{t('homepage.strong_security')}</h3>
               <p className="text-slate-400" suppressHydrationWarning>{t('homepage.strong_security_desc')}</p>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
               <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-green-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -212,9 +247,14 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3" suppressHydrationWarning>{t('homepage.native_speed')}</h3>
               <p className="text-slate-400" suppressHydrationWarning>{t('homepage.native_speed_desc')}</p>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-purple-400">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
@@ -222,7 +262,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3" suppressHydrationWarning>{t('homepage.beautiful_design')}</h3>
               <p className="text-slate-400" suppressHydrationWarning>{t('homepage.beautiful_design_desc')}</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
