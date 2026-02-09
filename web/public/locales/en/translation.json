@@ -353,5 +353,382 @@
       "feature2_desc": "Homebrew, Sparkle, and App Store unified",
       "feature3_title": "Raycast Integration",
       "feature3_desc": "Check updates and search app content (memo, tag)"
+   },
+   "pricing_page": {
+      "title": "Simple, One-Time Pricing",
+      "subtitle": "No subscriptions. Pay once, use forever.",
+      "paddle_notice": "All payments are securely processed by Paddle.com, our official Merchant of Record.",
+      "buy_button": "Buy Now",
+      "vesslo": {
+         "description": "The ultimate update manager for macOS",
+         "features": [
+            "Unified update management",
+            "Homebrew, Sparkle, App Store support",
+            "Raycast extension included",
+            "2 devices per license",
+            "One-time purchase, no subscription"
+         ]
+      },
+      "keyharbor": {
+         "description": "Secure license key management",
+         "features": [
+            "All keys in one place",
+            "Touch ID protection",
+            "Expiration alerts",
+            "Local storage only",
+            "One-time purchase, no subscription"
+         ]
+      },
+      "splitswipe": {
+         "description": "Window management with gestures",
+         "features": [
+            "Intuitive swipe gestures",
+            "Snap grid system",
+            "Keyboard shortcuts",
+            "Custom layouts",
+            "One-time purchase, no subscription"
+         ]
+      },
+      "faq": {
+         "title": "Frequently Asked Questions",
+         "items": [
+            {
+               "q": "Is this a one-time purchase?",
+               "a": "Yes! Pay once for the current version. No subscriptions or recurring charges. Minor updates are included free."
+            },
+            {
+               "q": "How many devices can I use?",
+               "a": "Vesslo includes 2 device licenses per account. KeyHarbor and SplitSwipe are single-device licenses."
+            },
+            {
+               "q": "What payment methods are accepted?",
+               "a": "All payments are processed securely through Paddle. Credit cards, PayPal, and Apple Pay are accepted."
+            },
+            {
+               "q": "Is there a free trial?",
+               "a": "Yes! All apps offer a free trial period so you can test before purchasing."
+            },
+            {
+               "q": "What's the refund policy?",
+               "a": "We offer a 14-day money-back guarantee. If you're not satisfied, contact us for a full refund."
+            }
+         ]
+      }
+   },
+   "keyharbor_page": {
+      "tagline": "Your License Keys, Safely Harbored",
+      "features": [
+         {
+            "icon": "🔐",
+            "title": "All Keys, One Harbor",
+            "desc": "Securely manage all your scattered license keys in one place. No more digging through emails or searching for notes."
+         },
+         {
+            "icon": "🛡️",
+            "title": "Your Data, Your Device",
+            "desc": "All data is stored locally on your Mac—never synced to the cloud. Protected by Touch ID and your master password."
+         },
+         {
+            "icon": "🔔",
+            "title": "Smart Expiration Alerts",
+            "desc": "Get notified automatically when subscriptions are about to expire. Never miss an important license renewal."
+         }
+      ]
+   },
+   "splitswipe_page": {
+      "tagline": "Window Management, Reimagined",
+      "features": [
+         {
+            "icon": "✨",
+            "title": "2-Split & 3-Split Layouts",
+            "desc": "Easily arrange your windows in 2-split (1|2) or 3-split (1|2|3) horizontal layouts. Perfect for multitasking."
+         },
+         {
+            "icon": "🔄",
+            "title": "App Rotation",
+            "desc": "Rotate assigned apps within each zone using keyboard shortcuts or trackpad gestures via BetterTouchTool."
+         },
+         {
+            "icon": "⌨️",
+            "title": "Keyboard & Gesture Support",
+            "desc": "Control everything with keyboard shortcuts or trackpad gestures. No mouse required for power users."
+         }
+      ],
+      "hero_features": {
+         "split": "2-Split & 3-Split layouts",
+         "rotate": "Rotate apps with keyboard/gestures",
+         "btt": "BetterTouchTool integration",
+         "power": "Window management for power users"
+      },
+      "video_title": "In Action",
+      "video_desc": "The arrows in the video demonstrate how apps rotate using keyboard shortcuts or trackpad gestures. Easily switch between assigned apps in 2-split (1|2) or 3-split (1|2|3) layouts.",
+      "video_3split_title": "3-Split in Action",
+      "video_3split_desc": "Windows highlighted in red indicate apps with size restrictions or excluded apps.",
+      "features_title": "Key Features",
+      "showcase_title": "Feature Showcase",
+      "showcase_split_title": "2-Split & 3-Split Support",
+      "showcase_split_desc": "Divide your screen into 2 or 3 zones for efficient multitasking. Assign and switch apps in each zone as needed.",
+      "showcase_keyboard_title": "Keyboard Shortcuts",
+      "showcase_keyboard_desc": "Quickly split windows and rotate apps with keyboard shortcuts. Perfect window management without a mouse.",
+      "showcase_overview_title": "Overview Mode",
+      "showcase_overview_desc": "Overview mode lets you see at a glance which apps are assigned to each zone.",
+      "cta_title": "Get Started Today",
+      "cta_desc": "Download for free and start experiencing the new way of window management.",
+      "purchase": "Purchase",
+      "anim_preparing": "🪟 Preparing windows...",
+      "anim_2split": "⬅️➡️ 2-Split (1|2)",
+      "anim_rotating": "🔄 Rotating apps...",
+      "anim_3split": "📐 3-Split (1|2|3)",
+      "anim_done": "✅ Organized!"
+   },
+   "docs": {
+      "badge": "Documentation",
+      "hero_title_prefix": "Vesslo",
+      "hero_title_highlight": "User Guide",
+      "hero_subtitle": "The new standard for macOS app management",
+      "toc": "Table of Contents",
+      "back_to_vesslo": "← Back to Vesslo",
+      "tagline": "Vesslo — The new standard for Mac app management ✨",
+      "sections": {
+         "intro": "What is Vesslo?",
+         "layout": "Screen Layout",
+         "views": "View Modes",
+         "update": "Update Features",
+         "running": "Running App Handling",
+         "sources": "Update Sources",
+         "manual": "Manual Install Apps",
+         "manage": "App Management",
+         "search": "Search & Filter",
+         "shortcuts": "Shortcuts",
+         "settings": "Settings",
+         "faq": "FAQ",
+         "support": "Support"
+      },
+      "intro": {
+         "desc_pre": "Vesslo is an app manager that lets you ",
+         "desc_strong": "manage all apps",
+         "desc_mid": " installed on your Mac ",
+         "desc_strong2": "in one place",
+         "desc_post": ".",
+         "key_features": "Key Features",
+         "feat_unified": "Unified Updates",
+         "feat_unified_desc": "Update Homebrew, Sparkle, and App Store apps from a single screen",
+         "feat_sort": "Smart Classification",
+         "feat_sort_desc": "Auto-sort by category, tag, or source",
+         "feat_batch": "Batch Updates",
+         "feat_batch_desc": "Update multiple apps at once",
+         "feat_running": "Running App Detection",
+         "feat_running_desc": "Safely quit running apps before updating"
+      },
+      "layout": {
+         "main_screen": "Main Screen (3-Panel Layout)",
+         "panel1_title": "Panel 1: Sidebar",
+         "panel1_all": "All Apps",
+         "panel1_all_desc": "All installed apps",
+         "panel1_update": "Updates Available",
+         "panel1_update_desc": "Apps with updates",
+         "panel1_running": "Running",
+         "panel1_running_desc": "Currently running apps",
+         "panel1_category": "By Category",
+         "panel1_category_desc": "Dev tools, Productivity, Utilities, etc.",
+         "panel23_title": "Panel 2/3",
+         "panel23_desc": "Area for displaying app list and details. Layout changes based on view mode."
+      },
+      "views": {
+         "general_title": "General Views (All apps)",
+         "mode": "Mode",
+         "description": "Description",
+         "list_view": "List View",
+         "list_view_desc": "Apps displayed in single rows vertically",
+         "split_view": "Split View",
+         "split_view_desc": "Left list + right detail view",
+         "list_caption": "List View",
+         "split_caption": "Split View",
+         "update_title": "Update Views (Updatable apps)",
+         "grid_view": "Grid View",
+         "grid_view_desc": "App Store style 2-column card layout",
+         "list_update_desc": "Compact single-row layout",
+         "grid_caption": "Update Grid View",
+         "list_update_caption": "Update List View"
+      },
+      "update": {
+         "individual": "Individual Update",
+         "individual_steps": [
+            "Select the desired app from the list",
+            "Click the Update button",
+            "Automatically installs the latest version"
+         ],
+         "batch": "Update All (Batch)",
+         "batch_steps": [
+            "Click 'Updates Available' in the sidebar",
+            "Click the 'Update All' button in the top right",
+            "Confirm running apps before proceeding",
+            "Homebrew apps: Updated automatically",
+            "Password-required apps: Click 'Open Terminal' in orange section → enter password → 'Confirm Done'",
+            "App Store apps: Click 'Open Terminal' in blue section → run mas upgrade → 'Confirm Done'"
+         ],
+         "category": "Update by Category",
+         "category_new": "⭐ NEW",
+         "category_steps": [
+            "Select desired category in sidebar (e.g., Developer Tools)",
+            "Click the 'Update All' button",
+            "Only apps in that category are updated"
+         ],
+         "category_tip": "Useful when you want to update only a specific category!"
+      },
+      "running": {
+         "title": "Running App Handling Settings",
+         "path": "Settings → Updates → Running app handling during full update",
+         "option": "Option",
+         "behavior": "Behavior",
+         "safe": "Safe Quit (Safe)",
+         "safe_desc": "Shows confirmation popup before quitting, gives app a chance to show save dialog",
+         "force": "Force Quit (Force)",
+         "force_desc": "Quits immediately without confirmation (unsaved data may be lost)",
+         "skip": "Skip",
+         "skip_desc": "Running apps are not updated",
+         "caption_settings": "Settings Screen",
+         "caption_safe": "Safe Quit Example"
+      },
+      "sources": {
+         "desc": "Vesslo detects updates from various sources:",
+         "homebrew_desc": "Updates via brew upgrade --cask",
+         "sparkle_desc": "Uses built-in app update system",
+         "appstore_desc": "Updates via mas CLI",
+         "setapp_desc": "Requires updating directly from Setapp app",
+         "manual_desc": "Manual update required",
+         "badge_title": "App Icon Badges",
+         "badge_desc": "Badges displayed next to app names provide additional info:",
+         "badge_icon": "Icon",
+         "badge_meaning": "Meaning",
+         "badge_sudo": "App that requires password (sudo)",
+         "badge_manual": "Manual install app — brew upgrade not possible, uses brew fetch + installer",
+         "badge_adoptable": "Homebrew-convertible app (Adoptable)",
+         "badge_ios": "iOS/iPadOS app (runs on Apple Silicon Mac)",
+         "badge_electron": "Electron framework-based app",
+         "badge_sudo_caption": "🔒 sudo & 📦 manual install badges",
+         "badge_ios_caption": "iOS app badge"
+      },
+      "manual": {
+         "title": "Manual Install (Installer Manual) Apps",
+         "desc1_pre": "Some Homebrew Cask apps require ",
+         "desc1_highlight": "manual installation",
+         "desc1_post": ".",
+         "desc2_pre": "These apps ",
+         "desc2_cannot": "cannot",
+         "desc2_post": " be auto-updated via ",
+         "example_title": "Example apps:",
+         "example_list": "Loupedeck, Logitech Options, etc.",
+         "how_title": "How do I know?",
+         "how1": "A 📦 orange box icon appears next to the app name",
+         "how2_pre": "The detail page shows the ",
+         "how2_post": " command",
+         "caption_loupedeck": "Manual install app example — Loupedeck",
+         "individual": "Individual Update",
+         "individual_steps": [
+            "Click the copy button next to the command in the app detail page banner",
+            "Paste into Terminal and run",
+            "Run the downloaded PKG file from Finder to complete installation"
+         ],
+         "batch": "Batch Update (Update All)",
+         "batch_steps": [
+            "Manual install apps are automatically sorted into the terminal section",
+            "Click 'Open Terminal' to download via brew fetch and auto-launch installer",
+            "Complete installation when PKG/DMG file opens"
+         ],
+         "tip_prefix": "Difference from regular sudo apps: ",
+         "tip_sudo": "sudo apps are auto-installed via ",
+         "tip_manual": " but manual install apps require downloading via ",
+         "tip_suffix": " and manually running the PKG/DMG. Existing app data and plugins are preserved."
+      },
+      "manage": {
+         "skip_title": "Skip Updates",
+         "skip_version": "Skip Version",
+         "skip_version_desc": "Ignore only a specific version (next version will notify)",
+         "skip_app": "Ignore App",
+         "skip_app_desc": "Ignore all updates for this app",
+         "tag_title": "Tag Management",
+         "tag_add": "Add custom tags to apps",
+         "tag_filter": "Filter and search apps by tag",
+         "memo_title": "Memo Feature",
+         "memo_markdown": "Write memos per app (Markdown supported)",
+         "memo_license": "Record license keys, settings info, etc."
+      },
+      "search": {
+         "search_title": "Search",
+         "search_name": "Search by app name in the top search bar",
+         "search_enter": "Press Enter to execute search",
+         "filter_title": "Filter Options",
+         "filter_source": "By Source",
+         "filter_source_desc": "Homebrew, Sparkle, App Store, etc.",
+         "filter_category": "By Category",
+         "filter_category_desc": "Dev Tools, Productivity, Utilities, etc.",
+         "filter_status": "By Status",
+         "filter_status_desc": "Updatable, Running, Ignored, etc."
+      },
+      "shortcuts": {
+         "shortcut": "Shortcut",
+         "function": "Function",
+         "items": [
+            [
+               "⌘ + R",
+               "Refresh app list"
+            ],
+            [
+               "⌘ + ,",
+               "Open Settings"
+            ],
+            [
+               "⌘ + F",
+               "Search"
+            ]
+         ]
+      },
+      "settings": {
+         "general": "General",
+         "language": "Language",
+         "language_desc": "Korean / English",
+         "startup": "Check updates on launch",
+         "startup_desc": "Auto-check when app starts",
+         "updates": "Updates",
+         "interval": "Auto-refresh interval",
+         "interval_desc": "1hr / 6hr / 12hr / 24hr / Manual",
+         "quit_method": "App quit method",
+         "quit_method_desc": "Safe / Force / Skip",
+         "discovery": "Discovery",
+         "homebrew_search": "Homebrew update search",
+         "sparkle_search": "Sparkle update search",
+         "appstore_search": "App Store update search"
+      },
+      "faq": {
+         "q1": "Updates are not being detected",
+         "a1_step1_pre": "Refresh with ",
+         "a1_step2": "Check if the source is enabled in Settings",
+         "a1_step3": "Check if the app is in \"Ignored\" state",
+         "q2": "Homebrew updates open in Terminal",
+         "a2_desc": "Homebrew apps requiring a password or manual installation run in Terminal.",
+         "a2_lock": "🔒 Lock apps",
+         "a2_lock_cmd": "brew upgrade --cask --force",
+         "a2_lock_desc": " (enter password, auto-install)",
+         "a2_box": "📦 Box apps",
+         "a2_box_cmd": "brew fetch --cask",
+         "a2_box_desc": " (download, then auto-launch PKG/DMG)",
+         "q3": "What's the 📦 box icon?",
+         "a3_type": "installer manual",
+         "a3_desc1": " type Homebrew Cask. These apps cannot be auto-updated via ",
+         "a3_cmd1": "brew upgrade",
+         "a3_desc2": " so they are downloaded via ",
+         "a3_cmd2": "brew fetch",
+         "a3_desc3": " and the installer is run manually.",
+         "q4": "App Store updates not working",
+         "a4_mas_pre": "",
+         "a4_mas_post": " CLI must be installed. Check installation guide in Settings.",
+         "a4_password_pre": "",
+         "a4_password_post": " requires a password, so it runs in Terminal.",
+         "a4_batch": "During batch updates, App Store apps appear in the blue section — use \"Open Terminal\" to batch update."
+      },
+      "support": {
+         "title": "Support"
+      }
    }
 }
