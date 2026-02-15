@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/layout/Navbar";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -225,7 +224,31 @@ export default function VessloPage() {
 
    return (
       <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
-         <Navbar />
+
+         {/* VideoObject JSON-LD for SEO */}
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "VideoObject",
+                  "name": "Vesslo — Mac App Manager Overview",
+                  "description": "Vesslo manages all your Mac apps in one place. Update Homebrew, Sparkle, and App Store apps with a single click.",
+                  "thumbnailUrl": "https://vesslo.top/vesslo-preview.png",
+                  "uploadDate": "2026-01-31",
+                  "contentUrl": "https://vesslo.top/vesslo/vesslo_05.mp4",
+                  "embedUrl": "https://vesslo.top/vesslo",
+                  "publisher": {
+                     "@type": "Organization",
+                     "name": "Vesslo",
+                     "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://vesslo.top/vesslo_icon.png"
+                     }
+                  }
+               })
+            }}
+         />
 
          {/* Hero Section - Scan Animation */}
          <section className="w-full relative overflow-hidden flex items-center justify-center py-20">

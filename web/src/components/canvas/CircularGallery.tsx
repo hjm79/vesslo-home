@@ -9,6 +9,7 @@ const APPS = [
    { slug: "vesslo", title: "Vesslo", count: 8, ext: "png" },
    { slug: "keyharbor", title: "KeyHarbor", count: 4, ext: "png" },
    { slug: "splitswipe", title: "SplitSwipe", count: 6, ext: "jpeg", extMap: { 3: "jpg", 4: "jpg", 5: "jpg", 6: "jpg" } },
+   { slug: "harbordrop", title: "HarborDrop", count: 8, ext: "jpeg", extMap: { 3: "png", 4: "png", 7: "png", 8: "png" } },
 ];
 
 export default function CircularGallery(props: React.HTMLAttributes<HTMLDivElement>) {

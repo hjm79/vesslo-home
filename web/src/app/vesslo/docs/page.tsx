@@ -21,6 +21,7 @@ const SECTION_IDS: SectionMeta[] = [
    { id: "running", icon: "⚙️", titleKey: "running" },
    { id: "sources", icon: "📦", titleKey: "sources" },
    { id: "manual", icon: "📦", titleKey: "manual" },
+   { id: "adoptable", icon: "🔄📦", titleKey: "adoptable" },
    { id: "manage", icon: "🏷️", titleKey: "manage" },
    { id: "search", icon: "🔍", titleKey: "search" },
    { id: "shortcuts", icon: "⌨️", titleKey: "shortcuts" },
@@ -277,8 +278,8 @@ export default function DocsPage() {
                            key={s.id}
                            onClick={() => scrollTo(s.id)}
                            className={`w-full text-left px-3 py-2 rounded-lg text-sm flex items-center gap-2 transition-colors ${activeSection === s.id
-                                 ? "bg-cyan-500/20 text-cyan-400"
-                                 : "text-slate-400 hover:text-white hover:bg-white/5"
+                              ? "bg-cyan-500/20 text-cyan-400"
+                              : "text-slate-400 hover:text-white hover:bg-white/5"
                               }`}
                         >
                            <span>{s.icon}</span>
@@ -303,8 +304,8 @@ export default function DocsPage() {
                               key={s.id}
                               onClick={() => scrollTo(s.id)}
                               className={`w-full text-left px-3 py-2.5 rounded-xl transition-all flex items-center gap-2.5 text-sm ${activeSection === s.id
-                                    ? "bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 shadow-sm shadow-cyan-500/10"
-                                    : "hover:bg-white/5 text-slate-500 hover:text-slate-300"
+                                 ? "bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 shadow-sm shadow-cyan-500/10"
+                                 : "hover:bg-white/5 text-slate-500 hover:text-slate-300"
                                  }`}
                            >
                               <span className="text-base">{s.icon}</span>
@@ -434,9 +435,34 @@ export default function DocsPage() {
                         <SectionHeader icon="🔄" title={t("docs.sections.update")} id="update" />
 
                         <div className="space-y-10">
-                           {/* 개별 업데이트 */}
+                           {/* Individual Update */}
                            <div>
                               <h3 className="text-lg font-semibold text-white mb-3">{d("update.individual")}</h3>
+                              <p className="text-slate-400 text-sm mb-4">{d("update.individual_intro")}</p>
+
+                              <GlassCard className="mb-4">
+                                 <div className="overflow-x-auto">
+                                    <table className="w-full text-sm">
+                                       <thead>
+                                          <tr className="text-left border-b border-white/10">
+                                             <th className="pb-3 pr-4 text-cyan-400 font-semibold">{d("update.btn_type")}</th>
+                                             <th className="pb-3 pr-4 text-cyan-400 font-semibold">{d("update.btn_label")}</th>
+                                             <th className="pb-3 text-cyan-400 font-semibold">{d("update.btn_action")}</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody className="text-slate-300">
+                                          {(t("docs.update.btn_table", { returnObjects: true }) as Array<{ type: string; label: string; action: string }>).map((row, i) => (
+                                             <tr key={i} className="border-b border-white/5 last:border-0">
+                                                <td className="py-2.5 pr-4 font-medium text-white">{row.type}</td>
+                                                <td className="py-2.5 pr-4">{row.label}</td>
+                                                <td className="py-2.5 text-slate-400">{row.action}</td>
+                                             </tr>
+                                          ))}
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </GlassCard>
+
                               <StepList steps={t("docs.update.individual_steps", { returnObjects: true }) as string[]} />
                               <div className="mt-4 max-w-md">
                                  <DocImage src={IMG("vesslo-detail-update.jpeg")} alt={d("update.individual")} onClick={openLightbox} />
@@ -621,11 +647,97 @@ export default function DocsPage() {
                         </TipCard>
                      </section>
 
+                     {/* ─── 7.5. Adoptable 앱 (Homebrew 전환) ─── */}
+                     <section>
+                        <SectionHeader icon="🔄📦" title={t("docs.sections.adoptable")} id="adoptable" />
+                        <GlassCard className="border-orange-500/20 mb-6">
+                           <p className="text-slate-300 leading-relaxed">
+                              {d("adoptable.desc")}
+                           </p>
+                           <div className="mt-3 text-sm text-slate-400">
+                              <strong className="text-white">{d("adoptable.example_title")}</strong> {d("adoptable.example_list")}
+                           </div>
+                        </GlassCard>
+
+                        <div className="max-w-lg mb-8">
+                           <DocImage src={IMG("vesslo-adopt-homebrew.png")} alt={d("adoptable.caption_adopt")} caption={d("adoptable.caption_adopt")} onClick={openLightbox} />
+                        </div>
+
+                        <h3 className="text-lg font-semibold text-white mb-3">{d("adoptable.how_title")}</h3>
+                        <ul className="space-y-2 text-sm text-slate-300 mb-6">
+                           <li className="flex items-center gap-2"><span className="text-orange-400">•</span> {d("adoptable.how1")}</li>
+                           <li className="flex items-center gap-2"><span className="text-orange-400">•</span> {d("adoptable.how2")}</li>
+                           <li className="flex items-center gap-2"><span className="text-orange-400">•</span> {d("adoptable.how3")}</li>
+                        </ul>
+
+                        <h3 className="text-lg font-semibold text-white mb-3">{d("adoptable.adopt_update_title")}</h3>
+                        <StepList steps={t("docs.adoptable.adopt_steps", { returnObjects: true }) as string[]} />
+
+                        <TipCard>{d("adoptable.sparkle_tip")}</TipCard>
+
+                        <h3 className="text-lg font-semibold text-white mt-8 mb-3">{d("adoptable.preflight_title")}</h3>
+                        <ul className="space-y-2 text-sm text-slate-300 mb-4">
+                           <li className="flex items-center gap-2"><span className="text-cyan-400">•</span> {d("adoptable.preflight1")}</li>
+                           <li className="flex items-center gap-2"><span className="text-cyan-400">•</span> {d("adoptable.preflight2")}</li>
+                           <li className="flex items-center gap-2"><span className="text-cyan-400">•</span> {d("adoptable.preflight3")}</li>
+                           <li className="flex items-center gap-2"><span className="text-cyan-400">•</span> {d("adoptable.preflight4")}</li>
+                        </ul>
+                        <div className="max-w-lg mb-8">
+                           <DocImage src={IMG("vesslo-preflight.png")} alt={d("adoptable.preflight_caption")} caption={d("adoptable.preflight_caption")} onClick={openLightbox} />
+                        </div>
+
+                        <h3 className="text-lg font-semibold text-white mb-3">⚠️ {d("adoptable.caution_title")}</h3>
+                        <GlassCard className="border-yellow-500/20 mb-6">
+                           <div className="overflow-x-auto">
+                              <table className="w-full text-sm">
+                                 <thead>
+                                    <tr className="text-left border-b border-white/10">
+                                       <th className="pb-3 pr-4 text-yellow-400 font-semibold">{d("adoptable.caution_item")}</th>
+                                       <th className="pb-3 text-yellow-400 font-semibold">{d("adoptable.caution_desc")}</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody className="text-slate-300">
+                                    {(t("docs.adoptable.caution_table", { returnObjects: true }) as Array<{ item: string; desc: string }>).map((row, i) => (
+                                       <tr key={i} className="border-b border-white/5 last:border-0">
+                                          <td className="py-2.5 pr-4 font-medium text-white">{row.item}</td>
+                                          <td className="py-2.5">{row.desc}</td>
+                                       </tr>
+                                    ))}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </GlassCard>
+
+                        <TipCard>{d("adoptable.caution_tip")}</TipCard>
+
+                        <div className="mt-6 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                           <h4 className="font-semibold text-white mb-2">{d("adoptable.batch_title")}</h4>
+                           <ul className="space-y-1 text-sm text-slate-400">
+                              <li>• {d("adoptable.batch1")}</li>
+                              <li>• {d("adoptable.batch2")}</li>
+                           </ul>
+                        </div>
+                     </section>
+
                      {/* ─── 8. 앱 관리 기능 ─── */}
                      <section>
                         <SectionHeader icon="🏷️" title={t("docs.sections.manage")} id="manage" />
 
                         <div className="space-y-8">
+                           {/* 앱 삭제 */}
+                           <div>
+                              <h3 className="text-lg font-semibold text-white mb-3">{d("manage.uninstall_title")}</h3>
+                              <ul className="space-y-2 text-sm text-slate-300 mb-4">
+                                 <li className="flex items-start gap-2"><span className="text-red-400">•</span> {d("manage.uninstall_desc")}</li>
+                                 <li className="flex items-start gap-2"><span className="text-red-400">•</span> {d("manage.uninstall_scan")}</li>
+                                 <li className="flex items-start gap-2"><span className="text-red-400">•</span> {d("manage.uninstall_running")}</li>
+                                 <li className="flex items-start gap-2"><span className="text-red-400">•</span> {d("manage.uninstall_homebrew")}</li>
+                                 <li className="flex items-start gap-2"><span className="text-red-400">•</span> {d("manage.uninstall_report")}</li>
+                              </ul>
+                              <div className="max-w-md">
+                                 <DocImage src={IMG("vesslo-deepclean.png")} alt={d("manage.uninstall_title")} caption={d("manage.uninstall_caption")} onClick={openLightbox} />
+                              </div>
+                           </div>
                            <div>
                               <h3 className="text-lg font-semibold text-white mb-3">{d("manage.skip_title")}</h3>
                               <ul className="space-y-2 text-sm text-slate-300">
@@ -785,6 +897,28 @@ export default function DocsPage() {
                                     <li>• <code className="text-xs px-1 py-0.5 bg-white/10 rounded">mas upgrade</code>{d("faq.a4_password_post")}</li>
                                     <li>• {d("faq.a4_batch")}</li>
                                  </ul>
+                              }
+                           />
+                           <FAQItem
+                              question={d("faq.q5")}
+                              answer={
+                                 <p>{d("faq.a5_desc")}</p>
+                              }
+                           />
+                           <FAQItem
+                              question={d("faq.q6")}
+                              answer={
+                                 <ul className="space-y-1">
+                                    <li>• {d("faq.a6_path")}</li>
+                                    <li>• {d("faq.a6_running")}</li>
+                                    <li>• {d("faq.a6_cask")}</li>
+                                 </ul>
+                              }
+                           />
+                           <FAQItem
+                              question={d("faq.q7")}
+                              answer={
+                                 <p>{d("faq.a7_desc")}</p>
                               }
                            />
                         </div>

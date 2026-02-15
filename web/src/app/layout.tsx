@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vesslo - The Ultimate Mac Ecosystem",
-  description: "Elevate your Mac experience with Vesslo, KeyHarbor, and SplitSwipe ecosystem. The ultimate update manager, license key organizer, and window manager for macOS.",
-  keywords: ["Mac apps", "macOS", "Vesslo", "KeyHarbor", "SplitSwipe", "update manager", "license manager", "window manager", "Mac utility", "app update", "Homebrew", "App Store updates", "Mac productivity"],
+  description: "Elevate your Mac experience with Vesslo, KeyHarbor, SplitSwipe, and HarborDrop ecosystem. The ultimate update manager, license key organizer, window manager, and download manager for macOS.",
+  keywords: ["Mac apps", "macOS", "Vesslo", "KeyHarbor", "SplitSwipe", "HarborDrop", "update manager", "license manager", "window manager", "download manager", "Mac utility", "app update", "Homebrew", "App Store updates", "Mac productivity"],
   openGraph: {
     title: "Vesslo - The Ultimate Mac Ecosystem",
     description: "Elevate your Mac experience with Vesslo, KeyHarbor, and SplitSwipe ecosystem.",

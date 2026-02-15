@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/layout/Navbar";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
@@ -358,7 +357,6 @@ export default function DocsPage() {
 
    return (
       <div className="min-h-screen bg-black text-white">
-         <Navbar />
 
          {/* Hero Section */}
          <section className="pt-32 pb-16 relative overflow-hidden">
@@ -396,8 +394,8 @@ export default function DocsPage() {
                               key={section.id}
                               onClick={() => setActiveSection(section.id)}
                               className={`w-full text-left px-4 py-3 rounded-xl transition-all flex items-center gap-3 ${activeSection === section.id
-                                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
-                                    : 'hover:bg-white/5 text-slate-400 hover:text-white'
+                                 ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
+                                 : 'hover:bg-white/5 text-slate-400 hover:text-white'
                                  }`}
                            >
                               <span className="text-xl">{section.icon}</span>

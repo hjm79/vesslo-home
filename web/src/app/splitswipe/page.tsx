@@ -1,70 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/layout/Navbar";
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
 import FloatingParticles from "@/components/ui/FloatingParticles";
 
-const APPS_DATA = {
-   en: {
-      title: "SplitSwipe",
-      tagline: "Window Management, Reimagined",
-      color: "#f97316",
-      icon: "/splitswipe-icon.png",
-      video: {
-         mp4: "/splitswipe/splitswipe_move.mp4",
-         webm: "/splitswipe/splitswipe_move.webm"
-      },
-      screenshots: ["/splitswipe-preview.png"],
-      features: [
-         {
-            icon: "✨",
-            title: "2-Split & 3-Split Layouts",
-            desc: "Easily arrange your windows in 2-split (1|2) or 3-split (1|2|3) horizontal layouts. Perfect for multitasking."
-         },
-         {
-            icon: "🔄",
-            title: "App Rotation",
-            desc: "Rotate assigned apps within each zone using keyboard shortcuts or trackpad gestures via BetterTouchTool."
-         },
-         {
-            icon: "⌨️",
-            title: "Keyboard & Gesture Support",
-            desc: "Control everything with keyboard shortcuts or trackpad gestures. No mouse required for power users."
-         }
-      ]
+// Non-translatable constants
+const APP_CONFIG = {
+   title: "SplitSwipe",
+   color: "#f97316",
+   icon: "/splitswipe-icon.png",
+   video: {
+      mp4: "/splitswipe/splitswipe_move.mp4",
+      webm: "/splitswipe/splitswipe_move.webm"
    },
-   ko: {
-      title: "SplitSwipe",
-      tagline: "화면 관리의 재정의",
-      color: "#f97316",
-      icon: "/splitswipe-icon.png",
-      video: {
-         mp4: "/splitswipe/splitswipe_move.mp4",
-         webm: "/splitswipe/splitswipe_move.webm"
-      },
-      screenshots: ["/splitswipe-preview.png"],
-      features: [
-         {
-            icon: "✨",
-            title: "2분할 & 3분할 레이아웃",
-            desc: "2분할(1|2) 또는 3분할(1|2|3) 가로 레이아웃으로 창을 손쉽게 배치하세요. 멀티태스킹에 최적입니다."
-         },
-         {
-            icon: "🔄",
-            title: "앱 순환 기능",
-            desc: "키보드 단축키 또는 BetterTouchTool을 통한 트랙패드 제스처로 각 영역의 앱을 순환시킬 수 있습니다."
-         },
-         {
-            icon: "⌨️",
-            title: "키보드 & 제스처 지원",
-            desc: "키보드 단축키 또는 트랙패드 제스처로 모든 것을 제어하세요. 파워 유저에게 마우스는 필요 없습니다."
-         }
-      ]
-   }
+   screenshots: ["/splitswipe-preview.png"],
 };
 
 // Window colors for the demo
@@ -297,7 +249,7 @@ function WindowSplitAnimation({ lang }: { lang: string }) {
 }
 
 export default function SplitSwipePage() {
-   const { i18n } = useTranslation();
+   const { t, i18n } = useTranslation();
    const [mounted, setMounted] = useState(false);
    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
@@ -317,17 +269,61 @@ export default function SplitSwipePage() {
    }
 
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
-   const appData = APPS_DATA[lang as keyof typeof APPS_DATA];
+   const features = t('splitswipe_page.features', { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
 
    return (
       <div className="min-h-screen bg-black text-white">
-         <Navbar />
+
+         {/* VideoObject JSON-LD for SEO */}
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify([
+                  {
+                     "@context": "https://schema.org",
+                     "@type": "VideoObject",
+                     "name": "SplitSwipe — Window Manager Demo",
+                     "description": "SplitSwipe lets you snap and arrange windows effortlessly on macOS with intuitive swipe gestures.",
+                     "thumbnailUrl": "https://vesslo.top/splitswipe-preview.png",
+                     "uploadDate": "2026-01-31",
+                     "contentUrl": "https://vesslo.top/splitswipe/splitswipe_move.mp4",
+                     "embedUrl": "https://vesslo.top/splitswipe",
+                     "publisher": {
+                        "@type": "Organization",
+                        "name": "Vesslo",
+                        "logo": {
+                           "@type": "ImageObject",
+                           "url": "https://vesslo.top/vesslo_icon.png"
+                        }
+                     }
+                  },
+                  {
+                     "@context": "https://schema.org",
+                     "@type": "VideoObject",
+                     "name": "SplitSwipe — 3-Way Split Demo",
+                     "description": "SplitSwipe 3-way split mode for advanced window management on macOS.",
+                     "thumbnailUrl": "https://vesslo.top/splitswipe-preview.png",
+                     "uploadDate": "2026-01-31",
+                     "contentUrl": "https://vesslo.top/splitswipe/splitswipe_3move.mp4",
+                     "embedUrl": "https://vesslo.top/splitswipe",
+                     "publisher": {
+                        "@type": "Organization",
+                        "name": "Vesslo",
+                        "logo": {
+                           "@type": "ImageObject",
+                           "url": "https://vesslo.top/vesslo_icon.png"
+                        }
+                     }
+                  }
+               ])
+            }}
+         />
 
          {/* Hero Section */}
          <section className="w-full relative overflow-hidden flex items-center justify-center pt-40 pb-24">
             <div
                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-20 pointer-events-none z-0"
-               style={{ backgroundColor: appData.color }}
+               style={{ backgroundColor: APP_CONFIG.color }}
             />
 
             {/* Floating Particles */}
@@ -353,7 +349,7 @@ export default function SplitSwipePage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-6xl font-bold"
                      >
-                        {appData.title}
+                        {APP_CONFIG.title}
                      </motion.h1>
                      <motion.p
                         initial={{ opacity: 0 }}
@@ -361,7 +357,7 @@ export default function SplitSwipePage() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-slate-400"
                      >
-                        {appData.tagline}
+                        {t('splitswipe_page.tagline')}
                      </motion.p>
 
                      {/* Feature Highlights */}
@@ -401,7 +397,7 @@ export default function SplitSwipePage() {
                            target="_blank"
                            rel="noopener noreferrer"
                            className="px-8 py-3 text-white rounded-full font-bold text-lg transition-colors"
-                           style={{ backgroundColor: appData.color }}
+                           style={{ backgroundColor: APP_CONFIG.color }}
                         >
                            {lang === 'ko' ? '구매하기' : 'Purchase'}
                         </a>
@@ -413,7 +409,7 @@ export default function SplitSwipePage() {
 
          {/* Video Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl font-bold text-center mb-12">
@@ -423,8 +419,8 @@ export default function SplitSwipePage() {
                <div className="flex justify-center">
                   <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                      <video autoPlay loop muted playsInline className="w-full h-auto">
-                        <source src={appData.video.webm} type="video/webm" />
-                        <source src={appData.video.mp4} type="video/mp4" />
+                        <source src={APP_CONFIG.video.webm} type="video/webm" />
+                        <source src={APP_CONFIG.video.mp4} type="video/mp4" />
                      </video>
                   </div>
                </div>
@@ -465,7 +461,7 @@ export default function SplitSwipePage() {
 
          {/* Features Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -473,7 +469,7 @@ export default function SplitSwipePage() {
                </h2>
 
                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                  {appData.features.map((feature, index) => (
+                  {features.map((feature, index) => (
                      <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 20 }}
@@ -492,7 +488,7 @@ export default function SplitSwipePage() {
 
          {/* Feature Showcase Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -516,7 +512,7 @@ export default function SplitSwipePage() {
                      </div>
                   </div>
                   <div className="md:w-1/2">
-                     <h3 className="text-2xl font-bold mb-4" style={{ color: appData.color }}>
+                     <h3 className="text-2xl font-bold mb-4" style={{ color: APP_CONFIG.color }}>
                         {lang === 'ko' ? '2분할 & 3분할 지원' : '2-Split & 3-Split Support'}
                      </h3>
                      <p className="text-lg text-slate-300 leading-relaxed">
@@ -545,7 +541,7 @@ export default function SplitSwipePage() {
                      </div>
                   </div>
                   <div className="md:w-1/2">
-                     <h3 className="text-2xl font-bold mb-4" style={{ color: appData.color }}>
+                     <h3 className="text-2xl font-bold mb-4" style={{ color: APP_CONFIG.color }}>
                         {lang === 'ko' ? '키보드 단축키 지원' : 'Keyboard Shortcuts'}
                      </h3>
                      <p className="text-lg text-slate-300 leading-relaxed">
@@ -574,7 +570,7 @@ export default function SplitSwipePage() {
                      </div>
                   </div>
                   <div className="md:w-1/2">
-                     <h3 className="text-2xl font-bold mb-4" style={{ color: appData.color }}>
+                     <h3 className="text-2xl font-bold mb-4" style={{ color: APP_CONFIG.color }}>
                         {lang === 'ko' ? '오버뷰 모드' : 'Overview Mode'}
                      </h3>
                      <p className="text-lg text-slate-300 leading-relaxed">
@@ -590,7 +586,7 @@ export default function SplitSwipePage() {
 
          {/* CTA Section */}
          <section className="py-20 relative overflow-hidden text-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-15 pointer-events-none" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-15 pointer-events-none" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">
@@ -606,7 +602,7 @@ export default function SplitSwipePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-10 py-4 text-white rounded-full font-bold text-xl hover:opacity-90 transition-opacity shadow-lg"
-                  style={{ backgroundColor: appData.color }}
+                  style={{ backgroundColor: APP_CONFIG.color }}
                >
                   {lang === 'ko' ? '구매하기' : 'Purchase'}
                </a>

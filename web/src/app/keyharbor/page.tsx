@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "@/components/layout/Navbar";
 import Image from 'next/image';
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -17,65 +16,17 @@ const KEY_SOURCES = [
    { name: "1Password", color: "#0094F5", icon: "🔑" },
 ];
 
-const APPS_DATA = {
-   en: {
-      title: "KeyHarbor",
-      tagline: "Your License Keys, Safely Harbored",
-      color: "#3b82f6",
-      icon: "/keyharbor-icon.png",
-      screenshots: [
-         "/keyharbor-preview.png",
-         "/circle/keyharbor_circle-001.png",
-         "/circle/keyharbor_circle-002.png",
-         "/circle/keyharbor_circle-003.png",
-      ],
-      features: [
-         {
-            icon: "🔐",
-            title: "All Keys, One Harbor",
-            desc: "Securely manage all your scattered license keys in one place. No more digging through emails or searching for notes."
-         },
-         {
-            icon: "🛡️",
-            title: "Your Data, Your Device",
-            desc: "All data is stored locally on your Mac—never synced to the cloud. Protected by Touch ID and your master password."
-         },
-         {
-            icon: "🔔",
-            title: "Smart Expiration Alerts",
-            desc: "Get notified automatically when subscriptions are about to expire. Never miss an important license renewal."
-         }
-      ]
-   },
-   ko: {
-      title: "KeyHarbor",
-      tagline: "모든 라이선스 키를 안전하게 관리",
-      color: "#3b82f6",
-      icon: "/keyharbor-icon.png",
-      screenshots: [
-         "/keyharbor-preview.png",
-         "/circle/keyharbor_circle-001.png",
-         "/circle/keyharbor_circle-002.png",
-         "/circle/keyharbor_circle-003.png",
-      ],
-      features: [
-         {
-            icon: "🔐",
-            title: "모든 키, 하나의 항구",
-            desc: "분산된 라이선스 키들을 한 곳에서 안전하게 관리하세요. 더 이상 이메일을 뒤지거나 메모장을 찾을 필요가 없습니다."
-         },
-         {
-            icon: "🛡️",
-            title: "내 데이터, 내 기기에만",
-            desc: "모든 데이터는 Mac에 로컬로 저장되며, 클라우드와 동기화되지 않습니다. Touch ID와 마스터 비밀번호로 안전하게 보호됩니다."
-         },
-         {
-            icon: "🔔",
-            title: "스마트 만료 알림",
-            desc: "구독 만료일이 다가오면 자동으로 알려드립니다. 중요한 라이선스 갱신을 놓치지 마세요."
-         }
-      ]
-   }
+// Non-translatable constants
+const APP_CONFIG = {
+   title: "KeyHarbor",
+   color: "#3b82f6",
+   icon: "/keyharbor-icon.png",
+   screenshots: [
+      "/keyharbor-preview.png",
+      "/circle/keyharbor_circle-001.png",
+      "/circle/keyharbor_circle-002.png",
+      "/circle/keyharbor_circle-003.png",
+   ],
 };
 
 // Key Collection Animation Component
@@ -325,7 +276,7 @@ function KeyCollectionAnimation({ lang }: { lang: string }) {
 }
 
 export default function KeyHarborPage() {
-   const { i18n } = useTranslation();
+   const { t, i18n } = useTranslation();
    const [mounted, setMounted] = useState(false);
    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
@@ -345,17 +296,41 @@ export default function KeyHarborPage() {
    }
 
    const lang = i18n.language?.startsWith('ko') ? 'ko' : 'en';
-   const appData = APPS_DATA[lang as keyof typeof APPS_DATA];
+   const features = t('keyharbor_page.features', { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
 
    return (
       <div className="min-h-screen bg-black text-white">
-         <Navbar />
+
+         {/* VideoObject JSON-LD for SEO */}
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "VideoObject",
+                  "name": "KeyHarbor — License Key Manager Demo",
+                  "description": "KeyHarbor securely manages all your software license keys. Add, organize, and protect your licenses with ease.",
+                  "thumbnailUrl": "https://vesslo.top/keyharbor-preview.png",
+                  "uploadDate": "2026-01-31",
+                  "contentUrl": "https://vesslo.top/keyharbor/keyharbor_add.mp4",
+                  "embedUrl": "https://vesslo.top/keyharbor",
+                  "publisher": {
+                     "@type": "Organization",
+                     "name": "Vesslo",
+                     "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://vesslo.top/vesslo_icon.png"
+                     }
+                  }
+               })
+            }}
+         />
 
          {/* Hero Section with Animation */}
          <section className="w-full relative overflow-hidden flex items-center justify-center pt-24 pb-16">
             <div
                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-20 pointer-events-none z-0"
-               style={{ backgroundColor: appData.color }}
+               style={{ backgroundColor: APP_CONFIG.color }}
             />
 
             <div className="container mx-auto px-6 relative z-10">
@@ -386,7 +361,7 @@ export default function KeyHarborPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl md:text-6xl font-bold"
                      >
-                        {appData.title}
+                        {APP_CONFIG.title}
                      </motion.h1>
                      <motion.p
                         initial={{ opacity: 0 }}
@@ -394,7 +369,7 @@ export default function KeyHarborPage() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-slate-400"
                      >
-                        {appData.tagline}
+                        {t('keyharbor_page.tagline')}
                      </motion.p>
 
                      {/* Key Stats */}
@@ -430,7 +405,7 @@ export default function KeyHarborPage() {
                            target="_blank"
                            rel="noopener noreferrer"
                            className="px-8 py-3 text-white rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-blue-500/30"
-                           style={{ backgroundColor: appData.color }}
+                           style={{ backgroundColor: APP_CONFIG.color }}
                         >
                            {lang === 'ko' ? '구매하기' : 'Purchase'}
                         </a>
@@ -442,7 +417,7 @@ export default function KeyHarborPage() {
 
          {/* Features Section */}
          <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -450,7 +425,7 @@ export default function KeyHarborPage() {
                </h2>
 
                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                  {appData.features.map((feature, index) => {
+                  {features.map((feature, index) => {
                      const bgImages = [
                         '/keyharbor/key_back.png',
                         '/keyharbor/wall-back.png',
@@ -636,7 +611,7 @@ export default function KeyHarborPage() {
 
                <div className="overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
                   <div className="flex gap-8 min-w-max px-4">
-                     {appData.screenshots.map((shot, i) => (
+                     {APP_CONFIG.screenshots.map((shot, i) => (
                         <div
                            key={i}
                            onClick={() => setLightboxImage(shot)}
@@ -644,7 +619,7 @@ export default function KeyHarborPage() {
                         >
                            <img
                               src={shot}
-                              alt={`${appData.title} Screenshot ${i + 1}`}
+                              alt={`${APP_CONFIG.title} Screenshot ${i + 1}`}
                               className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                            />
                         </div>
@@ -659,7 +634,7 @@ export default function KeyHarborPage() {
 
          {/* CTA Section */}
          <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black to-slate-950 text-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-10 pointer-events-none" style={{ backgroundColor: appData.color }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-10 pointer-events-none" style={{ backgroundColor: APP_CONFIG.color }} />
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">
@@ -675,7 +650,7 @@ export default function KeyHarborPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-10 py-4 text-white rounded-full font-bold text-xl hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/30"
-                  style={{ backgroundColor: appData.color }}
+                  style={{ backgroundColor: APP_CONFIG.color }}
                >
                   {lang === 'ko' ? '구매하기' : 'Purchase'}
                </a>
