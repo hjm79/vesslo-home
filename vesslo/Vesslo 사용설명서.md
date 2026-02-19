@@ -338,6 +338,41 @@ Adoptable 앱 전환은 사용자 확인이 필요한 작업이라 배치에서�
 
 ---
 
+## � Raycast 익스텐션
+
+Vesslo의 핵심 기능을 [Raycast](https://raycast.com)에서 바로 사용할 수 있습니다.
+
+### 설치
+
+1. Raycast Store에서 **Vesslo** 검색 또는 [직접 설치](https://raycast.com/hjm79/vesslo)
+2. Vesslo 앱이 Mac에 설치되어 있어야 합니다
+
+### 제공 커맨드
+
+| 커맨드 | 설명 |
+|--------|------|
+| **🔍 Search Apps** | 이름, 개발자, 태그, 메모로 앱 검색 |
+| **🔄 View Updates** | 업데이트 가능한 앱 확인 (Homebrew, Sparkle, App Store) |
+| **🏷️ Browse by Tag** | 태그별 앱 탐색 |
+| **🍺 Bulk Homebrew Update** | 모든 Homebrew 앱 일괄 업데이트 |
+![[/Users/hjm/Documents/git/app.hjm79.top/vesslo/vesslo-raycast01.jpeg]]
+
+### 사용 방법
+
+1. Raycast 열기 (기본: `⌥ + Space`)
+2. `Search Apps`, `View Updates` 등 커맨드명 입력
+3. 앱 선택 후 Action Panel(`⌘ + K`)에서 추가 동작 실행
+   - **Vesslo에서 열기**: 앱 상세 화면으로 이동
+   - **Finder에서 열기**: 설치 위치 표시
+   - **앱 실행**: 해당 앱 바로 실행
+   - **업데이트**: Vesslo 딥링크를 통한 업데이트
+![[/Users/hjm/Documents/git/app.hjm79.top/vesslo/vesslo-raycast02.jpeg]]
+![[/Users/hjm/Documents/git/app.hjm79.top/vesslo/vesslo-raycast03.jpeg]]   
+
+> 💡 **팁**: Raycast 익스텐션은 Vesslo 앱의 데이터를 실시간으로 동기화합니다. Vesslo에서 스캔/업데이트하면 Raycast에도 바로 반영됩니다.
+
+---
+
 ## 📞 지원
 
 - **웹사이트**: [vesslo.top/vesslo](https://vesslo.top/vesslo)

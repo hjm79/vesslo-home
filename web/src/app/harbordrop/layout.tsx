@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-   title: "HarborDrop - Smart Download Manager for macOS | Vesslo",
-   description: "Speed up large downloads with multi-segment acceleration, capture HLS streams, and auto-categorize files by extension and domain. Built for macOS.",
-   keywords: ["download manager", "macOS", "HarborDrop", "HLS download", "m3u8", "segmented download", "Mac productivity", "file automation"],
+   title: "HarborDrop - IDM for Mac | Smart Download Manager for macOS | Vesslo",
+   description: "HarborDrop is the IDM (Internet Download Manager) for Mac. Multi-segment accelerated downloads, HLS stream capture, and auto-categorization for macOS.",
+   keywords: ["IDM for Mac", "Internet Download Manager Mac", "Mac IDM", "download manager", "macOS", "HarborDrop", "IDM macOS", "HLS download", "m3u8", "segmented download", "Mac productivity", "file automation"],
    openGraph: {
-      title: "HarborDrop - Smart Download Manager for macOS",
-      description: "Multi-segment acceleration, HLS workflow, and auto-categorization for macOS downloads.",
+      title: "HarborDrop - IDM for Mac | Smart Download Manager",
+      description: "The IDM (Internet Download Manager) for Mac. Multi-segment acceleration, HLS workflow, and auto-categorization for macOS.",
       url: "https://vesslo.top/harbordrop",
       images: [{ url: "https://vesslo.top/og-image.png" }],
+   },
+   alternates: {
+      canonical: 'https://vesslo.top/harbordrop',
+      languages: {
+         'en': 'https://vesslo.top/harbordrop',
+         'ko': 'https://vesslo.top/harbordrop',
+         'x-default': 'https://vesslo.top/harbordrop',
+      },
    },
 };
 

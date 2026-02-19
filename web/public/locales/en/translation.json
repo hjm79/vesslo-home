@@ -60,8 +60,8 @@
       },
       "harbordrop": {
          "title": "HarborDrop",
-         "description": "Speed up large downloads, capture HLS streams, and keep every file organized automatically.",
-         "desc_short": "Smart Download Management for macOS"
+         "description": "The IDM (Internet Download Manager) for Mac — accelerated downloads, HLS streams, and auto-organization.",
+         "desc_short": "IDM for Mac — Smart Download Manager"
       }
    },
    "our_ecosystem": "Our Ecosystem",
@@ -87,7 +87,7 @@
          "Memory": {
             "title": "Perfect Memory & Records",
             "subtitle": "Memory & Tags",
-            "desc": "Even if you delete an app, your notes and tags remain. Vesslo answers 'Why did I delete this last year?'. Manage apps with your own tags like Work, Subscribed, Video Editing."
+            "desc": "Even if you delete an app, your notes and tags remain. Vesslo answers questions like 'What was the name of that program?' or 'Why did I delete it when I tried it last year?'. Manage apps with your own tags like Work, Subscribed, Video Editing."
          },
          "Convertible": {
             "title": "Brew Convertible",
@@ -114,7 +114,7 @@
          "sections": {
             "overview": {
                "title": "1. Service Overview",
-               "content": "These Terms of Service (\"Terms\") govern your use of the software products and related services (including Vesslo, KeyHarbor, SplitSwipe and any other products, collectively the \"Service\") provided by mani's tech (the \"Company\")."
+               "content": "These Terms of Service (\"Terms\") govern your use of the software products and related services (including Vesslo, KeyHarbor, SplitSwipe, HarborDrop and any other products, collectively the \"Service\") provided by mani's tech (the \"Company\")."
             },
             "payment": {
                "title": "2. Payment and Sales",
@@ -176,7 +176,7 @@
          "sections": {
             "overview": {
                "title": "1. Overview",
-               "content": "mani's tech (hereinafter 'Company') takes user privacy protection seriously. This Privacy Policy explains the information collected and how it is processed when using our software (Vesslo, KeyHarbor, SplitSwipe) and website."
+               "content": "mani's tech (hereinafter 'Company') takes user privacy protection seriously. This Privacy Policy explains the information collected and how it is processed when using our software (Vesslo, KeyHarbor, SplitSwipe, HarborDrop) and website."
             },
             "collection": {
                "title": "2. Information We Collect",
@@ -212,6 +212,7 @@
                   "KeyHarbor: AES-256 encryption for stored license keys",
                   "Vesslo: Non-sensitive app metadata stored locally only",
                   "SplitSwipe: Window preferences stored locally, no sensitive data",
+                  "HarborDrop: Download history and settings stored locally, no sensitive data",
                   "Regular security reviews"
                ]
             },
@@ -370,7 +371,7 @@
             "Unified update management",
             "Homebrew, Sparkle, App Store support",
             "Raycast extension included",
-            "2 devices per license",
+            "App management (uninstall, memo, tags)",
             "One-time purchase, no subscription"
          ]
       },
@@ -394,6 +395,16 @@
             "One-time purchase, no subscription"
          ]
       },
+      "harbordrop": {
+         "description": "Smart download manager for macOS",
+         "features": [
+            "Multi-segment accelerated downloads",
+            "HLS stream capture support",
+            "Browser extension integration",
+            "Category rules + auto actions",
+            "One-time purchase, no subscription"
+         ]
+      },
       "faq": {
          "title": "Frequently Asked Questions",
          "items": [
@@ -403,7 +414,7 @@
             },
             {
                "q": "How many devices can I use?",
-               "a": "Vesslo includes 2 device licenses per account. KeyHarbor and SplitSwipe are single-device licenses."
+               "a": "All apps come with a single-device license. If you need additional devices, please purchase a separate license."
             },
             {
                "q": "What payment methods are accepted?",
@@ -486,67 +497,17 @@
       "anim_3split": "📐 3-Split (1|2|3)",
       "anim_done": "✅ Organized!"
    },
-   "dropharbor_page": {
-      "tagline": "Smart Download Management for macOS",
-      "badge": "Download Manager",
-      "highlights": [
-         "Multi-segment acceleration",
-         "HLS (m3u8) workflow support",
-         "Auto-categorization by extension/domain",
-         "Post-download automation"
-      ],
-      "in_action_title": "In Action",
-      "in_action_body": "DropHarbor keeps your downloads fast and predictable with segmented transfers, stable resume logic, and clear status tracking for active, completed, and failed items.",
-      "features": [
-         {
-            "icon": "⚡",
-            "title": "Speed by Segments",
-            "desc": "Use multiple connections per file to better utilize available bandwidth."
-         },
-         {
-            "icon": "🎬",
-            "title": "HLS-Ready Video Flow",
-            "desc": "Detect and handle m3u8-based streams with quality-aware download workflow."
-         },
-         {
-            "icon": "🧩",
-            "title": "Rules + Automation",
-            "desc": "Route files by category rules and trigger post-download actions automatically."
-         }
-      ],
-      "showcase": [
-         {
-            "title": "Browser to App Capture",
-            "desc": "Send downloadable links from browser extension to DropHarbor instantly."
-         },
-         {
-            "title": "Category Routing",
-            "desc": "Apply extension/domain rules to store files in the right folder from the start."
-         },
-         {
-            "title": "Post-Download Actions",
-            "desc": "Run Finder reveal, rename scripts, and custom shell/JS actions after completion."
-         },
-         {
-            "title": "Operations View",
-            "desc": "Track active/completed/failed queues and retry failures without losing flow."
-         }
-      ],
-      "cta_title": "Get Started Today",
-      "cta_body": "Move from basic downloading to an organized, automation-ready workflow on macOS.",
-      "cta_button": "Purchase"
-   },
    "harbordrop_page": {
-      "tagline": "Smart Download Management for macOS",
-      "badge": "Download Manager",
+      "tagline": "IDM for Mac — Smart Download Manager",
+      "badge": "IDM for macOS",
       "highlights": [
          "Multi-segment acceleration",
-         "HLS (m3u8) workflow support",
-         "Auto-categorization by extension/domain",
+         "Extension capture (Media / All Links / in-page)",
+         "Category rules (domain + filename)",
          "Post-download automation"
       ],
       "in_action_title": "In Action",
-      "in_action_body": "HarborDrop keeps your downloads fast and predictable with segmented transfers, stable resume logic, and clear status tracking for active, completed, and failed items.",
+      "in_action_body": "Like IDM (Internet Download Manager) on Windows, HarborDrop brings segmented acceleration, stable resume, and clear status tracking to macOS — making large file downloads fast and reliable.",
       "features": [
          {
             "icon": "⚡",
@@ -554,32 +515,32 @@
             "desc": "Use multiple connections per file to better utilize available bandwidth."
          },
          {
-            "icon": "🎬",
-            "title": "HLS-Ready Video Flow",
-            "desc": "Detect and handle m3u8-based streams with quality-aware download workflow."
+            "icon": "🧭",
+            "title": "Extension Capture Modes",
+            "desc": "Capture downloads from browser extension via Media, All Links, and in-page buttons."
          },
          {
             "icon": "🧩",
-            "title": "Rules + Automation",
-            "desc": "Route files by category rules and trigger post-download actions automatically."
+            "title": "Category Rules + Actions",
+            "desc": "Apply domain and filename rules, then run post-download actions automatically."
          }
       ],
       "showcase": [
          {
             "title": "Browser to App Capture",
-            "desc": "Send downloadable links from browser extension to HarborDrop instantly."
+            "desc": "Send downloadable links from browser extension to HarborDrop instantly (Media / All Links / in-page)."
          },
          {
-            "title": "Category Routing",
-            "desc": "Apply extension/domain rules to store files in the right folder from the start."
+            "title": "Domain + Filename Rules",
+            "desc": "Classify by domain and apply filename rules to keep your library consistent."
          },
          {
             "title": "Post-Download Actions",
             "desc": "Run Finder reveal, rename scripts, and custom shell/JS actions after completion."
          },
          {
-            "title": "Operations View",
-            "desc": "Track active/completed/failed queues and retry failures without losing flow."
+            "title": "HLS-Ready Video Flow",
+            "desc": "Detect m3u8 streams and handle quality-aware download workflow."
          }
       ],
       "cta_title": "Get Started Today",
@@ -608,6 +569,7 @@
          "shortcuts": "Shortcuts",
          "settings": "Settings",
          "faq": "FAQ",
+         "raycast": "Raycast Extension",
          "support": "Support"
       },
       "intro": {
@@ -934,6 +896,67 @@
          "a6_cask": "The cask name may differ from the actual app — select the correct cask from the 'Adopt to Homebrew' sheet on the detail page",
          "q7": "Why are Convertible apps skipped in 'Update All'?",
          "a7_desc": "Adoptable app conversion requires user confirmation, so it doesn't run automatically in batch. Once you run 'Adopt & Update' individually, the app becomes an automatic batch update target like regular Homebrew apps."
+      },
+      "raycast": {
+         "desc_pre": "Use Vesslo's core features directly from ",
+         "desc_post": ".",
+         "install_title": "Installation",
+         "install_steps": [
+            "Search 'Vesslo' in Raycast Store or install directly",
+            "Vesslo app must be installed on your Mac"
+         ],
+         "install_step1": "Search 'Vesslo' in Raycast Store or click the button below",
+         "install_step2": "Vesslo app must be installed on your Mac",
+         "commands_title": "Available Commands",
+         "cmd_header": "Command",
+         "cmd_desc_header": "Description",
+         "commands": [
+            {
+               "icon": "🔍",
+               "name": "Search Apps",
+               "desc": "Search apps by name, developer, tag, or memo"
+            },
+            {
+               "icon": "🔄",
+               "name": "View Updates",
+               "desc": "Check updatable apps (Homebrew, Sparkle, App Store)"
+            },
+            {
+               "icon": "🏷️",
+               "name": "Browse by Tag",
+               "desc": "Browse apps by tag"
+            },
+            {
+               "icon": "🍺",
+               "name": "Bulk Homebrew Update",
+               "desc": "Batch update all Homebrew apps"
+            }
+         ],
+         "usage_title": "How to Use",
+         "usage_steps": [
+            "Open Raycast (default: ⌥ + Space)",
+            "Type a command like Search Apps, View Updates, etc.",
+            "Select an app and use Action Panel (⌘ + K) for more actions"
+         ],
+         "actions": [
+            {
+               "name": "Open in Vesslo",
+               "desc": "Navigate to app detail view"
+            },
+            {
+               "name": "Reveal in Finder",
+               "desc": "Show install location"
+            },
+            {
+               "name": "Launch App",
+               "desc": "Launch the app directly"
+            },
+            {
+               "name": "Update",
+               "desc": "Update via Vesslo deep link"
+            }
+         ],
+         "tip": "The Raycast extension syncs data from the Vesslo app in real time. Scan or update in Vesslo, and it's instantly reflected in Raycast."
       },
       "support": {
          "title": "Support"

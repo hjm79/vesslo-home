@@ -10,6 +10,14 @@ export const metadata: Metadata = {
       url: "https://vesslo.top/pricing",
       images: [{ url: "https://vesslo.top/og-image.png" }],
    },
+   alternates: {
+      canonical: 'https://vesslo.top/pricing',
+      languages: {
+         'en': 'https://vesslo.top/pricing',
+         'ko': 'https://vesslo.top/pricing',
+         'x-default': 'https://vesslo.top/pricing',
+      },
+   },
 };
 
 export default function PricingLayout({ children }: { children: React.ReactNode }) {

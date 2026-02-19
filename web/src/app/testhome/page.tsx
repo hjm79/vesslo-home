@@ -182,6 +182,7 @@ export default function TestHome() {
                                  <img
                                     src={app.preview}
                                     alt={`${app.title} Preview`}
+                                    loading="lazy"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     onError={(e) => {
                                        e.currentTarget.style.display = 'none';
@@ -195,6 +196,7 @@ export default function TestHome() {
                                     <img
                                        src={app.icon}
                                        alt={app.title}
+                                       loading="lazy"
                                        className="w-12 h-12 rounded-xl"
                                     />
                                     <h3

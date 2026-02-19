@@ -9,6 +9,14 @@ export const metadata: Metadata = {
       url: "https://vesslo.top/gallery",
       images: [{ url: "https://vesslo.top/og-image.png" }],
    },
+   alternates: {
+      canonical: 'https://vesslo.top/gallery',
+      languages: {
+         'en': 'https://vesslo.top/gallery',
+         'ko': 'https://vesslo.top/gallery',
+         'x-default': 'https://vesslo.top/gallery',
+      },
+   },
 };
 
 export default function GalleryLayout({ children }: { children: React.ReactNode }) {

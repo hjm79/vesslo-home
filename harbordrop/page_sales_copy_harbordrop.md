@@ -13,10 +13,10 @@
 ## 2) SEO 메타 (기존 페이지 포맷 통일)
 
 - `title`: `DropHarbor - Download Manager for macOS | Vesslo`
-- `description`: `Fast, reliable download management for macOS. Accelerate large files, handle HLS video, auto-organize by rules, and automate post-download tasks.`
+- `description`: `Fast, reliable download management for macOS with extension capture, domain/filename category rules, post-download actions, HLS support, and segment acceleration.`
 - `keywords`: `download manager,macOS,DropHarbor,HLS downloader,m3u8,segment download,browser extension,download automation,proxy support`
 - `og:title`: `DropHarbor - Download Manager for macOS`
-- `og:description`: `Accelerated downloads, HLS support, auto categorization, and workflow automation on macOS.`
+- `og:description`: `Extension capture, domain/filename rules, post-download automation, and HLS-ready accelerated downloads on macOS.`
 - `og:url`: `https://vesslo.top/dropharbor`
 
 ---
@@ -26,12 +26,12 @@
 ### EN
 - Name: `DropHarbor`
 - One-liner: `Smart Download Management for macOS`
-- Card description: `Speed up large downloads, capture HLS streams, and keep every file organized automatically.`
+- Card description: `Speed up large downloads, capture from extension, and auto-organize files by domain/filename rules with post-download actions.`
 
 ### KO
 - Name: `DropHarbor`
 - One-liner: `macOS용 스마트 다운로드 매니저`
-- Card description: `대용량 다운로드 가속, HLS 스트림 처리, 자동 분류까지 한 번에 관리하세요.`
+- Card description: `대용량 다운로드 가속, 익스텐션 캡처, 도메인/파일명 규칙 + 다운로드 후 액션까지 한 번에 관리하세요.`
 
 ---
 
@@ -46,9 +46,9 @@
 - `highlights`:
 1. `Multi-segment acceleration`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-segments.jpeg]]
-2. `HLS (m3u8) workflow support`
-![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-hls.jpeg]]
-3. `Auto-categorization by extension/domain`
+2. `Extension capture (Media / All Links / in-page)`
+![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-UI.jpeg]]
+3. `Category rules (domain + filename)`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-file_domain_rules.png]]
 4. `Post-download automation`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-action.png]]
@@ -61,9 +61,9 @@
 - `highlights`:
 1. `멀티 세그먼트 가속 다운로드`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-segments.jpeg]]
-2. `HLS(m3u8) 다운로드 워크플로우`
-![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-hls.jpeg]]
-3. `확장자/도메인 자동 분류`
+2. `익스텐션 캡처(Media / All Links / 인페이지)`
+![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-UI.jpeg]]
+3. `카테고리 규칙(도메인 + 파일명)`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-file_domain_rules.png]]
 4. `다운로드 후 자동 작업`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-action.png]]
@@ -87,21 +87,21 @@
 1. `Speed by Segments`
 - `Use multiple connections per file to better utilize available bandwidth.`
 
-2. `HLS-Ready Video Flow`
-- `Detect and handle m3u8-based streams with quality-aware download workflow.`
+2. `Extension Capture Modes`
+- `Capture downloads from browser extension via Media, All Links, and in-page buttons.`
 
-3. `Rules + Automation`
-- `Route files by category rules and trigger post-download actions automatically.`
+3. `Category Rules + Actions`
+- `Apply domain and filename rules, then run post-download actions automatically.`
 
 #### KO
 1. `세그먼트 가속`
 - `파일을 여러 연결로 분할해 네트워크 대역폭을 효율적으로 사용합니다.`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-segments.jpeg]]
-2. `HLS 영상 대응`
-- `m3u8 기반 스트림을 감지하고 화질 선택 중심의 다운로드 흐름을 제공합니다.`
-![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-hls.jpeg]]
-3. `규칙 + 자동화`
-- `카테고리 규칙으로 파일을 자동 분류하고 후처리 작업을 자동 실행합니다.`
+2. `익스텐션 캡처 모드`
+- `브라우저 익스텐션의 Media/All Links/인페이지 버튼에서 다운로드를 캡처합니다.`
+![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-UI.jpeg]]
+3. `카테고리 규칙 + 액션`
+- `도메인/파일명 규칙으로 정리하고 다운로드 후 액션을 자동 실행합니다.`
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-file_domain_rules.png]]
 ![[/Users/hjm/Documents/git/app.hjm79.top/harbordrop/harbordrop-action.png]]
 
@@ -109,29 +109,29 @@
 
 #### EN
 1. `Browser to App Capture`
-- `Send downloadable links from browser extension to DropHarbor instantly.`
+- `Send downloadable links from browser extension to DropHarbor instantly (Media / All Links / in-page).`
 
-2. `Category Routing`
-- `Apply extension/domain rules to store files in the right folder from the start.`
+2. `Domain + Filename Rules`
+- `Classify by domain and apply filename rules to keep your library consistent.`
 
 3. `Post-Download Actions`
 - `Run Finder reveal, rename scripts, and custom shell/JS actions after completion.`
 
-4. `Operations View`
-- `Track active/completed/failed queues and retry failures without losing flow.`
+4. `HLS-Ready Video Flow`
+- `Detect m3u8 streams and handle quality-aware download workflow.`
 
 #### KO
 1. `브라우저 → 앱 전송`
-- `브라우저 확장에서 감지한 다운로드 링크를 DropHarbor로 즉시 전송합니다.`
+- `브라우저 익스텐션(Media/All Links/인페이지)에서 감지한 링크를 즉시 전송합니다.`
 
-2. `카테고리 자동 라우팅`
-- `확장자/도메인 규칙으로 처음부터 올바른 폴더로 저장합니다.`
+2. `도메인 + 파일명 규칙`
+- `도메인 기준 분류와 파일명 규칙으로 라이브러리를 일관되게 정리합니다.`
 
 3. `다운로드 후 작업`
 - `Finder 열기, 이름 변경 스크립트, 사용자 Shell/JS 작업을 완료 후 자동 실행합니다.`
 
-4. `운영형 목록 관리`
-- `현재/완료/실패 목록을 한 화면에서 관리하고 실패 항목을 재시도할 수 있습니다.`
+4. `HLS 영상 대응`
+- `m3u8 스트림 감지 및 화질 선택 기반 다운로드 흐름을 제공합니다.`
 
 ### E. Bottom CTA
 
@@ -156,8 +156,8 @@
     "badge": "Download Manager",
     "highlights": [
       "Multi-segment acceleration",
-      "HLS (m3u8) workflow support",
-      "Auto-categorization by extension/domain",
+      "Extension capture (Media / All Links / in-page)",
+      "Category rules (domain + filename)",
       "Post-download automation"
     ],
     "in_action_title": "In Action",
@@ -169,32 +169,32 @@
         "desc": "Use multiple connections per file to better utilize available bandwidth."
       },
       {
-        "icon": "🎬",
-        "title": "HLS-Ready Video Flow",
-        "desc": "Detect and handle m3u8-based streams with quality-aware download workflow."
+        "icon": "🧭",
+        "title": "Extension Capture Modes",
+        "desc": "Capture downloads from browser extension via Media, All Links, and in-page buttons."
       },
       {
         "icon": "🧩",
-        "title": "Rules + Automation",
-        "desc": "Route files by category rules and trigger post-download actions automatically."
+        "title": "Category Rules + Actions",
+        "desc": "Apply domain and filename rules, then run post-download actions automatically."
       }
     ],
     "showcase": [
       {
         "title": "Browser to App Capture",
-        "desc": "Send downloadable links from browser extension to DropHarbor instantly."
+        "desc": "Send downloadable links from browser extension to DropHarbor instantly (Media / All Links / in-page)."
       },
       {
-        "title": "Category Routing",
-        "desc": "Apply extension/domain rules to store files in the right folder from the start."
+        "title": "Domain + Filename Rules",
+        "desc": "Classify by domain and apply filename rules to keep your library consistent."
       },
       {
         "title": "Post-Download Actions",
         "desc": "Run Finder reveal, rename scripts, and custom shell/JS actions after completion."
       },
       {
-        "title": "Operations View",
-        "desc": "Track active/completed/failed queues and retry failures without losing flow."
+        "title": "HLS-Ready Video Flow",
+        "desc": "Detect m3u8 streams and handle quality-aware download workflow."
       }
     ],
     "cta_title": "Get Started Today",
@@ -211,8 +211,8 @@
     "badge": "다운로드 매니저",
     "highlights": [
       "멀티 세그먼트 가속 다운로드",
-      "HLS(m3u8) 다운로드 워크플로우",
-      "확장자/도메인 자동 분류",
+      "익스텐션 캡처(Media / All Links / 인페이지)",
+      "카테고리 규칙(도메인 + 파일명)",
       "다운로드 후 자동 작업"
     ],
     "in_action_title": "실제 동작",
@@ -224,32 +224,32 @@
         "desc": "파일을 여러 연결로 분할해 네트워크 대역폭을 효율적으로 사용합니다."
       },
       {
-        "icon": "🎬",
-        "title": "HLS 영상 대응",
-        "desc": "m3u8 기반 스트림을 감지하고 화질 선택 중심의 다운로드 흐름을 제공합니다."
+        "icon": "🧭",
+        "title": "익스텐션 캡처 모드",
+        "desc": "브라우저 익스텐션의 Media/All Links/인페이지 버튼에서 다운로드를 캡처합니다."
       },
       {
         "icon": "🧩",
-        "title": "규칙 + 자동화",
-        "desc": "카테고리 규칙으로 파일을 자동 분류하고 후처리 작업을 자동 실행합니다."
+        "title": "카테고리 규칙 + 액션",
+        "desc": "도메인/파일명 규칙으로 정리하고 다운로드 후 액션을 자동 실행합니다."
       }
     ],
     "showcase": [
       {
         "title": "브라우저 → 앱 전송",
-        "desc": "브라우저 확장에서 감지한 다운로드 링크를 DropHarbor로 즉시 전송합니다."
+        "desc": "브라우저 익스텐션(Media/All Links/인페이지)에서 감지한 링크를 즉시 전송합니다."
       },
       {
-        "title": "카테고리 자동 라우팅",
-        "desc": "확장자/도메인 규칙으로 처음부터 올바른 폴더로 저장합니다."
+        "title": "도메인 + 파일명 규칙",
+        "desc": "도메인 기준 분류와 파일명 규칙으로 라이브러리를 일관되게 정리합니다."
       },
       {
         "title": "다운로드 후 작업",
         "desc": "Finder 열기, 이름 변경 스크립트, 사용자 Shell/JS 작업을 완료 후 자동 실행합니다."
       },
       {
-        "title": "운영형 목록 관리",
-        "desc": "현재/완료/실패 목록을 한 화면에서 관리하고 실패 항목을 재시도할 수 있습니다."
+        "title": "HLS 영상 대응",
+        "desc": "m3u8 스트림 감지 및 화질 선택 기반 다운로드 흐름을 제공합니다."
       }
     ],
     "cta_title": "지금 바로 시작하세요",

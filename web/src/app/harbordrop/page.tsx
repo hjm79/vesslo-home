@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
 import ConvergingParticles from "@/components/ui/ConvergingParticles";
@@ -25,56 +25,76 @@ const DOWNLOAD_FILES = [
    { name: "ffmpeg-7.1-macOS-arm64.zip", size: "52.3 MB", icon: "🗜️" },
    { name: "Docker-Desktop-4.38.0.dmg", size: "718.2 MB", icon: "🐳" },
 ];
+const SEGMENT_SPEEDS = [2.4, 1.9, 2.8, 1.6, 2.2, 2.0];
+const SEGMENT_TICK_MS = 120;
+const STATS_UPDATE_EVERY_TICKS = 2;
+const INITIAL_SEGMENTS = [0, 0, 0, 0, 0, 0];
 
 // Segment Download Animation Component — mimics actual HarborDrop UI
 function SegmentDownloadAnimation({ lang }: { lang: string }) {
+   const containerRef = useRef<HTMLDivElement>(null);
+   const isInView = useInView(containerRef, { margin: "-20% 0px -20% 0px" });
+   const statTickRef = useRef(0);
    const [phase, setPhase] = useState<"downloading" | "merging" | "done">("downloading");
-   const [segmentProgress, setSegmentProgress] = useState<number[]>([0, 0, 0, 0, 0, 0]);
+   const [segmentProgress, setSegmentProgress] = useState<number[]>(INITIAL_SEGMENTS);
    const [loopCount, setLoopCount] = useState(0);
    const [speed, setSpeed] = useState("0 KB/s");
    const [downloaded, setDownloaded] = useState("0 MB");
    const currentFile = DOWNLOAD_FILES[loopCount % DOWNLOAD_FILES.length];
 
    useEffect(() => {
+      if (!isInView) return;
+
       setPhase("downloading");
-      setSegmentProgress([0, 0, 0, 0, 0, 0]);
+      setSegmentProgress(INITIAL_SEGMENTS);
       setSpeed("0 KB/s");
       setDownloaded("0 MB");
+      statTickRef.current = 0;
 
-      // Each segment downloads at a different speed
-      const speeds = [2.4, 1.9, 2.8, 1.6, 2.2, 2.0];
       const totalSizeMB = parseFloat(currentFile.size);
+      const baseSpeed = SEGMENT_SPEEDS.reduce((a, b) => a + b, 0);
+      let mergeTimer: ReturnType<typeof setTimeout> | undefined;
+      let doneTimer: ReturnType<typeof setTimeout> | undefined;
+      let loopTimer: ReturnType<typeof setTimeout> | undefined;
 
       const interval = setInterval(() => {
          setSegmentProgress((prev) => {
-            const next = prev.map((p, i) => Math.min(p + speeds[i] + Math.random() * 0.5, 100));
+            const next = prev.map((p, i) => Math.min(p + SEGMENT_SPEEDS[i] + Math.random() * 0.35, 100));
             const avg = next.reduce((a, b) => a + b, 0) / 6;
+            const isDone = next.every((p) => p >= 100);
+            statTickRef.current += 1;
 
-            // Update display stats
-            const dlMB = (totalSizeMB * avg / 100).toFixed(1);
-            const speedMBs = (speeds.reduce((a, b) => a + b, 0) * totalSizeMB / 600 + Math.random() * 2).toFixed(1);
-            setDownloaded(`${dlMB} MB`);
-            setSpeed(`${speedMBs} MB/s`);
+            if (statTickRef.current % STATS_UPDATE_EVERY_TICKS === 0 || isDone) {
+               const dlMB = (totalSizeMB * avg / 100).toFixed(1);
+               const speedMBs = (baseSpeed * totalSizeMB / 600 + Math.random() * 1.2).toFixed(1);
+               setDownloaded(`${dlMB} MB`);
+               setSpeed(`${speedMBs} MB/s`);
+            }
 
-            if (next.every((p) => p >= 100)) {
+            if (isDone) {
                clearInterval(interval);
                setDownloaded(currentFile.size);
                setSpeed("0 KB/s");
-               setTimeout(() => setPhase("merging"), 200);
-               setTimeout(() => setPhase("done"), 1200);
-               setTimeout(() => setLoopCount((c) => c + 1), 3500);
+               mergeTimer = setTimeout(() => setPhase("merging"), 200);
+               doneTimer = setTimeout(() => setPhase("done"), 1200);
+               loopTimer = setTimeout(() => setLoopCount((c) => c + 1), 3500);
             }
             return next;
          });
-      }, 60);
+      }, SEGMENT_TICK_MS);
 
-      return () => clearInterval(interval);
-   }, [loopCount]);
+      return () => {
+         clearInterval(interval);
+         if (mergeTimer) clearTimeout(mergeTimer);
+         if (doneTimer) clearTimeout(doneTimer);
+         if (loopTimer) clearTimeout(loopTimer);
+      };
+   }, [currentFile.size, isInView, loopCount]);
 
    const avg = Math.round(segmentProgress.reduce((a, b) => a + b, 0) / 6);
 
    return (
-      <div className="relative w-full flex items-center justify-center py-8">
+      <div ref={containerRef} className="relative w-full flex items-center justify-center py-8">
          <motion.div
             className="w-full max-w-md"
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +102,7 @@ function SegmentDownloadAnimation({ lang }: { lang: string }) {
             transition={{ duration: 0.5 }}
          >
             {/* Download Card — mimics actual HarborDrop row */}
-            <div className="rounded-xl bg-slate-900/80 border border-white/10 overflow-hidden shadow-2xl backdrop-blur-sm">
+            <div className="rounded-xl bg-slate-900/80 border border-white/10 overflow-hidden shadow-2xl">
 
                {/* File Info Header */}
                <div className="px-5 pt-4 pb-3 flex items-center gap-3">
@@ -141,19 +161,21 @@ function SegmentDownloadAnimation({ lang }: { lang: string }) {
                      ))}
                   </div>
 
-                  {/* Merging indicator */}
-                  <AnimatePresence>
-                     {phase === "merging" && (
-                        <motion.p
-                           className="text-xs text-center text-emerald-400/70 mt-2 font-mono"
-                           initial={{ opacity: 0 }}
-                           animate={{ opacity: 1 }}
-                           exit={{ opacity: 0 }}
-                        >
-                           {lang === "ko" ? "세그먼트 병합 중..." : "Merging segments..."}
-                        </motion.p>
-                     )}
-                  </AnimatePresence>
+                  {/* Merging indicator — fixed height to prevent layout shift */}
+                  <div className="h-6 mt-1 flex items-center justify-center">
+                     <AnimatePresence>
+                        {phase === "merging" && (
+                           <motion.p
+                              className="text-xs text-center text-emerald-400/70 font-mono"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                           >
+                              {lang === "ko" ? "세그먼트 병합 중..." : "Merging segments..."}
+                           </motion.p>
+                        )}
+                     </AnimatePresence>
+                  </div>
                </div>
             </div>
 
@@ -215,27 +237,34 @@ export default function HarborDropPage() {
    const showcase = t("harbordrop_page.showcase", { returnObjects: true }) as Array<{ title: string; desc: string }>;
 
    const showcaseImages = [
-      "/harbordrop/harbordrop-idm-dialog.png",
+      "/harbordrop/harbordrop-UI.jpeg",
       "/harbordrop/harbordrop-file_domain_rules.png",
       "/harbordrop/harbordrop-action.png",
-      "/harbordrop/harbordrop-inaction.jpeg",
+      "/harbordrop/harbordrop-hls.jpeg",
    ];
 
-   const showcaseIcons = ["🌐", "📂", "⚙️", "📊"];
+   const showcaseIcons = ["🌐", "📂", "⚙️", "🎬"];
 
    const featureBgImages = [
       "/harbordrop/harbordrop-segments.jpeg",
-      "/harbordrop/harbordrop-hls.jpeg",
+      "/harbordrop/harbordrop-UI.jpeg",
       "/harbordrop/harbordrop-file_domain_rules.png",
    ];
 
    return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black text-white relative">
+
+         {/* Unified page-level emerald glow background */}
+         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#10b981' }} />
+            <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#10b981' }} />
+            <div className="absolute top-[85%] left-1/2 -translate-x-1/2 w-[800px] h-[1000px] rounded-full blur-[250px] opacity-[0.10]" style={{ backgroundColor: '#10b981' }} />
+         </div>
 
          {/* Hero Section with Animation */}
-         <section className="w-full relative overflow-hidden flex items-center justify-center pt-24 pb-16">
+         <section className="w-full relative overflow-hidden flex items-center justify-center pt-24 pb-[67px]">
             <div
-               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-20 pointer-events-none z-0"
+               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[150px] opacity-[0.12] pointer-events-none z-0"
                style={{ backgroundColor: APP_CONFIG.color }}
             />
 
@@ -244,7 +273,7 @@ export default function HarborDropPage() {
 
                   {/* Left: Segment Download Animation + App Icon */}
                   <div className="order-2 md:order-1 relative">
-                     <ConvergingParticles count={18} />
+                     <ConvergingParticles count={12} />
                      <SegmentDownloadAnimation lang={lang} />
 
                      {/* App Icon with glow + float animation */}
@@ -350,8 +379,8 @@ export default function HarborDropPage() {
          </section>
 
          {/* In Action Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="container mx-auto px-6">
+         <section className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
                   {t("harbordrop_page.in_action_title")}
                </h2>
@@ -371,6 +400,7 @@ export default function HarborDropPage() {
                      <img
                         src="/harbordrop/harbordrop-inaction.jpeg"
                         alt={t("harbordrop_page.in_action_title")}
+                        loading="lazy"
                         className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                      />
                   </div>
@@ -379,8 +409,7 @@ export default function HarborDropPage() {
          </section>
 
          {/* Key Features Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
+         <section className="py-24 relative overflow-hidden">
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
@@ -416,8 +445,8 @@ export default function HarborDropPage() {
          </section>
 
          {/* Feature Showcase Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="container mx-auto px-6">
+         <section className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
                   {lang === "ko" ? "기능 살펴보기" : "Feature Showcase"}
                </h2>
@@ -442,6 +471,7 @@ export default function HarborDropPage() {
                                     <img
                                        src={showcaseImages[index]}
                                        alt={item.title}
+                                       loading="lazy"
                                        className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                                     />
                                  </div>
@@ -467,6 +497,7 @@ export default function HarborDropPage() {
                                     <img
                                        src={showcaseImages[index]}
                                        alt={item.title}
+                                       loading="lazy"
                                        className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                                     />
                                  </div>
@@ -480,8 +511,8 @@ export default function HarborDropPage() {
          </section>
 
          {/* Screenshots Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="container mx-auto px-6">
+         <section className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
                   {lang === "ko" ? "앱 스크린샷" : "App Screenshots"}
                </h2>
@@ -497,6 +528,7 @@ export default function HarborDropPage() {
                            <img
                               src={shot}
                               alt={`${APP_CONFIG.title} Screenshot ${i + 1}`}
+                              loading="lazy"
                               className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
                            />
                         </div>
@@ -510,8 +542,7 @@ export default function HarborDropPage() {
          </section>
 
          {/* CTA Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black to-slate-950 text-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-10 pointer-events-none" style={{ backgroundColor: APP_CONFIG.color }} />
+         <section className="py-24 relative overflow-hidden text-center">
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">

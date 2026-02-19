@@ -1,0 +1,965 @@
+{
+   "subtitle_line_1": "Vesslo: Optimiza tu experiencia Mac.",
+   "subtitle_line_2": "Las herramientas han llegado.",
+   "featured_gallery": "Galería Destacada",
+   "swipe_to_explore": "Desliza para explorar nuestras apps",
+   "scroll_drag_click": "Desplaza, arrastra o haz clic para navegar",
+   "learn_more": "Más Información",
+   "browse_apps": "Ver Apps",
+   "scroll_more": "← Desplaza izquierda/derecha para ver más →",
+   "app_screenshots": "Capturas de Pantalla",
+   "in_action": "En Acción",
+   "specs_release": "Especificaciones y Notas de Versión",
+   "download_trial": "Descargar Prueba Gratuita",
+   "purchase_license": "Comprar Licencia",
+   "productivity_tagline": "La forma más poderosa de maximizar la productividad.",
+   "try_now": "Experiméntalo ahora.",
+   "apps": {
+      "vesslo": {
+         "title": "Vesslo",
+         "description": "El gestor de actualizaciones definitivo para macOS. Seguimiento unificado de App Store, Homebrew y más.",
+         "desc_short": "La solución definitiva de gestión de apps para Mac"
+      },
+      "keyharbor": {
+         "title": "KeyHarbor",
+         "description": "Arrastra y suelta para extraer info de apps automáticamente. Protegido localmente con Touch ID.",
+         "desc_short": "Gestión segura y sencilla de licencias",
+         "features": {
+            "harbor": {
+               "title": "Todas las Claves, Un Solo Puerto",
+               "desc": "Gestiona todas tus claves de licencia dispersas en un solo lugar con KeyHarbor. No más buscar en correos o notas."
+            },
+            "security": {
+               "title": "Cifrado de Grado Militar",
+               "desc": "Todas las claves de licencia se almacenan localmente con cifrado AES-256. Sin sincronización en la nube: solo tú tienes acceso."
+            },
+            "alert": {
+               "title": "Alertas Inteligentes de Vencimiento",
+               "desc": "Recibe notificaciones automáticas cuando tus suscripciones están por vencer. Nunca pierdas una licencia importante. Controla los costos de renovación de un vistazo."
+            }
+         }
+      },
+      "splitswipe": {
+         "title": "SplitSwipe",
+         "description": "Organiza, divide y gestiona tus ventanas con gestos intuitivos y atajos de teclado.",
+         "desc_short": "Gestión de ventanas perfeccionada con gestos",
+         "features": {
+            "split": {
+               "title": "Redefiniendo la División de Ventanas",
+               "desc": "Divide ventanas perfectamente con gestos intuitivos. Gestiona tu pantalla como un profesional sin atajos complejos."
+            },
+            "snap": {
+               "title": "Sistema de Cuadrícula",
+               "desc": "Arrastra ventanas a las esquinas y se ajustan automáticamente. Configura divisiones en 2, 4 o diseños personalizados libremente."
+            },
+            "keyboard": {
+               "title": "Atajos de Teclado",
+               "desc": "Atajos de teclado completos para usuarios avanzados. Gestiona todas las ventanas al instante sin ratón."
+            }
+         }
+      },
+      "harbordrop": {
+         "title": "HarborDrop",
+         "description": "El IDM (Internet Download Manager) para Mac — descargas aceleradas, streams HLS y organización automática.",
+         "desc_short": "IDM para Mac — Gestor de Descargas Inteligente"
+      }
+   },
+   "our_ecosystem": "Nuestro Ecosistema",
+   "scroll_to_explore": "Desplaza para Explorar",
+   "vesslo_page": {
+      "hero": {
+         "title": "La Tranquilidad de un Mac Perfectamente Organizado",
+         "desc": "Vesslo no es solo un gestor de actualizaciones.\nEs un centro de mando premium que completa tu estilo de vida Mac.",
+         "download": "Descargar para Mac",
+         "requirements": "macOS 12.0+ (Apple Silicon Recomendado)"
+      },
+      "features": {
+         "Design": {
+            "title": "Diseño Crystal Aurora",
+            "subtitle": "Diseño Crystal Aurora",
+            "desc": "Abandona el prejuicio de que las apps utilitarias deben ser feas. Vesslo aplica el lenguaje de diseño Crystal Aurora, ofreciendo bordes brillantes, glassmorphism suave y animaciones de gradiente vivas. Solo tenerlo abierto hace tu Mac más lujoso."
+         },
+         "Unified": {
+            "title": "La Tranquilidad de la Gestión Unificada",
+            "subtitle": "Gestión Unificada",
+            "desc": "No abras la terminal, App Store y sitios web para actualizaciones. Gestiona actualizaciones de Homebrew, Sparkle y App Store en una sola pantalla."
+         },
+         "Memory": {
+            "title": "Memoria y Registros Perfectos",
+            "subtitle": "Memoria y Etiquetas",
+            "desc": "Aunque elimines una app, tus notas y etiquetas permanecen. Vesslo responde '¿Por qué eliminé esto el año pasado?'. Gestiona apps con tus propias etiquetas como Trabajo, Suscripción, Edición de Video."
+         },
+         "Convertible": {
+            "title": "Brew Convertible",
+            "subtitle": "Transición Inteligente",
+            "desc": "¿Tienes apps descargadas directamente de internet? Vesslo las detecta automáticamente y las convierte al modo de gestión Homebrew con un solo clic. Cambia a Homebrew inteligentemente."
+         },
+         "Raycast": {
+            "title": "Integración con Raycast Extension",
+            "subtitle": "Flujo de Trabajo Más Rápido",
+            "desc": "Gestiona toda la info de apps sin usar el ratón, solo con el teclado. Desde búsqueda de apps hasta actualizaciones masivas, experimenta las potentes funciones de Vesslo dentro de Raycast."
+         }
+      },
+      "cta": {
+         "title": "No Solo Gestiones, Domínalo.",
+         "desc": "Con Vesslo, la gestión de apps ya no es una tarea.\nControla tu Mac de la forma más hermosa.",
+         "button_download": "Descargar Ahora",
+         "button_docs": "Ver Documentación"
+      }
+   },
+   "legal": {
+      "terms": {
+         "title": "Términos de Servicio",
+         "last_updated": "Última Actualización",
+         "sections": {
+            "overview": {
+               "title": "1. Descripción del Servicio",
+               "content": "Estos Términos de Servicio (\"Términos\") rigen el uso de los productos de software y servicios relacionados (incluyendo Vesslo, KeyHarbor, SplitSwipe, HarborDrop y cualquier otro producto, colectivamente el \"Servicio\") proporcionados por mani's tech (la \"Empresa\")."
+            },
+            "payment": {
+               "title": "2. Pagos y Ventas",
+               "content": "Los pagos son procesados por Paddle.com, que actúa como Comerciante Registrado para todos los pedidos. Paddle gestiona el procesamiento de pagos, facturación, impuestos/IVA y reembolsos para las compras del Servicio.",
+               "items": [
+                  "Todos los precios se muestran en moneda local y pueden incluir IVA o impuestos aplicables.",
+                  "Para consultas sobre pagos, contacte al soporte de Paddle."
+               ]
+            },
+            "license": {
+               "title": "3. Concesión de Licencia",
+               "content": "Tras completar el pago y sujeto al cumplimiento continuo de estos Términos, la Empresa otorga a los usuarios una licencia no exclusiva e intransferible para:",
+               "items": [
+                  "Usar el software para fines personales o comerciales",
+                  "Instalar y usar dentro del número de dispositivos especificados en la licencia",
+                  "Recibir actualizaciones gratuitas (durante el período de licencia de la versión aplicable)"
+               ]
+            },
+            "restrictions": {
+               "title": "4. Restricciones de Uso",
+               "content": "Los usuarios no pueden:",
+               "items": [
+                  "Copiar, modificar, distribuir o vender el software",
+                  "Intentar ingeniería inversa, descompilación o extracción de código fuente",
+                  "Compartir o revender claves de licencia",
+                  "Eludir los mecanismos de seguridad del servicio"
+               ]
+            },
+            "ip": {
+               "title": "5. Derechos de Propiedad Intelectual",
+               "content": "Todos los derechos de propiedad intelectual del software y contenido relacionado pertenecen a la Empresa. La licencia es una concesión de derechos de uso, no una transferencia de propiedad."
+            },
+            "disclaimer": {
+               "title": "6. Exención de Responsabilidad",
+               "content": "El software se proporciona 'tal cual', y la Empresa no es responsable de:",
+               "items": [
+                  "Pérdida o corrupción de datos",
+                  "Daños indirectos o incidentales por el uso del software",
+                  "Problemas de compatibilidad con servicios de terceros"
+               ]
+            },
+            "changes": {
+               "title": "7. Cambios en los Términos",
+               "content": "La Empresa puede cambiar estos términos según sea necesario, y los cambios significativos serán notificados a través del sitio web o correo electrónico."
+            },
+            "law": {
+               "title": "8. Ley Aplicable",
+               "content": "Estos términos se interpretan bajo las leyes de la República de Corea, y las disputas relacionadas están sujetas a la jurisdicción del Tribunal del Distrito Central de Seúl."
+            },
+            "contact": {
+               "title": "9. Contacto",
+               "content": "Para consultas sobre estos términos, contacte a me@hjm79.top.",
+               "see_also": "Consulte también nuestra Política de Privacidad y Política de Reembolso."
+            }
+         }
+      },
+      "privacy": {
+         "title": "Política de Privacidad",
+         "sections": {
+            "overview": {
+               "title": "1. Descripción General",
+               "content": "mani's tech (en adelante 'Empresa') toma en serio la protección de la privacidad del usuario. Esta Política de Privacidad explica la información recopilada y cómo se procesa al usar nuestro software (Vesslo, KeyHarbor, SplitSwipe, HarborDrop) y sitio web."
+            },
+            "collection": {
+               "title": "2. Información que Recopilamos",
+               "payment_title": "2.1 Información de Pago",
+               "payment_content": "Los pagos se procesan a través de Paddle.com. La Empresa no recopila ni almacena directamente información de tarjetas de pago.",
+               "license_title": "2.2 Información de Licencia",
+               "license_items": [
+                  "Dirección de correo electrónico (para emisión de licencia y soporte)",
+                  "Clave de licencia",
+                  "Fecha de compra e información del producto"
+               ],
+               "app_title": "2.3 Datos de Uso de la App",
+               "app_content": "Nuestras apps no suben datos a la nube. Todos los datos se almacenan localmente en el dispositivo del usuario."
+            },
+            "usage": {
+               "title": "3. Propósito del Uso de la Información",
+               "content": "La información recopilada se usa solo para los siguientes propósitos:",
+               "items": [
+                  "Activación y gestión de licencias de software",
+                  "Provisión de soporte al cliente",
+                  "Notificaciones de actualizaciones de productos (con consentimiento)",
+                  "Mejora del servicio (solo datos analíticos anónimos)"
+               ]
+            },
+            "sharing": {
+               "title": "4. Compartir Información",
+               "content": "La Empresa no vende información personal de los usuarios a terceros."
+            },
+            "security": {
+               "title": "5. Seguridad de Datos",
+               "items": [
+                  "Comunicación cifrada SSL/TLS",
+                  "KeyHarbor: Cifrado AES-256 para claves de licencia almacenadas",
+                  "Vesslo: Metadatos de apps no sensibles almacenados solo localmente",
+                  "SplitSwipe: Preferencias de ventanas almacenadas localmente, sin datos sensibles",
+                  "HarborDrop: Historial de descargas y configuración almacenados localmente, sin datos sensibles",
+                  "Revisiones de seguridad regulares"
+               ]
+            },
+            "rights": {
+               "title": "6. Derechos del Usuario",
+               "items": [
+                  "Solicitar ver, modificar o eliminar información personal",
+                  "Optar por no recibir comunicaciones de marketing",
+                  "Optar por no participar en la recopilación de datos analíticos anónimos"
+               ]
+            },
+            "gdpr": {
+               "title": "7. RGPD (Usuarios Europeos)",
+               "content": "Si se encuentra en el Espacio Económico Europeo (EEE), tiene derechos adicionales bajo el Reglamento General de Protección de Datos (RGPD):",
+               "items": [
+                  "Derecho de acceso a sus datos personales",
+                  "Derecho de rectificación de datos inexactos",
+                  "Derecho de supresión ('derecho al olvido')",
+                  "Derecho a la limitación del tratamiento",
+                  "Derecho a la portabilidad de datos",
+                  "Derecho de oposición al tratamiento"
+               ]
+            },
+            "ccpa": {
+               "title": "8. CCPA (Residentes de California)",
+               "content": "Si es residente de California, tiene los siguientes derechos bajo la Ley de Privacidad del Consumidor de California (CCPA):",
+               "items": [
+                  "Derecho a saber qué información personal se recopila",
+                  "Derecho a eliminar su información personal",
+                  "Derecho a optar por no participar en la venta de información personal (No vendemos sus datos)",
+                  "Derecho a no ser discriminado por ejercer sus derechos"
+               ]
+            },
+            "cookies": {
+               "title": "9. Cookies",
+               "content": "Nuestro sitio web usa cookies mínimas solo para funcionalidad esencial. No usamos cookies de seguimiento ni publicidad."
+            },
+            "contact": {
+               "title": "10. Contacto",
+               "content": "Para consultas relacionadas con la privacidad, contacte a me@hjm79.top."
+            }
+         }
+      },
+      "refund": {
+         "title": "Política de Reembolso",
+         "guarantee": "Garantía de Devolución de 14 Días",
+         "guarantee_desc": "mani's tech ofrece una garantía de devolución de 14 días para todos los productos de software comprados a través de Paddle.com. Dentro de los 14 días posteriores a la compra, puede solicitar un reembolso completo por cualquier motivo contactando directamente a Paddle a través del enlace de recibo de confirmación de compra.",
+         "trial_tip": "Prueba Gratuita Recomendada",
+         "trial_tip_desc": "Recomendamos probar nuestra versión de prueba gratuita antes de comprar para asegurarse de que el software satisface sus necesidades.",
+         "payment_info": "Procesamiento de Reembolso de Paddle",
+         "payment_info_desc": "Todos los reembolsos son procesados exclusivamente por Paddle.com, nuestro Comerciante Registrado.",
+         "how_to": "Cómo Solicitar un Reembolso",
+         "method1_title": "Contactar Directamente a Paddle",
+         "method1_desc": "Solicite un reembolso a través del enlace de recibo de Paddle en su correo de confirmación de compra.",
+         "timeline_title": "Plazo de Procesamiento de Reembolso",
+         "timeline_items": [
+            "Paddle confirmará la recepción de su solicitud de reembolso en 1-2 días hábiles",
+            "Paddle procesará los reembolsos aprobados en 5-10 días hábiles",
+            "El tiempo de reembolso a su método de pago puede variar"
+         ],
+         "contact_note": "Las solicitudes de reembolso deben enviarse a través de Paddle. Para otras preguntas de soporte, envíe un correo a me@hjm79.top."
+      },
+      "contact": {
+         "title": "Contáctenos",
+         "subtitle": "Si tiene preguntas o comentarios, no dude en comunicarse.",
+         "form_title": "Enviar un Mensaje",
+         "name": "Nombre",
+         "email": "Correo Electrónico",
+         "subject": "Tipo de Consulta",
+         "subject_options": {
+            "general": "Consulta General",
+            "support": "Soporte Técnico",
+            "refund": "Solicitud de Reembolso",
+            "license": "Consulta de Licencia",
+            "partnership": "Asociación"
+         },
+         "message": "Mensaje",
+         "message_placeholder": "Por favor ingrese su consulta...",
+         "submit": "Enviar Mensaje",
+         "sending": "Enviando...",
+         "success_title": "¡Mensaje Enviado!",
+         "success_desc": "Gracias por su mensaje. Responderemos lo antes posible.",
+         "new_message": "Nuevo Mensaje",
+         "info_title": "Información de Contacto",
+         "info_email": "Correo Electrónico",
+         "info_response": "Tiempo de Respuesta",
+         "info_response_value": "En 1-2 días hábiles",
+         "info_language": "Idiomas Disponibles",
+         "info_language_value": "Coreano, Inglés, Español",
+         "quick_help": "¿Necesita Ayuda Rápida?",
+         "quick_help_desc": "Las consultas sobre pagos o reembolsos también pueden gestionarse a través del soporte de Paddle.",
+         "paddle_support": "Soporte de Paddle"
+      }
+   },
+   "nav": {
+      "home": "Inicio",
+      "vesslo": "Vesslo",
+      "keyharbor": "KeyHarbor",
+      "splitswipe": "SplitSwipe"
+   },
+   "footer": {
+      "apps": "Apps",
+      "legal": "Legal",
+      "terms": "Términos de Servicio",
+      "privacy": "Política de Privacidad",
+      "refund": "Política de Reembolso",
+      "contact": "Contacto",
+      "copyright": "© 2026 mani's tech. Todos los derechos reservados.",
+      "paddle_notice": "Paddle.com es nuestro Comerciante Registrado oficial.",
+      "developer": "Desarrollado por mani's tech"
+   },
+   "homepage": {
+      "browse_apps": "Ver Apps",
+      "our_apps": "Nuestras Apps",
+      "our_apps_desc": "Transforma tu experiencia Mac con tres herramientas poderosas.",
+      "view_more": "Ver Más",
+      "philosophy": "Filosofía Detrás de Nuestras Apps",
+      "strong_security": "Seguridad Robusta",
+      "strong_security_desc": "Todos los datos se almacenan localmente. Sin subidas a la nube: solo tú tienes acceso.",
+      "native_speed": "Velocidad Nativa",
+      "native_speed_desc": "Apps macOS puras construidas con Swift. Experimenta el verdadero rendimiento nativo sin Electron.",
+      "beautiful_design": "Diseño Hermoso",
+      "beautiful_design_desc": "Respetando el lenguaje de diseño de macOS mientras se añade una estética única.",
+      "get_started": "Comenzar",
+      "free_trial_desc": "Todas las apps ofrecen pruebas gratuitas. Experiméntalas sin compromiso.",
+      "contact_us": "Contáctenos"
+   },
+   "detail_page": {
+      "tagline": "La forma más poderosa de maximizar la productividad.",
+      "try_now": "Experiméntalo ahora.",
+      "in_action": "En Acción",
+      "screenshots": "Capturas de Pantalla",
+      "scroll_hint": "← Desplaza izquierda/derecha para ver más →",
+      "specs_release": "Especificaciones y Notas de Versión"
+   },
+   "why_love": "Por Qué Te Encantará",
+   "scan": {
+      "badge": "Detección Inteligente",
+      "headline_1": "Escanea Todas las Fuentes",
+      "headline_2": "De Una Vez",
+      "feature1_title": "Detección Instantánea de Actualizaciones",
+      "feature1_desc": "Encuentra automáticamente actualizaciones para tus apps instaladas",
+      "feature2_title": "Integración Multi-Fuente",
+      "feature2_desc": "Homebrew, Sparkle y App Store unificados",
+      "feature3_title": "Integración con Raycast",
+      "feature3_desc": "Verifica actualizaciones y busca contenido de apps (notas, etiquetas)"
+   },
+   "pricing_page": {
+      "title": "Precios Simples, Pago Único",
+      "subtitle": "Sin suscripciones. Paga una vez, usa para siempre.",
+      "paddle_notice": "Todos los pagos son procesados de forma segura por Paddle.com, nuestro Comerciante Registrado oficial.",
+      "buy_button": "Comprar Ahora",
+      "vesslo": {
+         "description": "El gestor de actualizaciones definitivo para macOS",
+         "features": [
+            "Gestión unificada de actualizaciones",
+            "Soporte para Homebrew, Sparkle, App Store",
+            "Extensión de Raycast incluida",
+            "Gestión de apps (desinstalar, notas, etiquetas)",
+            "Compra única, sin suscripción"
+         ]
+      },
+      "keyharbor": {
+         "description": "Gestión segura de claves de licencia",
+         "features": [
+            "Todas las claves en un solo lugar",
+            "Protección con Touch ID",
+            "Alertas de vencimiento",
+            "Solo almacenamiento local",
+            "Compra única, sin suscripción"
+         ]
+      },
+      "splitswipe": {
+         "description": "Gestión de ventanas con gestos",
+         "features": [
+            "Gestos intuitivos de deslizamiento",
+            "Sistema de cuadrícula",
+            "Atajos de teclado",
+            "Diseños personalizados",
+            "Compra única, sin suscripción"
+         ]
+      },
+      "harbordrop": {
+         "description": "Gestor de descargas inteligente para macOS",
+         "features": [
+            "Descargas aceleradas multi-segmento",
+            "Soporte de captura de streams HLS",
+            "Integración con extensión de navegador",
+            "Reglas de categoría + acciones automáticas",
+            "Compra única, sin suscripción"
+         ]
+      },
+      "faq": {
+         "title": "Preguntas Frecuentes",
+         "items": [
+            {
+               "q": "¿Es una compra única?",
+               "a": "¡Sí! Paga una vez por la versión actual. Sin suscripciones ni cargos recurrentes. Las actualizaciones menores están incluidas gratis."
+            },
+            {
+               "q": "¿En cuántos dispositivos puedo usarlo?",
+               "a": "Todas las apps vienen con una licencia para un solo dispositivo. Si necesita dispositivos adicionales, compre una licencia separada."
+            },
+            {
+               "q": "¿Qué métodos de pago se aceptan?",
+               "a": "Todos los pagos se procesan de forma segura a través de Paddle. Se aceptan tarjetas de crédito, PayPal y Apple Pay."
+            },
+            {
+               "q": "¿Hay una prueba gratuita?",
+               "a": "¡Sí! Todas las apps ofrecen un período de prueba gratuita para que pueda probar antes de comprar."
+            },
+            {
+               "q": "¿Cuál es la política de reembolso?",
+               "a": "Ofrecemos una garantía de devolución de 14 días. Si no está satisfecho, contáctenos para un reembolso completo."
+            }
+         ]
+      }
+   },
+   "keyharbor_page": {
+      "tagline": "Tus Claves de Licencia, Seguras en el Puerto",
+      "features": [
+         {
+            "icon": "🔐",
+            "title": "Todas las Claves, Un Solo Puerto",
+            "desc": "Gestiona todas tus claves de licencia dispersas en un solo lugar. No más buscar en correos o notas."
+         },
+         {
+            "icon": "🛡️",
+            "title": "Tus Datos, Tu Dispositivo",
+            "desc": "Todos los datos se almacenan localmente en tu Mac, nunca se sincronizan en la nube. Protegido por Touch ID y tu contraseña maestra."
+         },
+         {
+            "icon": "🔔",
+            "title": "Alertas Inteligentes de Vencimiento",
+            "desc": "Recibe notificaciones automáticas cuando tus suscripciones están por vencer. Nunca pierdas una renovación de licencia importante."
+         }
+      ]
+   },
+   "splitswipe_page": {
+      "tagline": "Gestión de Ventanas, Reimaginada",
+      "features": [
+         {
+            "icon": "✨",
+            "title": "Diseños de 2 y 3 Divisiones",
+            "desc": "Organiza fácilmente tus ventanas en diseños horizontales de 2 (1|2) o 3 (1|2|3) divisiones. Perfecto para multitarea."
+         },
+         {
+            "icon": "🔄",
+            "title": "Rotación de Apps",
+            "desc": "Rota las apps asignadas dentro de cada zona usando atajos de teclado o gestos del trackpad vía BetterTouchTool."
+         },
+         {
+            "icon": "⌨️",
+            "title": "Soporte de Teclado y Gestos",
+            "desc": "Controla todo con atajos de teclado o gestos del trackpad. No se requiere ratón para usuarios avanzados."
+         }
+      ],
+      "hero_features": {
+         "split": "Diseños de 2 y 3 divisiones",
+         "rotate": "Rota apps con teclado/gestos",
+         "btt": "Integración con BetterTouchTool",
+         "power": "Gestión de ventanas para usuarios avanzados"
+      },
+      "video_title": "En Acción",
+      "video_desc": "Las flechas en el video demuestran cómo las apps rotan usando atajos de teclado o gestos del trackpad. Cambia fácilmente entre apps asignadas en diseños de 2 (1|2) o 3 (1|2|3) divisiones.",
+      "video_3split_title": "3 Divisiones en Acción",
+      "video_3split_desc": "Las ventanas resaltadas en rojo indican apps con restricciones de tamaño o apps excluidas.",
+      "features_title": "Funciones Principales",
+      "showcase_title": "Funciones Destacadas",
+      "showcase_split_title": "Soporte de 2 y 3 Divisiones",
+      "showcase_split_desc": "Divide tu pantalla en 2 o 3 zonas para multitarea eficiente. Asigna y cambia apps en cada zona según sea necesario.",
+      "showcase_keyboard_title": "Atajos de Teclado",
+      "showcase_keyboard_desc": "Divide ventanas rápidamente y rota apps con atajos de teclado. Gestión perfecta de ventanas sin ratón.",
+      "showcase_overview_title": "Modo Resumen",
+      "showcase_overview_desc": "El modo resumen te permite ver de un vistazo qué apps están asignadas a cada zona.",
+      "cta_title": "Comienza Hoy",
+      "cta_desc": "Descarga gratis y comienza a experimentar la nueva forma de gestión de ventanas.",
+      "purchase": "Comprar",
+      "anim_preparing": "🪟 Preparando ventanas...",
+      "anim_2split": "⬅️➡️ 2 Divisiones (1|2)",
+      "anim_rotating": "🔄 Rotando apps...",
+      "anim_3split": "📐 3 Divisiones (1|2|3)",
+      "anim_done": "✅ ¡Organizado!"
+   },
+   "harbordrop_page": {
+      "tagline": "IDM para Mac — Gestor de Descargas Inteligente",
+      "badge": "IDM para macOS",
+      "highlights": [
+         "Aceleración multi-segmento",
+         "Captura por extensión (Media / Todos los enlaces / En página)",
+         "Reglas de categoría (dominio + nombre de archivo)",
+         "Automatización post-descarga"
+      ],
+      "in_action_title": "En Acción",
+      "in_action_body": "Como IDM (Internet Download Manager) en Windows, HarborDrop trae aceleración segmentada, reanudación estable y seguimiento de estado claro a macOS — haciendo que las descargas de archivos grandes sean rápidas y confiables.",
+      "features": [
+         {
+            "icon": "⚡",
+            "title": "Velocidad por Segmentos",
+            "desc": "Usa múltiples conexiones por archivo para aprovechar mejor el ancho de banda disponible."
+         },
+         {
+            "icon": "🧭",
+            "title": "Modos de Captura por Extensión",
+            "desc": "Captura descargas desde la extensión del navegador vía Media, Todos los enlaces y botones en página."
+         },
+         {
+            "icon": "🧩",
+            "title": "Reglas de Categoría + Acciones",
+            "desc": "Aplica reglas de dominio y nombre de archivo, luego ejecuta acciones post-descarga automáticamente."
+         }
+      ],
+      "showcase": [
+         {
+            "title": "Captura del Navegador a la App",
+            "desc": "Envía enlaces descargables desde la extensión del navegador a HarborDrop al instante (Media / Todos los enlaces / En página)."
+         },
+         {
+            "title": "Reglas de Dominio + Nombre de Archivo",
+            "desc": "Clasifica por dominio y aplica reglas de nombre de archivo para mantener tu biblioteca consistente."
+         },
+         {
+            "title": "Acciones Post-Descarga",
+            "desc": "Ejecuta revelar en Finder, scripts de renombrado y acciones personalizadas shell/JS tras completar."
+         },
+         {
+            "title": "Flujo de Video HLS",
+            "desc": "Detecta streams m3u8 y gestiona el flujo de descarga con reconocimiento de calidad."
+         }
+      ],
+      "cta_title": "Comienza Hoy",
+      "cta_body": "Pasa de descargas básicas a un flujo de trabajo organizado y automatizado en macOS.",
+      "cta_button": "Comprar"
+   },
+   "docs": {
+      "badge": "Documentación",
+      "hero_title_prefix": "Vesslo",
+      "hero_title_highlight": "Guía de Usuario",
+      "hero_subtitle": "El nuevo estándar para la gestión de apps en macOS",
+      "toc": "Tabla de Contenidos",
+      "back_to_vesslo": "← Volver a Vesslo",
+      "tagline": "Vesslo — El nuevo estándar para la gestión de apps en Mac ✨",
+      "sections": {
+         "intro": "¿Qué es Vesslo?",
+         "layout": "Diseño de Pantalla",
+         "views": "Modos de Vista",
+         "update": "Funciones de Actualización",
+         "running": "Manejo de Apps en Ejecución",
+         "sources": "Fuentes de Actualización",
+         "manual": "Apps de Instalación Manual",
+         "adoptable": "Apps Adoptables (Conversión a Homebrew)",
+         "manage": "Gestión de Apps",
+         "search": "Búsqueda y Filtros",
+         "shortcuts": "Atajos",
+         "settings": "Configuración",
+         "faq": "Preguntas Frecuentes",
+         "raycast": "Extensión Raycast",
+         "support": "Soporte"
+      },
+      "intro": {
+         "desc_pre": "Vesslo es un gestor de apps que te permite ",
+         "desc_strong": "gestionar todas las apps",
+         "desc_mid": " instaladas en tu Mac ",
+         "desc_strong2": "en un solo lugar",
+         "desc_post": ".",
+         "key_features": "Funciones Principales",
+         "feat_unified": "Actualizaciones Unificadas",
+         "feat_unified_desc": "Actualiza apps de Homebrew, Sparkle y App Store desde una sola pantalla",
+         "feat_sort": "Clasificación Inteligente",
+         "feat_sort_desc": "Ordenamiento automático por categoría, etiqueta o fuente",
+         "feat_batch": "Actualizaciones por Lotes",
+         "feat_batch_desc": "Actualiza múltiples apps a la vez",
+         "feat_running": "Detección de Apps en Ejecución",
+         "feat_running_desc": "Cierra de forma segura las apps en ejecución antes de actualizar"
+      },
+      "layout": {
+         "main_screen": "Pantalla Principal (Diseño de 3 Paneles)",
+         "panel1_title": "Panel 1: Barra Lateral",
+         "panel1_all": "Todas las Apps",
+         "panel1_all_desc": "Todas las apps instaladas",
+         "panel1_update": "Actualizaciones Disponibles",
+         "panel1_update_desc": "Apps con actualizaciones",
+         "panel1_running": "En Ejecución",
+         "panel1_running_desc": "Apps actualmente en ejecución",
+         "panel1_category": "Por Categoría",
+         "panel1_category_desc": "Herramientas de desarrollo, Productividad, Utilidades, etc.",
+         "panel23_title": "Panel 2/3",
+         "panel23_desc": "Área para mostrar la lista de apps y detalles. El diseño cambia según el modo de vista."
+      },
+      "views": {
+         "general_title": "Vistas Generales (Todas las apps)",
+         "mode": "Modo",
+         "description": "Descripción",
+         "list_view": "Vista de Lista",
+         "list_view_desc": "Apps mostradas en filas verticales",
+         "split_view": "Vista Dividida",
+         "split_view_desc": "Lista izquierda + vista de detalles derecha",
+         "list_caption": "Vista de Lista",
+         "split_caption": "Vista Dividida",
+         "update_title": "Vistas de Actualización (Apps actualizables)",
+         "grid_view": "Vista de Cuadrícula",
+         "grid_view_desc": "Diseño de tarjetas en 2 columnas estilo App Store",
+         "list_update_desc": "Diseño compacto de fila única",
+         "grid_caption": "Vista de Cuadrícula de Actualizaciones",
+         "list_update_caption": "Vista de Lista de Actualizaciones"
+      },
+      "update": {
+         "individual": "Actualización Individual",
+         "individual_steps": [
+            "Seleccionar la app deseada de la lista",
+            "Hacer clic en el botón Actualizar",
+            "Instala automáticamente la última versión"
+         ],
+         "batch": "Actualizar Todo (Por Lotes)",
+         "batch_steps": [
+            "Hacer clic en 'Actualizaciones Disponibles' en la barra lateral",
+            "Hacer clic en el botón 'Actualizar Todo' en la esquina superior derecha",
+            "Confirmar apps en ejecución antes de proceder",
+            "Apps Homebrew: Se actualizan automáticamente",
+            "Apps que requieren contraseña: Hacer clic en 'Abrir Terminal' en la sección naranja → ingresar contraseña → 'Confirmar Hecho'",
+            "Apps de App Store: Hacer clic en 'Abrir Terminal' en la sección azul → ejecutar mas upgrade → 'Confirmar Hecho'"
+         ],
+         "category": "Actualizar por Categoría",
+         "category_new": "⭐ NUEVO",
+         "category_steps": [
+            "Seleccionar la categoría deseada en la barra lateral (ej., Herramientas de Desarrollo)",
+            "Hacer clic en el botón 'Actualizar Todo'",
+            "Solo se actualizan las apps de esa categoría"
+         ],
+         "category_tip": "¡Útil cuando quieres actualizar solo una categoría específica!",
+         "individual_intro": "La etiqueta y el comportamiento del botón de actualización cambian según la fuente de la app:",
+         "btn_type": "Tipo de App",
+         "btn_label": "Etiqueta del Botón",
+         "btn_action": "Acción",
+         "btn_table": [
+            {
+               "type": "Homebrew",
+               "label": "Actualizar",
+               "action": "Ejecuta automáticamente brew upgrade --cask"
+            },
+            {
+               "type": "Sparkle",
+               "label": "Actualizar",
+               "action": "Se actualiza automáticamente vía el actualizador integrado de la app"
+            },
+            {
+               "type": "App Store",
+               "label": "Actualizar (Menú)",
+               "action": "Elegir mas upgrade o abrir App Store"
+            },
+            {
+               "type": "Adoptable (Manual)",
+               "label": "Adoptar y Actualizar 🟠",
+               "action": "Convierte a Homebrew vía brew install --cask --adopt + actualizar"
+            },
+            {
+               "type": "Adoptable + Sparkle",
+               "label": "Actualizar (Opciones)",
+               "action": "Actualización Sparkle por defecto, Adoptar y Actualizar opcional"
+            },
+            {
+               "type": "Manual",
+               "label": "Abrir App",
+               "action": "Abrir la app para verificar actualizaciones manualmente"
+            }
+         ]
+      },
+      "running": {
+         "title": "Configuración de Manejo de Apps en Ejecución",
+         "path": "Configuración → Actualizaciones → Manejo de apps en ejecución durante actualización completa",
+         "option": "Opción",
+         "behavior": "Comportamiento",
+         "safe": "Cierre Seguro (Safe)",
+         "safe_desc": "Muestra una ventana de confirmación antes de cerrar, da a la app la oportunidad de mostrar el diálogo de guardar",
+         "force": "Cierre Forzado (Force)",
+         "force_desc": "Cierra inmediatamente sin confirmación (pueden perderse datos no guardados)",
+         "skip": "Omitir",
+         "skip_desc": "Las apps en ejecución no se actualizan",
+         "caption_settings": "Pantalla de Configuración",
+         "caption_safe": "Ejemplo de Cierre Seguro"
+      },
+      "sources": {
+         "desc": "Vesslo detecta actualizaciones de varias fuentes:",
+         "homebrew_desc": "Actualizaciones vía brew upgrade --cask",
+         "sparkle_desc": "Usa el sistema de actualización integrado de la app",
+         "appstore_desc": "Actualizaciones vía CLI de mas",
+         "setapp_desc": "Requiere actualización directamente desde la app de Setapp",
+         "manual_desc": "Actualización manual requerida",
+         "badge_title": "Insignias de Iconos de Apps",
+         "badge_desc": "Las insignias junto a los nombres de las apps proporcionan información adicional:",
+         "badge_icon": "Icono",
+         "badge_meaning": "Significado",
+         "badge_sudo": "App que requiere contraseña (sudo)",
+         "badge_manual": "App de instalación manual — brew upgrade no es posible, usa brew fetch + instalador",
+         "badge_adoptable": "App convertible a Homebrew (Adoptable)",
+         "badge_ios": "App iOS/iPadOS (ejecutándose en Mac con Apple Silicon)",
+         "badge_electron": "App basada en el framework Electron",
+         "badge_sudo_caption": "Insignias 🔒 sudo y 📦 instalación manual",
+         "badge_ios_caption": "Insignia de app iOS"
+      },
+      "manual": {
+         "title": "Apps de Instalación Manual (Installer Manual)",
+         "desc1_pre": "Algunas apps de Homebrew Cask requieren ",
+         "desc1_highlight": "instalación manual",
+         "desc1_post": ".",
+         "desc2_pre": "Estas apps ",
+         "desc2_cannot": "no pueden",
+         "desc2_post": " ser actualizadas automáticamente vía ",
+         "example_title": "Ejemplos:",
+         "example_list": "Loupedeck, Logitech Options, etc.",
+         "how_title": "¿Cómo lo sé?",
+         "how1": "Aparece un icono 📦 de caja naranja junto al nombre de la app",
+         "how2_pre": "La página de detalles muestra el comando ",
+         "how2_post": "",
+         "caption_loupedeck": "Ejemplo de app de instalación manual — Loupedeck",
+         "individual": "Actualización Individual",
+         "individual_steps": [
+            "Hacer clic en el botón de copiar junto al comando en el banner de la página de detalles de la app",
+            "Pegar en Terminal y ejecutar",
+            "Ejecutar el archivo PKG descargado desde Finder para completar la instalación"
+         ],
+         "batch": "Actualización por Lotes (Actualizar Todo)",
+         "batch_steps": [
+            "Las apps de instalación manual se ordenan automáticamente en la sección de terminal",
+            "Hacer clic en 'Abrir Terminal' para descargar vía brew fetch y lanzar el instalador automáticamente",
+            "Completar la instalación cuando se abra el archivo PKG/DMG"
+         ],
+         "tip_prefix": "Diferencia con apps sudo regulares: ",
+         "tip_sudo": "las apps sudo se instalan automáticamente vía ",
+         "tip_manual": " pero las apps de instalación manual requieren descarga vía ",
+         "tip_suffix": " y ejecución manual del PKG/DMG. Los datos y plugins existentes de la app se conservan."
+      },
+      "adoptable": {
+         "desc": "Las apps adoptables tienen un cask de Homebrew disponible pero no se instalaron vía brew. Por ejemplo: Firefox, XnViewMP descargados directamente del sitio web oficial.",
+         "example_title": "Ejemplos:",
+         "example_list": "Firefox, XnViewMP, etc. descargados de sitios oficiales",
+         "caption_adopt": "App adoptable — Adoptar a Homebrew",
+         "how_title": "¿Cómo lo sé?",
+         "how1": "Aparece un icono de conversión naranja 🔄📦 junto al nombre de la app",
+         "how2": "Aparece en la sección \"Convertible\" en la pantalla de actualizaciones",
+         "how3": "La página de detalles muestra un botón \"Adoptar a Homebrew\"",
+         "adopt_update_title": "Adoptar y Actualizar",
+         "adopt_steps": [
+            "Hacer clic en 'Adoptar y Actualizar' 🟠 desde el botón de actualización en detalle/lista/cuadrícula/tabla",
+            "Revisar las advertencias en la ventana de confirmación pre-conversión y proceder",
+            "brew install --cask --adopt <app> se ejecuta automáticamente",
+            "La app existente se registra bajo la gestión de Homebrew sin eliminación",
+            "En caso de éxito, la fuente cambia de Manual → Homebrew automáticamente",
+            "A partir de ahora, la app es un objetivo de actualización automática en lotes (Actualizar Todo)"
+         ],
+         "sparkle_tip": "Las apps adoptables con fuente Sparkle pueden usar actualizaciones Sparkle primero. Solo use Adoptar y Actualizar cuando quiera cambiar a la gestión de Homebrew.",
+         "preflight_title": "Verificación Pre-conversión (Preflight)",
+         "preflight1": "Existe un mapeo de cask de Homebrew",
+         "preflight2": "La ruta de instalación de la app (/Applications, ~/Applications) es compatible",
+         "preflight3": "La app no está actualmente en ejecución (debe cerrarse primero)",
+         "preflight4": "Advertencias de características del cask (auto_updates, eliminación en desinstalación, posible requerimiento de contraseña)",
+         "preflight_caption": "Pantalla de verificación pre-conversión (Preflight)",
+         "caution_title": "Precauciones de Adopción",
+         "caution_item": "Elemento",
+         "caution_desc": "Descripción",
+         "caution_table": [
+            {
+               "item": "La adopción en sí",
+               "desc": "Segura — registra la app existente sin eliminarla"
+            },
+            {
+               "item": "Después de actualizar",
+               "desc": "Algunos casks eliminan y reinstalan durante brew upgrade, lo que puede restablecer la configuración de la app"
+            },
+            {
+               "item": "Revertir",
+               "desc": "Ejecutar brew uninstall después de adoptar ELIMINARÁ la app. No existe un comando de 'solo desregistrar'"
+            },
+            {
+               "item": "Requisito de ruta",
+               "desc": "Solo se pueden adoptar apps en /Applications o ~/Applications"
+            }
+         ],
+         "caution_tip": "La mayoría de las apps se adoptan de forma segura. Haga una copia de seguridad de la configuración de apps importantes antes de proceder.",
+         "batch_title": "¿En Actualizaciones por Lotes?",
+         "batch1": "Las apps adoptables se omiten como 'requiere actualización manual' en lotes (Actualizar Todo)",
+         "batch2": "Después de ejecutar 'Adoptar y Actualizar' individualmente una vez, la app se convierte en un objetivo de actualización automática en lotes"
+      },
+      "manage": {
+         "uninstall_title": "Desinstalar Apps",
+         "uninstall_desc": "Haz clic en 'Desinstalar App' en la vista de detalles para abrir la hoja de desinstalación, revisar los archivos asociados y mover los elementos seleccionados a la Papelera.",
+         "uninstall_scan": "Para apps regulares, elige entre Escaneo Estándar (solo área de usuario) o Limpieza Profunda (incluye /Library del sistema).",
+         "uninstall_running": "Las apps en ejecución se cerrarán automáticamente antes de desinstalar. Si el cierre falla, la desinstalación se cancela.",
+         "uninstall_homebrew": "Las apps instaladas vía Homebrew se eliminan con brew uninstall --cask (opción: --zap).",
+         "uninstall_report": "Los resultados muestran éxito o fallo parcial, y los registros de ejecución se guardan en ~/Library/Application Support/Vesslo/UninstallReports/.",
+         "uninstall_caption": "Escaneo Estándar y Limpieza Profunda",
+         "skip_title": "Omitir Actualizaciones",
+         "skip_version": "Omitir Versión",
+         "skip_version_desc": "Ignorar solo una versión específica (la siguiente versión notificará)",
+         "skip_app": "Ignorar App",
+         "skip_app_desc": "Ignorar todas las actualizaciones para esta app",
+         "tag_title": "Gestión de Etiquetas",
+         "tag_add": "Agregar etiquetas personalizadas a las apps",
+         "tag_filter": "Filtrar y buscar apps por etiqueta",
+         "memo_title": "Función de Notas",
+         "memo_markdown": "Escribir notas por app (Markdown compatible)",
+         "memo_license": "Registrar claves de licencia, info de configuración, etc."
+      },
+      "search": {
+         "search_title": "Búsqueda",
+         "search_name": "Buscar por nombre de app en la barra de búsqueda superior",
+         "search_enter": "Presionar Enter para ejecutar la búsqueda",
+         "filter_title": "Opciones de Filtro",
+         "filter_source": "Por Fuente",
+         "filter_source_desc": "Homebrew, Sparkle, App Store, etc.",
+         "filter_category": "Por Categoría",
+         "filter_category_desc": "Herramientas de Desarrollo, Productividad, Utilidades, etc.",
+         "filter_status": "Por Estado",
+         "filter_status_desc": "Actualizable, En Ejecución, Ignorado, etc."
+      },
+      "shortcuts": {
+         "shortcut": "Atajo",
+         "function": "Función",
+         "items": [
+            [
+               "⌘ + R",
+               "Actualizar lista de apps"
+            ],
+            [
+               "⌘ + ,",
+               "Abrir Configuración"
+            ],
+            [
+               "⌘ + F",
+               "Buscar"
+            ]
+         ]
+      },
+      "settings": {
+         "general": "General",
+         "language": "Idioma",
+         "language_desc": "Coreano / Inglés",
+         "startup": "Verificar actualizaciones al iniciar",
+         "startup_desc": "Verificación automática al iniciar la app",
+         "updates": "Actualizaciones",
+         "interval": "Intervalo de actualización automática",
+         "interval_desc": "1h / 6h / 12h / 24h / Manual",
+         "quit_method": "Método de cierre de app",
+         "quit_method_desc": "Seguro / Forzado / Omitir",
+         "discovery": "Descubrimiento",
+         "homebrew_search": "Búsqueda de actualizaciones Homebrew",
+         "sparkle_search": "Búsqueda de actualizaciones Sparkle",
+         "appstore_search": "Búsqueda de actualizaciones App Store"
+      },
+      "faq": {
+         "q1": "No se detectan las actualizaciones",
+         "a1_step1_pre": "Actualizar con ",
+         "a1_step2": "Verificar si la fuente está habilitada en Configuración",
+         "a1_step3": "Verificar si la app está en estado \"Ignorado\"",
+         "q2": "Las actualizaciones de Homebrew se abren en Terminal",
+         "a2_desc": "Las apps de Homebrew que requieren contraseña o instalación manual se ejecutan en Terminal.",
+         "a2_lock": "🔒 Apps con candado",
+         "a2_lock_cmd": "brew upgrade --cask --force",
+         "a2_lock_desc": " (ingresar contraseña, instalación automática)",
+         "a2_box": "📦 Apps con caja",
+         "a2_box_cmd": "brew fetch --cask",
+         "a2_box_desc": " (descarga, luego lanza PKG/DMG automáticamente)",
+         "q3": "¿Qué es el icono 📦 de caja?",
+         "a3_type": "installer manual",
+         "a3_desc1": " tipo de Homebrew Cask. Estas apps no pueden actualizarse automáticamente vía ",
+         "a3_cmd1": "brew upgrade",
+         "a3_desc2": " por lo que se descargan vía ",
+         "a3_cmd2": "brew fetch",
+         "a3_desc3": " y el instalador se ejecuta manualmente.",
+         "q4": "Las actualizaciones de App Store no funcionan",
+         "a4_mas_pre": "",
+         "a4_mas_post": " CLI debe estar instalado. Verificar la guía de instalación en Configuración.",
+         "a4_password_pre": "",
+         "a4_password_post": " requiere contraseña, por lo que se ejecuta en Terminal.",
+         "a4_batch": "Durante las actualizaciones por lotes, las apps de App Store aparecen en la sección azul — use \"Abrir Terminal\" para actualizar por lotes.",
+         "q5": "¿Qué es una app 🔄📦 Convertible (Adoptable)?",
+         "a5_desc": "Una app donde existe un mapeo de cask de Homebrew pero se instaló por una ruta diferente (sitio web oficial, DMG, etc.), no a través de brew. Haga clic en 'Adoptar y Actualizar' para registrarla bajo la gestión de Homebrew, habilitando actualizaciones automáticas en adelante. Consulte la sección de Apps Adoptables arriba para más detalles.",
+         "q6": "'Adoptar y Actualizar' falló",
+         "a6_path": "Verificar si la app está instalada en /Applications o ~/Applications",
+         "a6_running": "Cerrar la app si está en ejecución, luego intentar de nuevo",
+         "a6_cask": "El nombre del cask puede diferir de la app real — seleccionar el cask correcto desde la hoja 'Adoptar a Homebrew' en la página de detalles",
+         "q7": "¿Por qué se omiten las apps Convertibles en 'Actualizar Todo'?",
+         "a7_desc": "La conversión de apps adoptables requiere confirmación del usuario, por lo que no se ejecuta automáticamente en lotes. Una vez que ejecute 'Adoptar y Actualizar' individualmente, la app se convierte en un objetivo de actualización automática por lotes como las apps regulares de Homebrew."
+      },
+      "raycast": {
+         "desc_pre": "Usa las funciones principales de Vesslo directamente desde ",
+         "desc_post": ".",
+         "install_title": "Instalación",
+         "install_steps": [
+            "Buscar 'Vesslo' en Raycast Store o instalar directamente",
+            "La app Vesslo debe estar instalada en tu Mac"
+         ],
+         "install_step1": "Buscar 'Vesslo' en Raycast Store o hacer clic en el botón de abajo",
+         "install_step2": "La app Vesslo debe estar instalada en tu Mac",
+         "commands_title": "Comandos Disponibles",
+         "cmd_header": "Comando",
+         "cmd_desc_header": "Descripción",
+         "commands": [
+            {
+               "icon": "🔍",
+               "name": "Search Apps",
+               "desc": "Buscar apps por nombre, desarrollador, etiqueta o nota"
+            },
+            {
+               "icon": "🔄",
+               "name": "View Updates",
+               "desc": "Verificar apps actualizables (Homebrew, Sparkle, App Store)"
+            },
+            {
+               "icon": "🏷️",
+               "name": "Browse by Tag",
+               "desc": "Explorar apps por etiqueta"
+            },
+            {
+               "icon": "🍺",
+               "name": "Bulk Homebrew Update",
+               "desc": "Actualizar todas las apps de Homebrew por lotes"
+            }
+         ],
+         "usage_title": "Cómo Usar",
+         "usage_steps": [
+            "Abrir Raycast (por defecto: ⌥ + Space)",
+            "Escribir un comando como Search Apps, View Updates, etc.",
+            "Seleccionar una app y usar el Panel de Acciones (⌘ + K) para más acciones"
+         ],
+         "actions": [
+            {
+               "name": "Abrir en Vesslo",
+               "desc": "Navegar a la vista de detalles de la app"
+            },
+            {
+               "name": "Mostrar en Finder",
+               "desc": "Mostrar ubicación de instalación"
+            },
+            {
+               "name": "Lanzar App",
+               "desc": "Lanzar la app directamente"
+            },
+            {
+               "name": "Actualizar",
+               "desc": "Actualizar vía enlace profundo de Vesslo"
+            }
+         ],
+         "tip": "La extensión de Raycast sincroniza datos de la app Vesslo en tiempo real. Escanea o actualiza en Vesslo, y se refleja instantáneamente en Raycast."
+      },
+      "support": {
+         "title": "Soporte"
+      }
+   }
+}

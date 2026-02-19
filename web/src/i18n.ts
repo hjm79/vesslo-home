@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from "../public/locales/en/translation.json";
 import translationKO from "../public/locales/ko/translation.json";
+import translationES from "../public/locales/es/translation.json";
 
 // the translations
 const resources = {
@@ -11,6 +12,9 @@ const resources = {
    },
    ko: {
       translation: translationKO
+   },
+   es: {
+      translation: translationES
    }
 };
 
@@ -23,8 +27,7 @@ i18n
       debug: process.env.NODE_ENV === 'development',
 
       detection: {
-         order: ['querystring', 'localStorage', 'navigator'],
-         lookupQuerystring: 'lng',
+         order: ['localStorage', 'navigator'],
          lookupLocalStorage: 'i18nextLng',
          caches: ['localStorage'],
       },

@@ -299,32 +299,14 @@ export default function KeyHarborPage() {
    const features = t('keyharbor_page.features', { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
 
    return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black text-white relative">
 
-         {/* VideoObject JSON-LD for SEO */}
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify({
-                  "@context": "https://schema.org",
-                  "@type": "VideoObject",
-                  "name": "KeyHarbor — License Key Manager Demo",
-                  "description": "KeyHarbor securely manages all your software license keys. Add, organize, and protect your licenses with ease.",
-                  "thumbnailUrl": "https://vesslo.top/keyharbor-preview.png",
-                  "uploadDate": "2026-01-31",
-                  "contentUrl": "https://vesslo.top/keyharbor/keyharbor_add.mp4",
-                  "embedUrl": "https://vesslo.top/keyharbor",
-                  "publisher": {
-                     "@type": "Organization",
-                     "name": "Vesslo",
-                     "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://vesslo.top/vesslo_icon.png"
-                     }
-                  }
-               })
-            }}
-         />
+         {/* Unified page-level blue glow background */}
+         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#3b82f6' }} />
+            <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#3b82f6' }} />
+            <div className="absolute top-[85%] left-1/2 -translate-x-1/2 w-[800px] h-[1000px] rounded-full blur-[250px] opacity-[0.10]" style={{ backgroundColor: '#3b82f6' }} />
+         </div>
 
          {/* Hero Section with Animation */}
          <section className="w-full relative overflow-hidden flex items-center justify-center pt-24 pb-16">
@@ -416,8 +398,7 @@ export default function KeyHarborPage() {
          </section>
 
          {/* Features Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
+         <section className="py-24 relative overflow-hidden">
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -462,7 +443,7 @@ export default function KeyHarborPage() {
          </section>
 
          {/* Feature Showcase Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+         <section className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-6">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                   {lang === 'ko' ? '기능 살펴보기' : 'Feature Showcase'}
@@ -483,6 +464,7 @@ export default function KeyHarborPage() {
                               loop
                               muted
                               playsInline
+                              preload="none"
                               className="w-full h-auto"
                            >
                               <source src="/keyharbor/keyharbor_add.mp4" type="video/mp4" />
@@ -529,6 +511,7 @@ export default function KeyHarborPage() {
                         <img
                            src="/keyharbor/keyharbor_addtag.png"
                            alt={lang === 'ko' ? '태그, 노트, 파일 첨부' : 'Tags, Notes & Attachments'}
+                           loading="lazy"
                            className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                         />
                      </div>
@@ -550,6 +533,7 @@ export default function KeyHarborPage() {
                            <img
                               src="/keyharbor/keyharbor_touchid.png"
                               alt={lang === 'ko' ? 'Touch ID 지원' : 'Touch ID Support'}
+                              loading="lazy"
                               className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                            />
                         </div>
@@ -594,6 +578,7 @@ export default function KeyHarborPage() {
                         <img
                            src="/keyharbor/keyharbor_brew.png"
                            alt={lang === 'ko' ? 'Homebrew Cask 통합' : 'Homebrew Cask Integration'}
+                           loading="lazy"
                            className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                         />
                      </div>
@@ -603,7 +588,7 @@ export default function KeyHarborPage() {
          </section>
 
          {/* Screenshots Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black">
+         <section className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-6">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                   {lang === 'ko' ? '앱 스크린샷' : 'App Screenshots'}
@@ -620,6 +605,7 @@ export default function KeyHarborPage() {
                            <img
                               src={shot}
                               alt={`${APP_CONFIG.title} Screenshot ${i + 1}`}
+                              loading="lazy"
                               className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                            />
                         </div>
@@ -633,8 +619,7 @@ export default function KeyHarborPage() {
          </section>
 
          {/* CTA Section */}
-         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-black to-slate-950 text-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-10 pointer-events-none" style={{ backgroundColor: APP_CONFIG.color }} />
+         <section className="py-24 relative overflow-hidden text-center">
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">

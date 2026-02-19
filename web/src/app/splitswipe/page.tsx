@@ -231,7 +231,7 @@ function WindowSplitAnimation({ lang }: { lang: string }) {
                transition-all duration-500
                ${phase === 'complete' ? 'shadow-orange-500/50' : 'shadow-orange-500/20'}
             `}>
-               <img src="/splitswipe-icon.png" alt="SplitSwipe" className="w-full h-full object-cover" />
+               <img src="/splitswipe-icon.png" alt="SplitSwipe" loading="lazy" className="w-full h-full object-cover" />
             </div>
          </motion.div>
 
@@ -272,52 +272,14 @@ export default function SplitSwipePage() {
    const features = t('splitswipe_page.features', { returnObjects: true }) as Array<{ icon: string; title: string; desc: string }>;
 
    return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black text-white relative">
 
-         {/* VideoObject JSON-LD for SEO */}
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify([
-                  {
-                     "@context": "https://schema.org",
-                     "@type": "VideoObject",
-                     "name": "SplitSwipe — Window Manager Demo",
-                     "description": "SplitSwipe lets you snap and arrange windows effortlessly on macOS with intuitive swipe gestures.",
-                     "thumbnailUrl": "https://vesslo.top/splitswipe-preview.png",
-                     "uploadDate": "2026-01-31",
-                     "contentUrl": "https://vesslo.top/splitswipe/splitswipe_move.mp4",
-                     "embedUrl": "https://vesslo.top/splitswipe",
-                     "publisher": {
-                        "@type": "Organization",
-                        "name": "Vesslo",
-                        "logo": {
-                           "@type": "ImageObject",
-                           "url": "https://vesslo.top/vesslo_icon.png"
-                        }
-                     }
-                  },
-                  {
-                     "@context": "https://schema.org",
-                     "@type": "VideoObject",
-                     "name": "SplitSwipe — 3-Way Split Demo",
-                     "description": "SplitSwipe 3-way split mode for advanced window management on macOS.",
-                     "thumbnailUrl": "https://vesslo.top/splitswipe-preview.png",
-                     "uploadDate": "2026-01-31",
-                     "contentUrl": "https://vesslo.top/splitswipe/splitswipe_3move.mp4",
-                     "embedUrl": "https://vesslo.top/splitswipe",
-                     "publisher": {
-                        "@type": "Organization",
-                        "name": "Vesslo",
-                        "logo": {
-                           "@type": "ImageObject",
-                           "url": "https://vesslo.top/vesslo_icon.png"
-                        }
-                     }
-                  }
-               ])
-            }}
-         />
+         {/* Unified page-level orange glow background */}
+         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#f97316' }} />
+            <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[1000px] h-[1200px] rounded-full blur-[250px] opacity-[0.12]" style={{ backgroundColor: '#f97316' }} />
+            <div className="absolute top-[85%] left-1/2 -translate-x-1/2 w-[800px] h-[1000px] rounded-full blur-[250px] opacity-[0.10]" style={{ backgroundColor: '#f97316' }} />
+         </div>
 
          {/* Hero Section */}
          <section className="w-full relative overflow-hidden flex items-center justify-center pt-40 pb-24">
@@ -409,7 +371,7 @@ export default function SplitSwipePage() {
 
          {/* Video Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
+
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl font-bold text-center mb-12">
@@ -418,7 +380,7 @@ export default function SplitSwipePage() {
 
                <div className="flex justify-center">
                   <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                     <video autoPlay loop muted playsInline className="w-full h-auto">
+                     <video autoPlay loop muted playsInline preload="none" className="w-full h-auto">
                         <source src={APP_CONFIG.video.webm} type="video/webm" />
                         <source src={APP_CONFIG.video.mp4} type="video/mp4" />
                      </video>
@@ -442,7 +404,7 @@ export default function SplitSwipePage() {
                   </h3>
                   <div className="flex justify-center">
                      <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                        <video autoPlay loop muted playsInline className="w-full h-auto">
+                        <video autoPlay loop muted playsInline preload="none" className="w-full h-auto">
                            <source src="/splitswipe/splitswipe_3move.mp4" type="video/mp4" />
                         </video>
                      </div>
@@ -461,7 +423,7 @@ export default function SplitSwipePage() {
 
          {/* Features Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full blur-[150px] opacity-15 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
+
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -488,7 +450,7 @@ export default function SplitSwipePage() {
 
          {/* Feature Showcase Section */}
          <section className="py-20 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none z-0" style={{ backgroundColor: APP_CONFIG.color }} />
+
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -586,7 +548,7 @@ export default function SplitSwipePage() {
 
          {/* CTA Section */}
          <section className="py-20 relative overflow-hidden text-center">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] opacity-15 pointer-events-none" style={{ backgroundColor: APP_CONFIG.color }} />
+
 
             <div className="container mx-auto px-6 relative z-10">
                <h2 className="text-4xl md:text-5xl font-bold mb-8">

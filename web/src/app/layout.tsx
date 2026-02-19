@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     canonical: 'https://vesslo.top',
     languages: {
       'en': 'https://vesslo.top',
-      'ko': 'https://vesslo.top?lng=ko',
+      'ko': 'https://vesslo.top',
       'x-default': 'https://vesslo.top',
     },
   },

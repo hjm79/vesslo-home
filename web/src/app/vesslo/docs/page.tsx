@@ -27,6 +27,7 @@ const SECTION_IDS: SectionMeta[] = [
    { id: "shortcuts", icon: "⌨️", titleKey: "shortcuts" },
    { id: "settings", icon: "🛠️", titleKey: "settings" },
    { id: "faq", icon: "❓", titleKey: "faq" },
+   { id: "raycast", icon: "🚀", titleKey: "raycast" },
    { id: "support", icon: "📞", titleKey: "support" },
 ];
 
@@ -203,8 +204,8 @@ export default function DocsPage() {
       return (
          <div className="min-h-screen bg-black text-white">
             <div className="pt-32 pb-16 text-center">
-               <h1 className="text-5xl font-bold mb-4">Vesslo {t("docs.hero_title_highlight")}</h1>
-               <p className="text-slate-400">{t("docs.hero_subtitle")}</p>
+               <h1 className="text-5xl font-bold mb-4" suppressHydrationWarning>Vesslo</h1>
+               <p className="text-slate-400" suppressHydrationWarning>&nbsp;</p>
             </div>
          </div>
       );
@@ -924,7 +925,96 @@ export default function DocsPage() {
                         </div>
                      </section>
 
-                     {/* ─── 13. 지원 ─── */}
+                     {/* ─── 13. Raycast 익스텐션 ─── */}
+                     <section>
+                        <SectionHeader icon="🚀" title={t("docs.sections.raycast")} id="raycast" />
+                        <p className="text-slate-300 leading-relaxed mb-6">
+                           {d("raycast.desc_pre")}<a href="https://raycast.com" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline underline-offset-4">Raycast</a>{d("raycast.desc_post")}
+                        </p>
+
+                        <h3 className="text-lg font-semibold text-white mb-4">{d("raycast.install_title")}</h3>
+                        <GlassCard className="border-orange-500/20 mb-8">
+                           <ol className="space-y-2 mt-3">
+                              <li className="flex items-start gap-3">
+                                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center text-xs font-bold text-white">1</span>
+                                 <span className="text-slate-300 text-sm leading-relaxed pt-0.5">{d("raycast.install_step1")}</span>
+                              </li>
+                           </ol>
+                           <div className="mt-4 ml-9">
+                              <a
+                                 href="https://www.raycast.com/hjm79/vesslo"
+                                 title="Install vesslo Raycast Extension"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                              >
+                                 <img
+                                    src="https://www.raycast.com/hjm79/vesslo/install_button@2x.png?v=1.1"
+                                    height="64"
+                                    style={{ height: '64px' }}
+                                    alt="Install vesslo Raycast Extension"
+                                    className="hover:opacity-80 transition-opacity"
+                                 />
+                              </a>
+                           </div>
+                           <ol start={2} className="space-y-2 mt-4">
+                              <li className="flex items-start gap-3">
+                                 <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center text-xs font-bold text-white">2</span>
+                                 <span className="text-slate-300 text-sm leading-relaxed pt-0.5">{d("raycast.install_step2")}</span>
+                              </li>
+                           </ol>
+                        </GlassCard>
+
+                        <h3 className="text-lg font-semibold text-white mb-4">{d("raycast.commands_title")}</h3>
+                        <GlassCard className="mb-6">
+                           <div className="overflow-x-auto">
+                              <table className="w-full text-sm">
+                                 <thead>
+                                    <tr className="text-left border-b border-white/10">
+                                       <th className="pb-3 pr-4 text-orange-400 font-semibold">{d("raycast.cmd_header")}</th>
+                                       <th className="pb-3 text-orange-400 font-semibold">{d("raycast.cmd_desc_header")}</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody className="text-slate-300">
+                                    {(t("docs.raycast.commands", { returnObjects: true }) as Array<{ icon: string; name: string; desc: string }>).map((cmd, i) => (
+                                       <tr key={i} className="border-b border-white/5 last:border-0">
+                                          <td className="py-3 pr-4 font-medium text-white">{cmd.icon} {cmd.name}</td>
+                                          <td className="py-3">{cmd.desc}</td>
+                                       </tr>
+                                    ))}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </GlassCard>
+
+                        <div className="w-[70%]">
+                           <DocImage src={IMG("vesslo-raycast01.jpeg")} alt="Raycast Extension" onClick={openLightbox} />
+                        </div>
+
+                        <h3 className="text-lg font-semibold text-white mt-8 mb-4">{d("raycast.usage_title")}</h3>
+                        <GlassCard className="mb-6">
+                           <StepList steps={t("docs.raycast.usage_steps", { returnObjects: true }) as string[]} />
+
+                           <h4 className="font-semibold text-orange-400 mt-6 mb-3">Action Panel (⌘ + K)</h4>
+                           <ul className="space-y-2 text-sm text-slate-300">
+                              {(t("docs.raycast.actions", { returnObjects: true }) as Array<{ name: string; desc: string }>).map((action, i) => (
+                                 <li key={i} className="flex items-center gap-2">
+                                    <span className="text-orange-400">•</span>
+                                    <strong>{action.name}</strong>: {action.desc}
+                                 </li>
+                              ))}
+                           </ul>
+                        </GlassCard>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                           <DocImage src={IMG("vesslo-raycast02.jpeg")} alt="Raycast Action Panel" onClick={openLightbox} />
+                           <DocImage src={IMG("vesslo-raycast03.jpeg")} alt="Raycast Commands" onClick={openLightbox} />
+                        </div>
+
+                        <TipCard>{d("raycast.tip")}</TipCard>
+
+                     </section>
+
+                     {/* ─── 14. 지원 ─── */}
                      <section>
                         <SectionHeader icon="📞" title={t("docs.sections.support")} id="support" />
                         <GlassCard className="text-center">

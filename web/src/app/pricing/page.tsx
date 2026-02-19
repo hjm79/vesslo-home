@@ -12,6 +12,7 @@ const APPS_CONFIG = [
    { key: "vesslo", name: "Vesslo", price: "$9.99", icon: "/vesslo_icon.png", color: "#06b6d4" },
    { key: "keyharbor", name: "KeyHarbor", price: "$6.99", icon: "/keyharbor-icon.png", color: "#3b82f6" },
    { key: "splitswipe", name: "SplitSwipe", price: "$5.99", icon: "/splitswipe-icon.png", color: "#8b5cf6" },
+   { key: "harbordrop", name: "HarborDrop", price: "$9.99", icon: "/harbordrop-icon.png", color: "#10b981" },
 ];
 
 export default function PricingPage() {
@@ -70,7 +71,7 @@ export default function PricingPage() {
          {/* Pricing Cards */}
          <section className="py-16">
             <div className="container mx-auto px-6">
-               <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                   {APPS_CONFIG.map((app, index) => {
                      const features = t(`pricing_page.${app.key}.features`, { returnObjects: true }) as string[];
                      return (

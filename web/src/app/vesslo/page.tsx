@@ -225,31 +225,6 @@ export default function VessloPage() {
    return (
       <div className="min-h-screen bg-black text-white selection:bg-blue-500/30">
 
-         {/* VideoObject JSON-LD for SEO */}
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify({
-                  "@context": "https://schema.org",
-                  "@type": "VideoObject",
-                  "name": "Vesslo — Mac App Manager Overview",
-                  "description": "Vesslo manages all your Mac apps in one place. Update Homebrew, Sparkle, and App Store apps with a single click.",
-                  "thumbnailUrl": "https://vesslo.top/vesslo-preview.png",
-                  "uploadDate": "2026-01-31",
-                  "contentUrl": "https://vesslo.top/vesslo/vesslo_05.mp4",
-                  "embedUrl": "https://vesslo.top/vesslo",
-                  "publisher": {
-                     "@type": "Organization",
-                     "name": "Vesslo",
-                     "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://vesslo.top/vesslo_icon.png"
-                     }
-                  }
-               })
-            }}
-         />
-
          {/* Hero Section - Scan Animation */}
          <section className="w-full relative overflow-hidden flex items-center justify-center py-20">
             {/* Background Gradient */}
@@ -322,7 +297,7 @@ export default function VessloPage() {
                            </div>
                         </div>
 
-                        <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-orange-500/20">
+                        <a href="https://www.raycast.com/hjm79/vesslo" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-orange-500/20 hover:border-orange-500/50 hover:bg-orange-500/5 transition-all group/ray">
                            <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
                               <Image
                                  src="/raycast.png"
@@ -332,11 +307,14 @@ export default function VessloPage() {
                                  className="object-cover"
                               />
                            </div>
-                           <div>
+                           <div className="flex-1">
                               <p className="font-medium text-white" suppressHydrationWarning>{t('scan.feature3_title')}</p>
                               <p className="text-sm text-slate-400" suppressHydrationWarning>{t('scan.feature3_desc')}</p>
                            </div>
-                        </div>
+                           <svg className="w-4 h-4 text-orange-400 mt-1 opacity-0 group-hover/ray:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                           </svg>
+                        </a>
                      </motion.div>
                   </div>
                </div>
@@ -378,6 +356,17 @@ export default function VessloPage() {
                            <p className="text-lg text-slate-400 leading-relaxed whitespace-pre-line">
                               {feature.desc}
                            </p>
+                           {feature.id === 5 && (
+                              <a
+                                 href="https://www.raycast.com/hjm79/vesslo"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-300 font-medium text-sm hover:bg-orange-500/30 hover:border-orange-500/60 transition-all"
+                              >
+                                 <Image src="/raycast.png" alt="Raycast" width={20} height={20} className="rounded" />
+                                 Raycast Store →
+                              </a>
+                           )}
                         </div>
 
                         {/* Media Content */}
@@ -399,12 +388,14 @@ export default function VessloPage() {
                                        loop
                                        muted
                                        playsInline
+                                       preload="none"
                                        className="w-full h-full object-contain bg-black"
                                     />
                                  ) : (
                                     <img
                                        src={feature.image}
                                        alt={feature.title}
+                                       loading="lazy"
                                        className={`w-full h-full object-cover transition-transform duration-700 ${feature.direction === 'center' ? 'object-center' : 'group-hover:scale-105'}`}
                                        onError={(e) => {
                                           (e.target as HTMLImageElement).src = '/vesslo-preview.png';
@@ -466,6 +457,7 @@ export default function VessloPage() {
                            <img
                               src={shot}
                               alt={`Vesslo Screenshot ${i + 1}`}
+                              loading="lazy"
                               className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                            />
                         </div>
@@ -523,6 +515,7 @@ export default function VessloPage() {
                         exit={{ scale: 0.9, opacity: 0 }}
                         src={selectedMedia}
                         autoPlay loop controls playsInline
+                        preload="none"
                         className="max-w-full max-h-[95vh] rounded-lg shadow-2xl"
                         onClick={(e) => e.stopPropagation()} // Allow controls to work
                      />
