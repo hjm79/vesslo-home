@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import "@/i18n";
 
 // Web3Forms Access Key - Get yours free at https://web3forms.com
-const WEB3FORMS_ACCESS_KEY = "c46499e9-547f-49d5-906c-d7ae8da8fac2";
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 export default function ContactPage() {
    const { t } = useTranslation();
